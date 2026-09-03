@@ -379,6 +379,53 @@ def slice_page(job):
     return rec
 
 
+
+NOTICE_TPL = """# Набор кусков — не документ
+
+**Это машинокомплект, а не изделие.** Каталог содержит фрагменты и
+извлечения, полученные прогоном `tools/doc_slicer.py` из одного исходного
+документа. Сам набор не читается как документ: в нём нет вёрстки, порядка
+чтения и оболочки исходника.
+
+| | |
+|---|---|
+| исходный документ | `{name}` |
+| тип, страниц | {kind}, {pages_total} |
+| разобрано страниц | {pages_processed} |
+| страниц с текстовым слоем | {pages_with_text} |
+| страниц в растре | {pages_rendered} |
+| фрагментов | {tiles_total} |
+| кусков текста | {chunks_total} |
+| прогон | {stamp} |
+
+## Каков его правовой статус
+
+Объявление о том, что это набор, **само по себе статуса не меняет.**
+Разбор и источники — `docs/МАШИНОКОМПЛЕКТ.md` и `docs/ПРАВА-НА-КУСКИ.md`.
+Коротко: права на подбор и расположение — наши, права на содержимое
+остаются у правообладателя исходника; отдельный фрагмент есть
+воспроизведение части. Набор наследует статус исходника.
+
+## Что с ним можно и чего нельзя
+
+* можно: читать по индексу, искать, разбирать, ссылаться;
+* нельзя: считать разрешением на распространение исходника; собирать из
+  набора замену документу и выдавать её за самостоятельный материал.
+
+Файл производный: пишется прогоном, руками не правится.
+"""
+
+
+def write_notice(out_doc: Path, d: dict):
+    """Объявление рядом с набором. Пишется всегда: набор без объявления
+    неотличим от выложенного документа, а отличие здесь — существенное."""
+    (out_doc / "НАБОР.md").write_text(NOTICE_TPL.format(
+        name=Path(d["source"]).name, kind=d["kind"], stamp=time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime()),
+        **{k: d[k] for k in ("pages_total", "pages_processed", "pages_with_text",
+                             "pages_rendered", "tiles_total", "chunks_total")}),
+        encoding="utf-8")
+
+
 def slice_doc(src: Path, out_root: Path, a) -> dict:
     kind = detect(src)
     if kind == "unknown":
@@ -403,7 +450,7 @@ def slice_doc(src: Path, out_root: Path, a) -> dict:
 
     dt = time.time() - t0
     rendered = sum(1 for r in recs if r["rendered"])
-    return {
+    d = {
         "doc_id": doc_id,
         "source": str(src),
         "source_bytes": src.stat().st_size,
@@ -418,6 +465,8 @@ def slice_doc(src: Path, out_root: Path, a) -> dict:
         "seconds": round(dt, 1),
         "pages": recs,
     }
+    write_notice(out_doc, d)
+    return d
 
 
 def parse_pages(spec: str, n: int):
