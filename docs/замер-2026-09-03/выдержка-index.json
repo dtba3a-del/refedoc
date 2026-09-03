@@ -1,0 +1,101 @@
+{
+  "пояснение": "Выдержка из index.json прогона 2026-09-03: одна страница, первые три фрагмента из 104. Полный индекс — производное, собирается прогоном.",
+  "params": {
+    "cmd": "slice",
+    "output": "/tmp/claude-0/-home-user/6fbcd8f5-90b0-5df4-9f9d-cba7e2d395dc/scratchpad/test_out/schema",
+    "pages": "5-16",
+    "dpi": 300,
+    "tile_size": 1024,
+    "overlap": 64,
+    "thumb_size": 1024,
+    "min_chars": 200,
+    "render_all": false,
+    "chunk_size": 4000,
+    "chunk_overlap": 400,
+    "jobs": 2
+  },
+  "doc": {
+    "doc_id": "e7-12-sh(aabyy)",
+    "kind": "pdf",
+    "pages_total": 83,
+    "pages_processed": 12,
+    "pages_with_text": 12,
+    "pages_rendered": 3,
+    "tiles_total": 300,
+    "seconds": 25.3
+  },
+  "page": {
+    "page": 7,
+    "chars": 63,
+    "thumb": "thumbs/p0007.jpg",
+    "thumb_mode": "JPEG85",
+    "thumb_bytes": 142262,
+    "width": 11998,
+    "height": 7615,
+    "tiles": [
+      {
+        "index": 0,
+        "row": 0,
+        "col": 0,
+        "file": "tiles/p0007/t000_x0_y0.png",
+        "x": 0,
+        "y": 0,
+        "w": 1024,
+        "h": 1024,
+        "overlap_pixels": {
+          "left": 0,
+          "top": 0,
+          "right": 64,
+          "bottom": 64
+        },
+        "neighbors": {
+          "bottom": 13,
+          "right": 1
+        }
+      },
+      {
+        "index": 1,
+        "row": 0,
+        "col": 1,
+        "file": "tiles/p0007/t001_x960_y0.png",
+        "x": 960,
+        "y": 0,
+        "w": 1024,
+        "h": 1024,
+        "overlap_pixels": {
+          "left": 64,
+          "top": 0,
+          "right": 64,
+          "bottom": 64
+        },
+        "neighbors": {
+          "bottom": 14,
+          "left": 0,
+          "right": 2
+        }
+      },
+      {
+        "index": 2,
+        "row": 0,
+        "col": 2,
+        "file": "tiles/p0007/t002_x1920_y0.png",
+        "x": 1920,
+        "y": 0,
+        "w": 1024,
+        "h": 1024,
+        "overlap_pixels": {
+          "left": 64,
+          "top": 0,
+          "right": 64,
+          "bottom": 64
+        },
+        "neighbors": {
+          "bottom": 15,
+          "left": 1,
+          "right": 3
+        }
+      }
+    ],
+    "tiles_всего": 104
+  }
+}

@@ -1,0 +1,749 @@
+{
+  "workspace": "/home/user",
+  "extensions": [
+    "pdf",
+    "djvu",
+    "djv"
+  ],
+  "repos": [
+    {
+      "repo": "GPIBNIE7-12",
+      "order": 1,
+      "note": "docs/ — патенты, ГОСТы, схемы и ТО Е7-12, статьи. inbox/from-user/ — распоряжения автора, не справочник.",
+      "include": [
+        "docs/"
+      ],
+      "exclude": [
+        "inbox/"
+      ],
+      "taken": [
+        {
+          "rel": "docs/2407.11220v2.pdf",
+          "bytes": 529165,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/3986108.pdf",
+          "bytes": 594626,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/4283676.pdf",
+          "bytes": 355703,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/4459541.pdf",
+          "bytes": 639656,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/5793640.pdf",
+          "bytes": 535509,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/9606155.pdf",
+          "bytes": 859625,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/A digital four-arm bridge for the comparison of resistance with capacitance.pdf",
+          "bytes": 529165,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/Capacitor test apparatusand method us_patent3943439.pdf",
+          "bytes": 803384,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/Direct reading capacitance meter us_patent4283676.pdf",
+          "bytes": 355704,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/HP4271A.pdf",
+          "bytes": 13973815,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/HPJ-1974-03s.pdf",
+          "bytes": 7403153,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/US_patent 5793640 cfpacitance measurement RLC model.pdf",
+          "bytes": 535510,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/Uncertainty Analysis for Four Terminal-Pair Capacitance and Dissipation Factor.pdf",
+          "bytes": 260781,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/callegaro2003.pdf",
+          "bytes": 236075,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/capacitance measurement circuit and method us_patent9606155.pdf",
+          "bytes": 859626,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/cutkosky1964.pdf",
+          "bytes": 1161680,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/e7-12-sh(aabyy).pdf",
+          "bytes": 8707229,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/e7-12-to(aabyy).pdf",
+          "bytes": 7648274,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/us_patent_impedance3473117.pdf",
+          "bytes": 196056,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/ГОСТ 26.003-80(КОП).pdf",
+          "bytes": 6567207,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/ГОСТ25752-83 наборы символов соответствуют ГОСТ13052-74s.pdf",
+          "bytes": 1070951,
+          "ext": "pdf"
+        }
+      ],
+      "skipped": [
+        {
+          "rel": "inbox/from-user/2026-08-22_восстановление_правила_ссылка_прямое_распоряжение.pdf",
+          "bytes": 22456,
+          "ext": "pdf",
+          "reason": "исключён правилом"
+        },
+        {
+          "rel": "inbox/from-user/2026-08-22_по_оформлению_и_структуре.pdf",
+          "bytes": 153326,
+          "ext": "pdf",
+          "reason": "исключён правилом"
+        },
+        {
+          "rel": "inbox/from-user/2026-08-22_подключить_правило_ответа_для_claude_code.pdf",
+          "bytes": 25456,
+          "ext": "pdf",
+          "reason": "исключён правилом"
+        },
+        {
+          "rel": "inbox/from-user/2026-08-22_правило_вход_любой_формат_хранение_md.pdf",
+          "bytes": 36697,
+          "ext": "pdf",
+          "reason": "исключён правилом"
+        },
+        {
+          "rel": "inbox/from-user/2026-08-22_правило_повтор_ссылка_вместо_текста.pdf",
+          "bytes": 22929,
+          "ext": "pdf",
+          "reason": "исключён правилом"
+        }
+      ],
+      "total": 26
+    },
+    {
+      "repo": "InvesePolar",
+      "order": 2,
+      "note": "inbox/raw/ — рабочее сырьё бесед, не внешний справочник.",
+      "include": [
+        "inbox/sci_data/",
+        "inbox/запрос материалов — SCI/",
+        "notes/материалы/"
+      ],
+      "exclude": [
+        "inbox/raw/"
+      ],
+      "taken": [
+        {
+          "rel": "inbox/sci_data/06-17.pdf",
+          "bytes": 1092727,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/A-fast-and-simple-algorithm-for-the-computation-of-the-Lerch-transcendent.pdf",
+          "bytes": 781789,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/A-novel-approach-for-designing-secure-substitution-boxes-based-on-Catalan-number-and-elliptic.pdf",
+          "bytes": 1297714,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/A-refinement-of-Cauchy-Schwarz-complexity.pdf",
+          "bytes": 431756,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/Computing a Glimpse of Randomness.pdf",
+          "bytes": 305410,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/Constructing-Galois-representations-with-large-Iwasawa-lambda-invariant.pdf",
+          "bytes": 307775,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/Global-Numerical-Bounds-for-the-Number-Theoretic-Omega-Functions.pdf",
+          "bytes": 410777,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/On-Hilbert-cubes-and-primitive-roots-in-finite-fields.pdf",
+          "bytes": 304348,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/On-the-efficient-numerical-computation-of-covariant-Lyapunov-vectors.pdf",
+          "bytes": 5600677,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/Toward-Computational-Morse-Floer-Homology-Forcing-Results-for-Connecting-Orbits-by-Computing.pdf",
+          "bytes": 3344582,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/bukor2009.pdf",
+          "bytes": 368442,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/deshouillers2011.pdf",
+          "bytes": 324313,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/kruse2003.pdf",
+          "bytes": 58745,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/shafique2022.pdf",
+          "bytes": 9797960,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/toffalori2005.pdf",
+          "bytes": 121215,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/r002h.pdf",
+          "bytes": 199201,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/shnol_biologicheskie.pdf",
+          "bytes": 107035,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/shnol_ufn.pdf",
+          "bytes": 927938,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/shnoll_kosmofizich.pdf",
+          "bytes": 12815878,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Шноль С.Э. - Физико-химические факторы биологической эволюции формулы в текстоовом слое испорчены. текст распознан .pdf",
+          "bytes": 14373247,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/sci_data/Шноль С.Э. - Физико-химические факторы биологической эволюции.djvu",
+          "bytes": 2146931,
+          "ext": "djvu"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/2106.04352v3.pdf",
+          "bytes": 10584735,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/2506.08932v1.pdf",
+          "bytes": 1800237,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/Amiri_2021_ApJS_257_59.pdf",
+          "bytes": 8563889,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/On the Relative Motion of the Earth and the Luminiferous Ether - Wikisource, the free online library.pdf",
+          "bytes": 1721675,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/The_CHIME_FRB_Collaboration_2023_ApJS_264_53.pdf",
+          "bytes": 570617,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/anderson1998.pdf",
+          "bytes": 8295686,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/r002h.pdf",
+          "bytes": 199201,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/r002i.pdf",
+          "bytes": 116033,
+          "ext": "pdf"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/r002j.pdf",
+          "bytes": 231016,
+          "ext": "pdf"
+        },
+        {
+          "rel": "notes/материалы/2026-09-01 — заметка о случайных процессах в детерминированной системе.pdf",
+          "bytes": 199095,
+          "ext": "pdf"
+        }
+      ],
+      "skipped": [
+        {
+          "rel": "inbox/raw/1909.09231v3.pdf",
+          "bytes": 816035,
+          "ext": "pdf",
+          "reason": "исключён правилом"
+        },
+        {
+          "rel": "inbox/raw/report_phikit_analysis.md.pdf",
+          "bytes": 599928,
+          "ext": "pdf",
+          "reason": "исключён правилом"
+        },
+        {
+          "rel": "inbox/raw/ОП-геометрия.pdf",
+          "bytes": 205844,
+          "ext": "pdf",
+          "reason": "исключён правилом"
+        },
+        {
+          "rel": "inbox/raw/Эволюция понятия нуля.pdf",
+          "bytes": 202964,
+          "ext": "pdf",
+          "reason": "исключён правилом"
+        },
+        {
+          "rel": "inbox/raw/четв ноль - Kimi.pdf",
+          "bytes": 123187,
+          "ext": "pdf",
+          "reason": "исключён правилом"
+        },
+        {
+          "rel": "inbox/критерий физической реальности сущность имеет смысл только если она может быть локализована во времени с разрешением Δt.pdf",
+          "bytes": 95869,
+          "ext": "pdf",
+          "reason": "вне include"
+        }
+      ],
+      "total": 37
+    },
+    {
+      "repo": "-Ctpu-bintape-timechannel-",
+      "order": 3,
+      "note": "references/ — оформленный справочный каталог (appnotes, patents, daw, vendor, standards). docs/*.pdf — руководства OpenHantek.",
+      "include": [
+        "references/",
+        "docs/"
+      ],
+      "exclude": [],
+      "taken": [
+        {
+          "rel": "docs/HANTEK6022_AC_Modification.pdf",
+          "bytes": 1781368,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/HANTEK6022_Frequency_Generator_Modification.pdf",
+          "bytes": 1210078,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/OpenHantek6022_User_Manual.pdf",
+          "bytes": 1888949,
+          "ext": "pdf"
+        },
+        {
+          "rel": "docs/OpenHantek6022_zadig_Win10.pdf",
+          "bytes": 349470,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/aiasa/AIAΣA и ортогональный АМН — DeepSeek, 2026-03-22.pdf",
+          "bytes": 95869,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-DPO2024-datasheet.pdf",
+          "bytes": 2028818,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-DPO4000-datasheet.pdf",
+          "bytes": 906238,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-DPO4000-datasheet_48W-19032-10.pdf",
+          "bytes": 2472886,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-Not-so-High-on-High-Resolution.pdf",
+          "bytes": 1129097,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-TDS3000-datasheet.pdf",
+          "bytes": 666121,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-TDS3000B-datasheet.pdf",
+          "bytes": 1015292,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-TDS700D-datasheet_55W-11336-4.pdf",
+          "bytes": 769645,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-Tools-to-Boost-Resolution-11-Bits.pdf",
+          "bytes": 486130,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-XYZs-of-Oscilloscopes-primer_03W-8605-7.pdf",
+          "bytes": 12447362,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/en/TeledyneLeCroy-ERES-vs-HiRes.pdf",
+          "bytes": 660408,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/ru/Tektronix-Not-so-High-on-High-Resolution_ru.pdf",
+          "bytes": 1158802,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/ru/Tektronix-Oscilloscope-Types-primer_ru.pdf",
+          "bytes": 1126041,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/ru/Tektronix-TDS5000-datasheet_ru.pdf",
+          "bytes": 807598,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/ru/Tektronix-TDS784D-datasheet_ru.pdf",
+          "bytes": 657932,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/appnotes/ru/Tektronix-Tools-to-Boost-Resolution-11-Bits_ru.pdf",
+          "bytes": 1666314,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/32054-GenelecGLM3SystemOperatingManual.pdf",
+          "bytes": 3530508,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/828mk3_User_Guide_Win.pdf",
+          "bytes": 4059114,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/GLM4_System_Operating_Manual_2022-05-16_FINAL.pdf",
+          "bytes": 3915081,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/GLM_3_System_Operating_Manual.pdf",
+          "bytes": 2740406,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/GLM_5.0_System_Operating_Manual.pdf",
+          "bytes": 4146386,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/MAYA44_eX-English.pdf",
+          "bytes": 1897321,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/MIDI-Time-Code.pdf",
+          "bytes": 99200,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/MTC-Users-Manual-Modular-Midi-Time-Code-Reader (1).pdf",
+          "bytes": 674658,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/MTC-Users-Manual-Modular-Midi-Time-Code-Reader.pdf",
+          "bytes": 674658,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/Mackie-Onyx-1640-Rental-Manual.pdf",
+          "bytes": 1897192,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/NEK_Cubase_Music_Tools (1).pdf",
+          "bytes": 4639544,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/NEK_Cubase_Music_Tools.pdf",
+          "bytes": 4639544,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/Onyx_Series_SS.pdf",
+          "bytes": 3338144,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/Operation_Manual_en.pdf",
+          "bytes": 981603,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/PTExpert_Julian Rodgers_The A-Z Of Pro Tools.pdf",
+          "bytes": 6481140,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/Pro Tools Sesion Guidelines One Sheet.pdf",
+          "bytes": 890726,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/Pro_Tools_6.9_Reference_Guide.pdf",
+          "bytes": 11435271,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/Pro_Tools_Quick_Reference_Guide.pdf",
+          "bytes": 17328553,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/Quick Start Guide.pdf",
+          "bytes": 3798486,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/R-REC-BS.2076-1-201706-S!!PDF-E.pdf",
+          "bytes": 1938616,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/R-REC-BS.2076-2-201910-S!!PDF-E.pdf",
+          "bytes": 4842230,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/R-REC-BS.2076-3-202502-I!!PDF-E.pdf",
+          "bytes": 4600607,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/ReaperUserGuide473C.pdf",
+          "bytes": 12625198,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/ReaperUserGuide530c.pdf",
+          "bytes": 12925950,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/STEINBERG_NUENDO4_ENG.pdf",
+          "bytes": 16315243,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/[Jeff_Strong]_Pro_Tools_All-in-One_Desk_Reference_(libcats.org).pdf",
+          "bytes": 8151182,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/dynaudio_manuals_pro_audio_lyd_en.pdf",
+          "bytes": 197627,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/lm1n_manual (1).pdf",
+          "bytes": 3151318,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/pt_reference_guide.pdf",
+          "bytes": 9813285,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/r128.pdf",
+          "bytes": 281142,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/tc_electronic_lm2_manual_english (1).pdf",
+          "bytes": 4231169,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/tc_electronic_lm2_manual_english.pdf",
+          "bytes": 4231169,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/tc_electronic_lm2n_lm6n.pdf",
+          "bytes": 4020927,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/tech3285.pdf",
+          "bytes": 243500,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/tech3285s2.pdf",
+          "bytes": 248165,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/tech3341.pdf",
+          "bytes": 362927,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/tech3341v2_0.pdf",
+          "bytes": 1097710,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/tech3364v2_0.pdf",
+          "bytes": 204973,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/daw/waveform-quick-start-guide.pdf",
+          "bytes": 11016640,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/hardware/datasheets/AD8065_8066_RevE_p1-8.pdf",
+          "bytes": 373210,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/patents/US10534019-full.pdf",
+          "bytes": 3558457,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/patents/US10534019.pdf",
+          "bytes": 2565284,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/patents/US4743844.pdf",
+          "bytes": 1830270,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/patents/US4823077.pdf",
+          "bytes": 252074,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/patents/US5122996.pdf",
+          "bytes": 1145761,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/patents/US5272449.pdf",
+          "bytes": 777699,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/patents/US6314278.pdf",
+          "bytes": 831175,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/standards/PAS-Understanding-ISA-18-2.pdf",
+          "bytes": 842963,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/vendor/rme/fface800_e.pdf",
+          "bytes": 1049144,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/vendor/rme/fface_uc_ru.pdf",
+          "bytes": 2411352,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/vendor/rme/fface_ucx_ru.pdf",
+          "bytes": 2121124,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/vendor/rme/fface_ufx_e.pdf",
+          "bytes": 1577947,
+          "ext": "pdf"
+        },
+        {
+          "rel": "references/vendor/rme/fface_ufxplus_e.pdf",
+          "bytes": 1880671,
+          "ext": "pdf"
+        }
+      ],
+      "skipped": [],
+      "total": 73
+    }
+  ]
+}
