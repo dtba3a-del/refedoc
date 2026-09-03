@@ -131,7 +131,12 @@ def main():
             verdict = "не определён"
         return {"repo": repo, "rel": rel, "bytes": size, "verdict": verdict, "hits": hits}
 
-    with ThreadPoolExecutor(max_workers=6) as ex:
+    # Ядер четыре, а распознавание грузит ядро целиком. Замер 2026-09-03:
+    # шесть потоков (и тем более два прогона по шесть) дали load average 47 —
+    # прогон мешал сам себе. Параллелизм считается по ресурсу, а не по числу
+    # задач.
+    workers = max(1, min(3, (os.cpu_count() or 2) - 1))
+    with ThreadPoolExecutor(max_workers=workers) as ex:
         rows = list(ex.map(work, jobs))
 
     counts = {}
