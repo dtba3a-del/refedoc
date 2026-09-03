@@ -1,0 +1,100 @@
+{
+  "_": "Признаки разряда правового статуса. Правится ЗДЕСЬ; ПРАВА-ПОФАЙЛОВО.md производный.",
+  "classes": [
+    {
+      "id": "патент-ведомства",
+      "verdict": "публично",
+      "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания.",
+      "markers": [
+        "United States Patent",
+        "UNITED STATES PATENT",
+        "Patent Number:",
+        "Patent Application Publication",
+        "US Patent",
+        "Европейский патент",
+        "Espacenet",
+        "USPTO",
+        "USPTO PDF Builder",
+        "United States Patent and Trademark"
+      ]
+    },
+    {
+      "id": "официальный-документ-РФ",
+      "verdict": "публично",
+      "why": "Государственный стандарт. ГК РФ ст. 1259 п. 6 выводит официальные документы государственных органов из объектов авторских прав. Оформление конкретного скана — отдельный вопрос, отмечается как остаток.",
+      "markers": [
+        "ГОСТ ",
+        "ГОСУДАРСТВЕННЫЙ СТАНДАРТ",
+        "Государственный стандарт",
+        "МЕЖГОСУДАРСТВЕННЫЙ СТАНДАРТ"
+      ]
+    },
+    {
+      "id": "препринт-arXiv",
+      "verdict": "спорно",
+      "why": "Препринт arXiv. Лицензия задаётся автором пофайлово (CC-BY, CC-BY-NC-SA, arXiv non-exclusive). Публиковать можно только после чтения лицензии конкретного препринта на его странице.",
+      "markers": [
+        "arXiv:",
+        "arxiv.org/abs"
+      ]
+    },
+    {
+      "id": "издательская-статья",
+      "verdict": "непублично",
+      "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет.",
+      "markers": [
+        "Elsevier",
+        "Springer",
+        "IEEE",
+        "IOP Publishing",
+        "AIP Publishing",
+        "Wiley",
+        "Taylor & Francis",
+        "doi.org/10.",
+        "DOI:",
+        "Metrologia",
+        "IEEE Transactions",
+        "Rev. Sci. Instrum",
+        "All rights reserved.  No part"
+      ]
+    },
+    {
+      "id": "руководство-изготовителя",
+      "verdict": "непублично",
+      "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части.",
+      "markers": [
+        "Hewlett-Packard",
+        "HEWLETT-PACKARD",
+        "Tektronix",
+        "Copyright © Tektronix",
+        "RME",
+        "Avid Technology",
+        "Digidesign",
+        "Steinberg",
+        "Genelec",
+        "MOTU",
+        "Mackie",
+        "TC Electronic",
+        "Dynaudio",
+        "Cockos",
+        "Tracktion",
+        "InstruStar",
+        "Hantek"
+      ]
+    },
+    {
+      "id": "стандарт-организации",
+      "verdict": "спорно",
+      "why": "Стандарт международной или отраслевой организации (ITU-R, EBU, AES, ISA). Тексты часто доступны бесплатно, но условия перераспространения у каждой организации свои и требуют чтения.",
+      "markers": [
+        "ITU-R",
+        "Recommendation  ITU-R",
+        "EBU TECH",
+        "European Broadcasting Union",
+        "Audio Engineering Society",
+        "ISA-18.2",
+        "International Telecommunication Union"
+      ]
+    }
+  ]
+}

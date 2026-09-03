@@ -65,6 +65,52 @@ def rel(p: Path) -> str:
         return p.as_posix()
 
 
+
+# --- ворота правового статуса ---------------------------------------------
+# Правило «допустимое публикуется, недопустимое не выкладывается никак»
+# держится устройством, а не памятью: правило, записанное только в канон,
+# не переживает ни обрыв сессии, ни смену исполнителя.
+MATERIAL_ROOTS = ("GPIBNIE7-12/", "InvesePolar/", "-Ctpu-bintape-timechannel-/")
+RIGHTS = REPO / "rights.json"
+
+
+def rights_map():
+    """{путь в публичной зоне: решение}. Пусто — значит разбора нет."""
+    if not RIGHTS.is_file():
+        return None
+    try:
+        rows = json.loads(RIGHTS.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    return {f"{r['repo']}/{r['rel']}": r["verdict"] for r in rows}
+
+
+def check_rights(paths):
+    """
+    Материал в публичной зоне пропускается ТОЛЬКО с решением «публично».
+    Отсутствие решения — не разрешение: неразобранное задерживается.
+    """
+    viol, checked = [], 0
+    rm = rights_map()
+    for raw in paths:
+        r = rel(Path(raw))
+        if not any(r.startswith(m) for m in MATERIAL_ROOTS):
+            continue
+        if r.endswith(".где.md") or r.endswith("КУДА-ПЕРЕЕХАЛО.md"):
+            continue                       # указатели — наши, не материал
+        checked += 1
+        if rm is None:
+            viol.append((r, "разбора прав нет вовсе (нет rights.json): "
+                            "запустите tools/rights_classify.py"))
+            continue
+        v = rm.get(r)
+        if v == "публично":
+            continue
+        viol.append((r, f"правовое решение: {v or 'файла нет в разборе'} — "
+                        "в публичную зону не едет"))
+    return viol, checked
+
+
 def check(paths):
     """Возвращает (нарушения, счётчики, пропущено[(путь, причина)])."""
     viol, skipped = [], []
@@ -103,14 +149,19 @@ def check(paths):
                 continue
             if rx.search(body):
                 viol.append((r, f"содержимое запрещено: {why}"))
-    return viol, {"всего": n_total, "содержимым": n_content}, skipped
+    rviol, rchecked = check_rights(paths)
+    viol.extend(rviol)
+    return viol, {"всего": n_total, "содержимым": n_content,
+                  "материала проверено по правам": rchecked}, skipped
 
 
 def report(viol, cnt, skipped, where):
     print(f"[Librarer/пограничник] {where}: путей {cnt['всего']}, "
           f"просмотрено содержимым {cnt['содержимым']}, "
           f"пропущено {len(skipped)} "
-          f"(покрытие {100 * cnt['содержимым'] / max(1, cnt['всего']):.0f} %)", file=sys.stderr)
+          f"(покрытие {100 * cnt['содержимым'] / max(1, cnt['всего']):.0f} %); "
+          f"материала проверено по правам {cnt['материала проверено по правам']}",
+          file=sys.stderr)
     for r, why in skipped[:20]:
         print(f"  пропущен: {r} — {why}", file=sys.stderr)
     if len(skipped) > 20:
@@ -119,8 +170,9 @@ def report(viol, cnt, skipped, where):
         print("\nГРАНИЦА ЗАКРЫТА. refedoc — публичная зона.", file=sys.stderr)
         for r, why in viol:
             print(f"  ✗ {r}\n      {why}", file=sys.stderr)
-        print("\nКанон: env/Librarer/RULES.md §1. Стенограммы и секреты сюда не едут;\n"
-              "отчёт по чатлогу пишется в приватный репозиторий-источник.", file=sys.stderr)
+        print("\nКанон: env/Librarer/RULES.md §1 (стенограммы и секреты сюда не едут)\n"
+              "и §4а (допустимое публикуется, недопустимое не выкладывается никак).\n"
+              "Разбор прав: tools/rights_classify.py → ПРАВА-ПОФАЙЛОВО.md.", file=sys.stderr)
         return 2
     print("[Librarer] нарушений в просмотренном нет "
           "(о непросмотренном утверждения не делается).", file=sys.stderr)

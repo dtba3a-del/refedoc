@@ -1,0 +1,1491 @@
+[
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/2407.11220v2.pdf",
+    "bytes": 529165,
+    "verdict": "спорно",
+    "hits": [
+      {
+        "id": "препринт-arXiv",
+        "verdict": "спорно",
+        "marker": "arXiv:",
+        "snippet": "arXiv:2407.11220v2 [physics.ins-det] 22 Aug 2024",
+        "why": "Препринт arXiv. Лицензия задаётся автором пофайлово (CC-BY, CC-BY-NC-SA, arXiv non-exclusive). Публиковать можно только после чтения лицензии конкретного препринта на его странице."
+      }
+    ]
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/3986108.pdf",
+    "bytes": 594626,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/4283676.pdf",
+    "bytes": 355703,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/4459541.pdf",
+    "bytes": 639656,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/5793640.pdf",
+    "bytes": 535509,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/9606155.pdf",
+    "bytes": 859625,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/A digital four-arm bridge for the comparison of resistance with capacitance.pdf",
+    "bytes": 529165,
+    "verdict": "спорно",
+    "hits": [
+      {
+        "id": "препринт-arXiv",
+        "verdict": "спорно",
+        "marker": "arXiv:",
+        "snippet": "arXiv:2407.11220v2 [physics.ins-det] 22 Aug 2024",
+        "why": "Препринт arXiv. Лицензия задаётся автором пофайлово (CC-BY, CC-BY-NC-SA, arXiv non-exclusive). Публиковать можно только после чтения лицензии конкретного препринта на его странице."
+      }
+    ]
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/Capacitor test apparatusand method us_patent3943439.pdf",
+    "bytes": 803384,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/Direct reading capacitance meter us_patent4283676.pdf",
+    "bytes": 355704,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/HP4271A.pdf",
+    "bytes": 13973815,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Hewlett-Packard",
+        "snippet": "Hewlett-Packard uses a two-section nine-char­ ductance measurements from 0000. OnH to 1900. OgH a",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/HPJ-1974-03s.pdf",
+    "bytes": 7403153,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "HEWLETT-PACKARD",
+        "snippet": "HEWLETT-PACKARD COMPANY, 1974",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/US_patent 5793640 cfpacitance measurement RLC model.pdf",
+    "bytes": 535510,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/Uncertainty Analysis for Four Terminal-Pair Capacitance and Dissipation Factor.pdf",
+    "bytes": 260781,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Hewlett-Packard",
+        "snippet": "Hewlett-Packard Japan. This paper describes an extensive uncertainty analysis of the measurement system.",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/callegaro2003.pdf",
+    "bytes": 236075,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "IOP Publishing",
+        "snippet": "IOP Publishing Ltd Printed in the UK 523 L Ca",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      },
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Hewlett-Packard",
+        "snippet": "Hewlett-Packard Japan (now Agilent Technologies) [5–8] and the National Institute",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/capacitance measurement circuit and method us_patent9606155.pdf",
+    "bytes": 859626,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/cutkosky1964.pdf",
+    "bytes": 1161680,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "IEEE",
+        "snippet": "IEEE",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/e7-12-sh(aabyy).pdf",
+    "bytes": 8707229,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/e7-12-to(aabyy).pdf",
+    "bytes": 7648274,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/us_patent_impedance3473117.pdf",
+    "bytes": 196056,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/ГОСТ 26.003-80(КОП).pdf",
+    "bytes": 6567207,
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "официальный-документ-РФ",
+        "verdict": "публично",
+        "marker": "ГОСТ ",
+        "snippet": "ГОСТ 26.003-80 Система интерфейса для измерительных устройств с байт-последовательным, бит-пара",
+        "why": "Государственный стандарт. ГК РФ ст. 1259 п. 6 выводит официальные документы государственных органов из объектов авторских прав. Оформление конкретного скана — отдельный вопрос, отмечается как остаток."
+      }
+    ]
+  },
+  {
+    "repo": "GPIBNIE7-12",
+    "rel": "docs/ГОСТ25752-83 наборы символов соответствуют ГОСТ13052-74s.pdf",
+    "bytes": 1070951,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/06-17.pdf",
+    "bytes": 1092727,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/A-fast-and-simple-algorithm-for-the-computation-of-the-Lerch-transcendent.pdf",
+    "bytes": 781789,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "Springer",
+        "snippet": "Springer Science+Business Media, LLC, part of Springer Nature 2023 Abstract This paper deals wi",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/A-novel-approach-for-designing-secure-substitution-boxes-based-on-Catalan-number-and-elliptic.pdf",
+    "bytes": 1297714,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "Springer",
+        "snippet": "Springer Science+Business Media, LLC, part of Springer Nature 2023 Abstract While using the inte",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/A-refinement-of-Cauchy-Schwarz-complexity.pdf",
+    "bytes": 431756,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "Elsevier",
+        "snippet": "Elsevier Ltd. All rights reserved. E-mail addresses: pablo.candela@uam.es (P. Candela), di",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/Computing a Glimpse of Randomness.pdf",
+    "bytes": 305410,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/Constructing-Galois-representations-with-large-Iwasawa-lambda-invariant.pdf",
+    "bytes": 307775,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "Springer",
+        "snippet": "Springer Producer: Acrobat Distiller 10.1.8 (Windows) CreationDate: Fri Jan 27 14:56:13",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/Global-Numerical-Bounds-for-the-Number-Theoretic-Omega-Functions.pdf",
+    "bytes": 410777,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "Springer",
+        "snippet": "Springer Producer: Acrobat Distiller 10.1.8 (Windows) CreationDate: Thu Oct 19 11:37:53",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/On-Hilbert-cubes-and-primitive-roots-in-finite-fields.pdf",
+    "bytes": 304348,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "Springer",
+        "snippet": "Springer Producer: Acrobat Distiller 10.1.8 (Windows) CreationDate: Fri Oct 29 08:50:30",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/On-the-efficient-numerical-computation-of-covariant-Lyapunov-vectors.pdf",
+    "bytes": 5600677,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "Elsevier",
+        "snippet": "Elsevier Producer: Acrobat Distiller 8.1.0 (Windows) CreationDate: Thu Apr 23 19:49:16 2",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/Toward-Computational-Morse-Floer-Homology-Forcing-Results-for-Connecting-Orbits-by-Computing.pdf",
+    "bytes": 3344582,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "Springer",
+        "snippet": "Springer Producer: Acrobat Distiller 10.1.8 (Windows) CreationDate: Tue Oct 17 03:38:18",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/bukor2009.pdf",
+    "bytes": 368442,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "DOI:",
+        "snippet": "DOI: 10.2478/s12175-009-0124-5",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/deshouillers2011.pdf",
+    "bytes": 324313,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/kruse2003.pdf",
+    "bytes": 58745,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/shafique2022.pdf",
+    "bytes": 9797960,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "Springer",
+        "snippet": "Springer Producer: Acrobat Distiller 10.1.8 (Windows) CreationDate: Thu Jun 9 05:58:37",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Chaitin Omega/toffalori2005.pdf",
+    "bytes": 121215,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/r002h.pdf",
+    "bytes": 199201,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/shnol_biologicheskie.pdf",
+    "bytes": 107035,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/shnol_ufn.pdf",
+    "bytes": 927938,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/shnoll_kosmofizich.pdf",
+    "bytes": 12815878,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Шноль С.Э. - Физико-химические факторы биологической эволюции формулы в текстоовом слое испорчены. текст распознан .pdf",
+    "bytes": 14373247,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/sci_data/Шноль С.Э. - Физико-химические факторы биологической эволюции.djvu",
+    "bytes": 2146931,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/запрос материалов — SCI/2106.04352v3.pdf",
+    "bytes": 10584735,
+    "verdict": "спорно",
+    "hits": [
+      {
+        "id": "препринт-arXiv",
+        "verdict": "спорно",
+        "marker": "arXiv:",
+        "snippet": "arXiv:2106.04352v3 [astro-ph.HE] 31 Jan 2023",
+        "why": "Препринт arXiv. Лицензия задаётся автором пофайлово (CC-BY, CC-BY-NC-SA, arXiv non-exclusive). Публиковать можно только после чтения лицензии конкретного препринта на его странице."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/запрос материалов — SCI/2506.08932v1.pdf",
+    "bytes": 1800237,
+    "verdict": "спорно",
+    "hits": [
+      {
+        "id": "препринт-arXiv",
+        "verdict": "спорно",
+        "marker": "arXiv:",
+        "snippet": "arXiv:2506.08932v1 [astro-ph.CO] 10 Jun 2025",
+        "why": "Препринт arXiv. Лицензия задаётся автором пофайлово (CC-BY, CC-BY-NC-SA, arXiv non-exclusive). Публиковать можно только после чтения лицензии конкретного препринта на его странице."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/запрос материалов — SCI/Amiri_2021_ApJS_257_59.pdf",
+    "bytes": 8563889,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "doi.org/10.",
+        "snippet": "doi.org/10.3847/1538-4365/ac33ab © 2021. The Author(s). Published by the American Astronomical Societ",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/запрос материалов — SCI/On the Relative Motion of the Earth and the Luminiferous Ether - Wikisource, the free online library.pdf",
+    "bytes": 1721675,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/запрос материалов — SCI/The_CHIME_FRB_Collaboration_2023_ApJS_264_53.pdf",
+    "bytes": 570617,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "doi.org/10.",
+        "snippet": "doi.org/10.3847/1538-4365/acb54c © 2023. The Author(s). Published by the American Astronomical Societ",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/запрос материалов — SCI/anderson1998.pdf",
+    "bytes": 8295686,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "издательская-статья",
+        "verdict": "непублично",
+        "marker": "Elsevier",
+        "snippet": "Elsevier Science B.V. PACS: 03.3O.+p; 04.20.-p; 11.15.-q; 42.60.Da Keywords: Relativity",
+        "why": "Статья научного издательства, распространяется по подписке. Разрешения на доведение до всеобщего сведения нет."
+      }
+    ]
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/запрос материалов — SCI/r002h.pdf",
+    "bytes": 199201,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/запрос материалов — SCI/r002i.pdf",
+    "bytes": 116033,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "inbox/запрос материалов — SCI/r002j.pdf",
+    "bytes": 231016,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "InvesePolar",
+    "rel": "notes/материалы/2026-09-01 — заметка о случайных процессах в детерминированной системе.pdf",
+    "bytes": 199095,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "docs/HANTEK6022_AC_Modification.pdf",
+    "bytes": 1781368,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Hantek",
+        "snippet": "Hantek scope is the missing AC coupling (see front end schematics below). This document show",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "docs/HANTEK6022_Frequency_Generator_Modification.pdf",
+    "bytes": 1210078,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Hantek",
+        "snippet": "Hantek scope is the jitter of the calibration out signal. It is generated by toggling an output",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "docs/OpenHantek6022_User_Manual.pdf",
+    "bytes": 1888949,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Hantek",
+        "snippet": "Hantek6022 User Manual Creator: Writer Producer: LibreOffice 7.4 CreationDate:",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "docs/OpenHantek6022_zadig_Win10.pdf",
+    "bytes": 349470,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Hantek",
+        "snippet": "Hantek 6022BE- zadig’s driver installation in Windows 10.1909 64 bit 1. Ensure the oscilloscope",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/aiasa/AIAΣA и ортогональный АМН — DeepSeek, 2026-03-22.pdf",
+    "bytes": 95869,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/en/Tektronix-DPO2024-datasheet.pdf",
+    "bytes": 2028818,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix DPO2024 Datasheet Subject: Tektronix DPO2024 200MHz 1GS/s 4 Channel Digital Phosp",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/en/Tektronix-DPO4000-datasheet.pdf",
+    "bytes": 906238,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix Creator: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, lik",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/en/Tektronix-DPO4000-datasheet_48W-19032-10.pdf",
+    "bytes": 2472886,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix, Inc. Creator: Tektronix Content Management System Producer: Adobe Acrobat",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/en/Tektronix-Not-so-High-on-High-Resolution.pdf",
+    "bytes": 1129097,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix Creator: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, lik",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/en/Tektronix-TDS3000-datasheet.pdf",
+    "bytes": 666121,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix Creator: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, lik",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/en/Tektronix-TDS3000B-datasheet.pdf",
+    "bytes": 1015292,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix: Products > TDS3000B Series Digital Phosphor Oscilloscopes Subject: Keywords:",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/en/Tektronix-TDS700D-datasheet_55W-11336-4.pdf",
+    "bytes": 769645,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix, Inc. Producer: Acrobat Distiller 4.0 for Macintosh CreationDate: Wed Jan 10 10",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/en/Tektronix-Tools-to-Boost-Resolution-11-Bits.pdf",
+    "bytes": 486130,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix Creator: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, lik",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/en/Tektronix-XYZs-of-Oscilloscopes-primer_03W-8605-7.pdf",
+    "bytes": 12447362,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/en/TeledyneLeCroy-ERES-vs-HiRes.pdf",
+    "bytes": 660408,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix shown in the dialog box. The bandwidth of the ERES math w",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/ru/Tektronix-Not-so-High-on-High-Resolution_ru.pdf",
+    "bytes": 1158802,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix Creator: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, lik",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/ru/Tektronix-Oscilloscope-Types-primer_ru.pdf",
+    "bytes": 1126041,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix Creator: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, lik",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/ru/Tektronix-TDS5000-datasheet_ru.pdf",
+    "bytes": 807598,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix Creator: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, lik",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/ru/Tektronix-TDS784D-datasheet_ru.pdf",
+    "bytes": 657932,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix Creator: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, lik",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/appnotes/ru/Tektronix-Tools-to-Boost-Resolution-11-Bits_ru.pdf",
+    "bytes": 1666314,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix Creator: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, lik",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/32054-GenelecGLM3SystemOperatingManual.pdf",
+    "bytes": 3530508,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Genelec",
+        "snippet": "Genelec Loudspeaker Manager GLM™ 3 System Genelec Loudspeaker Manager (GLM) 3 - System Operating",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/828mk3_User_Guide_Win.pdf",
+    "bytes": 4059114,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "MOTU",
+        "snippet": "MOTU, 828, 828mk3 Author: MOTU Creator: FrameMaker 7.0 Producer: Acrob",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/GLM4_System_Operating_Manual_2022-05-16_FINAL.pdf",
+    "bytes": 3915081,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Genelec",
+        "snippet": "Genelec Loudspeaker Manager GLM Genelec Loudspeaker Manager (GLM) 4 - System Operating Manual",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/GLM_3_System_Operating_Manual.pdf",
+    "bytes": 2740406,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Genelec",
+        "snippet": "Genelec Loudspeaker Manager (GLM™) Software_release_n ote_GLM_3_Version_3 1 1_for_Mac_and_Wi",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/GLM_5.0_System_Operating_Manual.pdf",
+    "bytes": 4146386,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Genelec",
+        "snippet": "Genelec Loudspeaker Manager GLM Genelec Loudspeaker Manager (GLM) 5 - System Operating Manual",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/MAYA44_eX-English.pdf",
+    "bytes": 1897321,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/MIDI-Time-Code.pdf",
+    "bytes": 99200,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/MTC-Users-Manual-Modular-Midi-Time-Code-Reader (1).pdf",
+    "bytes": 674658,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/MTC-Users-Manual-Modular-Midi-Time-Code-Reader.pdf",
+    "bytes": 674658,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/Mackie-Onyx-1640-Rental-Manual.pdf",
+    "bytes": 1897192,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Mackie",
+        "snippet": "Mackie Onyx 1640 Keywords: Onyx 1640, Analog, Mixer, Perkins EQ, FireWire, Mixing Console",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/NEK_Cubase_Music_Tools (1).pdf",
+    "bytes": 4639544,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Steinberg",
+        "snippet": "Steinberg Media Technologies GmbH 2008 Creator: FrameMaker 7.1 Producer: Acrobat Dis",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/NEK_Cubase_Music_Tools.pdf",
+    "bytes": 4639544,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Steinberg",
+        "snippet": "Steinberg Media Technologies GmbH 2008 Creator: FrameMaker 7.1 Producer: Acrobat Dis",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/Onyx_Series_SS.pdf",
+    "bytes": 3338144,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Mackie",
+        "snippet": "Mackie Onyx Premium Analog Mixers with USB are the ultimate compact solution for live audio, h",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/Operation_Manual_en.pdf",
+    "bytes": 981603,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Steinberg",
+        "snippet": "Steinberg Media Technologies GmbH 2012 Creator: FrameMaker 9.0 Producer: Acrobat Dis",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/PTExpert_Julian Rodgers_The A-Z Of Pro Tools.pdf",
+    "bytes": 6481140,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/Pro Tools Sesion Guidelines One Sheet.pdf",
+    "bytes": 890726,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/Pro_Tools_6.9_Reference_Guide.pdf",
+    "bytes": 11435271,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Avid Technology",
+        "snippet": "Avid Technology, Inc. (hereafter “Digidesign”), with all rights reserved. Under copyright laws, this guid",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/Pro_Tools_Quick_Reference_Guide.pdf",
+    "bytes": 17328553,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Avid Technology",
+        "snippet": "Avid Technology Creator: Microsoft® PowerPoint® for Microsoft 365 Producer: Microsoft® Pow",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/Quick Start Guide.pdf",
+    "bytes": 3798486,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/R-REC-BS.2076-1-201706-S!!PDF-E.pdf",
+    "bytes": 1938616,
+    "verdict": "спорно",
+    "hits": [
+      {
+        "id": "стандарт-организации",
+        "verdict": "спорно",
+        "marker": "ITU-R",
+        "snippet": "ITU-R Creator: Microsoft® Word 2016 Producer: Microsoft® Word 2016 CreationDate:",
+        "why": "Стандарт международной или отраслевой организации (ITU-R, EBU, AES, ISA). Тексты часто доступны бесплатно, но условия перераспространения у каждой организации свои и требуют чтения."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/R-REC-BS.2076-2-201910-S!!PDF-E.pdf",
+    "bytes": 4842230,
+    "verdict": "спорно",
+    "hits": [
+      {
+        "id": "стандарт-организации",
+        "verdict": "спорно",
+        "marker": "ITU-R",
+        "snippet": "ITU-R BS.2076-2 (10/2019) - Audio definition model Subject: BS Series - Broadcasting se",
+        "why": "Стандарт международной или отраслевой организации (ITU-R, EBU, AES, ISA). Тексты часто доступны бесплатно, но условия перераспространения у каждой организации свои и требуют чтения."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/R-REC-BS.2076-3-202502-I!!PDF-E.pdf",
+    "bytes": 4600607,
+    "verdict": "спорно",
+    "hits": [
+      {
+        "id": "стандарт-организации",
+        "verdict": "спорно",
+        "marker": "ITU-R",
+        "snippet": "ITU-R BS.2076-3 (02/2025) - Audio definition model Creator: Microsoft® Word for Microso",
+        "why": "Стандарт международной или отраслевой организации (ITU-R, EBU, AES, ISA). Тексты часто доступны бесплатно, но условия перераспространения у каждой организации свои и требуют чтения."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/ReaperUserGuide473C.pdf",
+    "bytes": 12625198,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Cockos",
+        "snippet": "Cockos Inc, developer of REAPER. Foreword and Acknowledgements REAPER isn’t just about softw",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/ReaperUserGuide530c.pdf",
+    "bytes": 12925950,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Cockos",
+        "snippet": "Cockos Inc, developer of REAPER. For a bound printed hard copy of this User",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/STEINBERG_NUENDO4_ENG.pdf",
+    "bytes": 16315243,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Steinberg",
+        "snippet": "Steinberg Media Technologies GmbH 2007 Creator: FrameMaker 7.1 Producer: Acrobat Dis",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/[Jeff_Strong]_Pro_Tools_All-in-One_Desk_Reference_(libcats.org).pdf",
+    "bytes": 8151182,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/dynaudio_manuals_pro_audio_lyd_en.pdf",
+    "bytes": 197627,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Dynaudio",
+        "snippet": "Dynaudio LYD – User manual. Creator: 9to5 Media Services Ripple Version 0.9 – Template 202",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/lm1n_manual (1).pdf",
+    "bytes": 3151318,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/pt_reference_guide.pdf",
+    "bytes": 9813285,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Avid Technology",
+        "snippet": "Avid Technology, Inc. (hereafter “Digidesign”), with all rights reserved. Under copyright laws, this guid",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/r128.pdf",
+    "bytes": 281142,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Genelec",
+        "snippet": "Genelec), Esben Skovenborg (tc electronic), Mike Kahsnitz (rtw), Ralph Kessler (pinguin Ingenieur",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      },
+      {
+        "id": "стандарт-организации",
+        "verdict": "спорно",
+        "marker": "ITU-R",
+        "snippet": "ITU-R BS.645 [2] is no longer appropriate; e) that measuring audio programme loudness has be",
+        "why": "Стандарт международной или отраслевой организации (ITU-R, EBU, AES, ISA). Тексты часто доступны бесплатно, но условия перераспространения у каждой организации свои и требуют чтения."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/tc_electronic_lm2_manual_english (1).pdf",
+    "bytes": 4231169,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "TC Electronic",
+        "snippet": "TC Electronic, Sindalsvej 34, DK-8240 Risskov – tcdk@tcelectronic.com English Version Manual r",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/tc_electronic_lm2_manual_english.pdf",
+    "bytes": 4231169,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "TC Electronic",
+        "snippet": "TC Electronic, Sindalsvej 34, DK-8240 Risskov – tcdk@tcelectronic.com English Version Manual r",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/tc_electronic_lm2n_lm6n.pdf",
+    "bytes": 4020927,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/tech3285.pdf",
+    "bytes": 243500,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/tech3285s2.pdf",
+    "bytes": 248165,
+    "verdict": "спорно",
+    "hits": [
+      {
+        "id": "стандарт-организации",
+        "verdict": "спорно",
+        "marker": "European Broadcasting Union",
+        "snippet": "European Broadcasting Union Case postale 45 Ancienne Route 17A CH-1218 Grand-Saconnex Geneva, Switzerland tech",
+        "why": "Стандарт международной или отраслевой организации (ITU-R, EBU, AES, ISA). Тексты часто доступны бесплатно, но условия перераспространения у каждой организации свои и требуют чтения."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/tech3341.pdf",
+    "bytes": 362927,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Genelec",
+        "snippet": "Genelec), Mark Pascoe (Dolby), Paul Tapper (NuGen Audio), Alessandro Travaglini (FOX Italia), Sco",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/tech3341v2_0.pdf",
+    "bytes": 1097710,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/tech3364v2_0.pdf",
+    "bytes": 204973,
+    "verdict": "спорно",
+    "hits": [
+      {
+        "id": "стандарт-организации",
+        "verdict": "спорно",
+        "marker": "ITU-R",
+        "snippet": "ITU-R BS.2076 Author: EBU - Miles Creator: Microsoft® Office Word 2007 Produce",
+        "why": "Стандарт международной или отраслевой организации (ITU-R, EBU, AES, ISA). Тексты часто доступны бесплатно, но условия перераспространения у каждой организации свои и требуют чтения."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/daw/waveform-quick-start-guide.pdf",
+    "bytes": 11016640,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tracktion",
+        "snippet": "Tracktion Software Corporation. All Rights Reserved. All brand names mentioned are trademarks o",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/hardware/datasheets/AD8065_8066_RevE_p1-8.pdf",
+    "bytes": 373210,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/patents/US10534019-full.pdf",
+    "bytes": 3558457,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Hewlett-Packard",
+        "snippet": "Hewlett-Packard Co., ( Oct. 1993 ), 11 23 . Pupalaikis , Peter J.,“ The Relationship Between Discrete - F",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/patents/US10534019.pdf",
+    "bytes": 2565284,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/patents/US4743844.pdf",
+    "bytes": 1830270,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/patents/US4823077.pdf",
+    "bytes": 252074,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/patents/US5122996.pdf",
+    "bytes": 1145761,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/patents/US5272449.pdf",
+    "bytes": 777699,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/patents/US6314278.pdf",
+    "bytes": 831175,
+    "verdict": "не определён",
+    "hits": []
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/standards/PAS-Understanding-ISA-18-2.pdf",
+    "bytes": 842963,
+    "verdict": "спорно",
+    "hits": [
+      {
+        "id": "стандарт-организации",
+        "verdict": "спорно",
+        "marker": "ISA-18.2",
+        "snippet": "ISA-18.2-2009 Management of Alarm Systems for the Process Industries standard was published. This",
+        "why": "Стандарт международной или отраслевой организации (ITU-R, EBU, AES, ISA). Тексты часто доступны бесплатно, но условия перераспространения у каждой организации свои и требуют чтения."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/vendor/rme/fface800_e.pdf",
+    "bytes": 1049144,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "RME",
+        "snippet": "RME 16 Mac OS X FAQ 16.1 MIDI doesn't work ...........................................",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/vendor/rme/fface_uc_ru.pdf",
+    "bytes": 2411352,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "RME",
+        "snippet": "RME 18 Эксплуатация нескольких Fireface UC............................................35 19",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/vendor/rme/fface_ucx_ru.pdf",
+    "bytes": 2121124,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "RME",
+        "snippet": "RME Установка и эксплуатация − Mac OS X 14 Установка оборудования. .................",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/vendor/rme/fface_ufx_e.pdf",
+    "bytes": 1577947,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "RME",
+        "snippet": "RME Installation and Operation - Mac OS X 13 Hardware, Driver and Firmware Installa",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  },
+  {
+    "repo": "-Ctpu-bintape-timechannel-",
+    "rel": "references/vendor/rme/fface_ufxplus_e.pdf",
+    "bytes": 1880671,
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "RME",
+        "snippet": "RME Installation and Operation - Mac OS X 13 Hardware, Driver and Firmware Installa",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
+  }
+]
