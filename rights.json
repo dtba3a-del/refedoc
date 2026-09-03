@@ -18,36 +18,76 @@
     "repo": "GPIBNIE7-12",
     "rel": "docs/3986108.pdf",
     "bytes": 594626,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent п ОНв 3,986,108 Thomas [45] Oct. 12, 1976 [54] APPARATUS AND METHOD FOR 3,668,523 6/1972",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      }
+    ]
   },
   {
     "repo": "GPIBNIE7-12",
     "rel": "docs/4283676.pdf",
     "bytes": 355703,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent пя Shaw 00 4,283,676 [45] Аир. 11, 1981 [54] DIRECT READING CAPACITANCE METER [75] Inv",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      }
+    ]
   },
   {
     "repo": "GPIBNIE7-12",
     "rel": "docs/4459541.pdf",
     "bytes": 639656,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent 115 Fielden et al. 01] Patent Number: [45] Date of Patent: 4,459,541 Jul, 10, 1984 [5",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      }
+    ]
   },
   {
     "repo": "GPIBNIE7-12",
     "rel": "docs/5793640.pdf",
     "bytes": 535509,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent пя Wu et al. US005793640A пи Patent Number: 5,793,640 Aug. 11, 1998 [45] Date of Patent",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      }
+    ]
   },
   {
     "repo": "GPIBNIE7-12",
     "rel": "docs/9606155.pdf",
     "bytes": 859625,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent Wang et al. US 9,606,155 B2 Mar. 28, 2017 US0096061 55B2 (10) Patent No.: (45) Date o",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      }
+    ]
   },
   {
     "repo": "GPIBNIE7-12",
@@ -68,15 +108,31 @@
     "repo": "GPIBNIE7-12",
     "rel": "docs/Capacitor test apparatusand method us_patent3943439.pdf",
     "bytes": 803384,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent 1191 Raymond til} 3,943,439 [45] Mar. 9, 1976 {54} CAPACITOR TEST APPARATUS AND METHOD",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      }
+    ]
   },
   {
     "repo": "GPIBNIE7-12",
     "rel": "docs/Direct reading capacitance meter us_patent4283676.pdf",
     "bytes": 355704,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent пя Shaw 00 4,283,676 [45] Аир. 11, 1981 [54] DIRECT READING CAPACITANCE METER [75] Inv",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      }
+    ]
   },
   {
     "repo": "GPIBNIE7-12",
@@ -112,8 +168,16 @@
     "repo": "GPIBNIE7-12",
     "rel": "docs/US_patent 5793640 cfpacitance measurement RLC model.pdf",
     "bytes": 535510,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent пя Wu et al. US005793640A пи Patent Number: 5,793,640 Aug. 11, 1998 [45] Date of Patent",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      }
+    ]
   },
   {
     "repo": "GPIBNIE7-12",
@@ -156,8 +220,16 @@
     "repo": "GPIBNIE7-12",
     "rel": "docs/capacitance measurement circuit and method us_patent9606155.pdf",
     "bytes": 859626,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent Wang et al. US 9,606,155 B2 Mar. 28, 2017 US0096061 55B2 (10) Patent No.: (45) Date o",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      }
+    ]
   },
   {
     "repo": "GPIBNIE7-12",
@@ -214,8 +286,16 @@
     "repo": "GPIBNIE7-12",
     "rel": "docs/ГОСТ25752-83 наборы символов соответствуют ГОСТ13052-74s.pdf",
     "bytes": 1070951,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "официальный-документ-РФ",
+        "verdict": "публично",
+        "marker": "ГОСТ ",
+        "snippet": "ГОСТ 25752-83 (СТ СЭВ 3745-82) Издание официальное ГОСУДАРСТВЕННЫЙ КОМИТЕТ СССР ПО СТАНДАРТАМ",
+        "why": "Государственный стандарт. ГК РФ ст. 1259 п. 6 выводит официальные документы государственных органов из объектов авторских прав. Оформление конкретного скана — отдельный вопрос, отмечается как остаток."
+      }
+    ]
   },
   {
     "repo": "InvesePolar",
@@ -1360,43 +1440,112 @@
     "repo": "-Ctpu-bintape-timechannel-",
     "rel": "references/patents/US10534019.pdf",
     "bytes": 2565284,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent Pupalaikis et al. US010534019B2 US 10,534,019 B2 Jan. 14, 2020 (10) Patent No.: (45)",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      }
+    ]
   },
   {
     "repo": "-Ctpu-bintape-timechannel-",
     "rel": "references/patents/US4743844.pdf",
     "bytes": 1830270,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent пя Odenheimer et al. [54] SELF-ADJUSTING OSCILLOSCOPE Ronald P. Odenheimer, Portland,",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      },
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix, Inc., Beaverton, Oreg. [75] Inventors: [73] Assignee: [21] Appl. №.: 944,302 [22] File",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
   },
   {
     "repo": "-Ctpu-bintape-timechannel-",
     "rel": "references/patents/US4823077.pdf",
     "bytes": 252074,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent пя и Patent Number: 4,823,077 Landgraf et al. [45] Date of Patent: Apr. 18, 1989 [54] CHA",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      },
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Hewlett-Packard",
+        "snippet": "Hewlett-Packard Company, Palo Primary Examiner—Reinhard J. Eisenzopf , . Assistant Examiner—Vinh P. Nguye",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
   },
   {
     "repo": "-Ctpu-bintape-timechannel-",
     "rel": "references/patents/US5122996.pdf",
     "bytes": 1145761,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "непублично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent 1 Sasaki et al. LUO TA A ОМАНА US005122996A {11] Patent Number: [45] Date of Patent:",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      },
+      {
+        "id": "руководство-изготовителя",
+        "verdict": "непублично",
+        "marker": "Tektronix",
+        "snippet": "Tektronix, Inc., Beaverton, Oreg. [2] Appl. №.: 564,512 [22] Filed: ‘Aug. 9, 1990 [51] Int. CLs .",
+        "why": "Документация изготовителя. По умолчанию все права сохранены; в корпусе профиля по RME прямо зафиксирован запрет копирования любой части."
+      }
+    ]
   },
   {
     "repo": "-Ctpu-bintape-timechannel-",
     "rel": "references/patents/US5272449.pdf",
     "bytes": 777699,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent пя Izawa [54] VERTICAL AMPLIFIER SYSTEM FOR MULTITRACE OSCILLOSCOPE AND METHOD FOR CALI",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      }
+    ]
   },
   {
     "repo": "-Ctpu-bintape-timechannel-",
     "rel": "references/patents/US6314278.pdf",
     "bytes": 831175,
-    "verdict": "не определён",
-    "hits": []
+    "verdict": "публично",
+    "hits": [
+      {
+        "id": "патент-ведомства",
+        "verdict": "публично",
+        "marker": "United States Patent",
+        "snippet": "United States Patent Zamat US006314278B1 US 6,314,278 В1 Nov. 6, 2001 (10) Patent No.: (45) Date of Patent",
+        "why": "Официальная публикация патентного ведомства. Описание изобретения обнародуется ведомством ради ознакомления; охрана патента — на техническое решение, а не на текст публикации. Улика может лежать в метаданных PDF (Producer: USPTO) — там она дешевле и надёжнее распознавания."
+      }
+    ]
   },
   {
     "repo": "-Ctpu-bintape-timechannel-",
