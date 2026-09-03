@@ -127,7 +127,9 @@ def render_page(path: Path, kind: str, page: int, dpi: int, dest: Path) -> Path:
     else:
         need("ddjvu")
         produced = dest.with_suffix(".png")
-        subprocess.run(["ddjvu", "-format=pnm", f"-page={page}", f"-scale={dpi}",
+        # без -scale ddjvu отдаёт собственный размер страницы: у скана он и
+        # есть предел сведений, а «scale=300» его только растягивает
+        subprocess.run(["ddjvu", "-format=pnm", f"-page={page}",
                         str(path), str(produced.with_suffix(".pnm"))], check=True,
                        capture_output=True, env=ENV)
         with Image.open(produced.with_suffix(".pnm")) as im:
@@ -183,6 +185,71 @@ def chunk_text(text: str, size: int, overlap: int):
 
 # ---------------------------------------------------------------- один документ
 
+
+def native_grid(path: Path, kind: str, pages) -> dict:
+    """
+    Собственная пиксельная сетка документа: {номер страницы: (px_w, px_h)}.
+
+    Замер 2026-09-03 (патенты Google Patents из `GPIBNIE7-12/docs`): страница
+    объявлена как 2320×3408 pt, а вложенное изображение — ровно 2320×3408
+    пикселей при 72 ppi. Рендер «300 dpi» растягивал её в 9667×14200 —
+    ×17 пикселей и 165 фрагментов на страницу, из которых ни один не несёт
+    сведений сверх исходных. Обратный случай там же: ГОСТ 26.003-80 — скан
+    860 ppi на странице 268×397 pt, и рендер «300 dpi» дал бы 1119×1653,
+    то есть потерю против оригинала.
+
+    Отсюда правило: **собственная сетка исходника есть и потолок, и пол.**
+    `--dpi` остаётся только для страниц без растра (вектор, текст).
+    """
+    if kind != "pdf" or shutil.which("pdfimages") is None:
+        return {}
+    lo, hi = min(pages), max(pages)
+    r = subprocess.run(["pdfimages", "-list", "-f", str(lo), "-l", str(hi), str(path)],
+                       capture_output=True, text=True, errors="replace", env=ENV)
+    out = {}
+    for line in r.stdout.splitlines():
+        f = line.split()
+        if len(f) < 5 or not f[0].isdigit():
+            continue
+        try:
+            pg, w, h = int(f[0]), int(f[3]), int(f[4])
+        except ValueError:
+            continue
+        if w <= 1 or h <= 1:          # маски и мелкие вставки сеткой не считаются
+            continue
+        pw, ph = out.get(pg, (0, 0))
+        out[pg] = (max(pw, w), max(ph, h))
+    return out
+
+
+def page_size_pt(path: Path, pages) -> dict:
+    """{номер страницы: (ширина_pt, высота_pt)}."""
+    lo, hi = min(pages), max(pages)
+    r = subprocess.run(["pdfinfo", "-f", str(lo), "-l", str(hi), str(path)],
+                       capture_output=True, text=True, errors="replace", env=ENV)
+    out = {}
+    for m in re.finditer(r"^Page\s+(\d+) size:\s+([\d.]+) x ([\d.]+) pts", r.stdout, re.M):
+        out[int(m.group(1))] = (float(m.group(2)), float(m.group(3)))
+    return out
+
+
+def effective_dpi(page: int, native: dict, sizes: dict, fallback_dpi: int, max_px: int):
+    """
+    Разрешение рендера и причина выбора. Возвращает (dpi, повод).
+    """
+    npx = native.get(page)
+    pts = sizes.get(page)
+    if not npx or not pts or min(pts) <= 0:
+        return fallback_dpi, "вектор или неизвестная сетка: взят --dpi"
+    long_px, long_pt = max(npx), max(pts)
+    dpi = 72.0 * long_px / long_pt
+    why = "собственная сетка исходника"
+    if long_px > max_px:
+        dpi *= max_px / long_px
+        why = f"собственная сетка, срезана до --max-px {max_px}"
+    return max(36, int(round(dpi))), why
+
+
 def save_thumb(img: Image.Image, max_size: int, stem: Path):
     """
     Превью — обзор, а не документ, поэтому кодировка выбирается замером, а не
@@ -232,10 +299,11 @@ def save_thumb(img: Image.Image, max_size: int, stem: Path):
 def slice_page(job):
     """Обработка одной страницы. Выполняется в отдельном процессе."""
     (src, kind, page, out_doc, dpi, tile_size, overlap, thumb_size,
-     min_chars, chunk_size, chunk_overlap, force_render) = job
+     min_chars, chunk_size, chunk_overlap, force_render, dpi_why, max_px) = job
     src, out_doc = Path(src), Path(out_doc)
     rec = {"page": page, "chars": 0, "text": None, "chunks": [], "thumb": None,
-           "tiles": [], "rendered": False, "width": None, "height": None}
+           "tiles": [], "rendered": False, "width": None, "height": None,
+           "dpi": dpi, "dpi_reason": dpi_why}
 
     txt = page_text(src, kind, page)
     rec["chars"] = len(txt.strip())
@@ -265,6 +333,11 @@ def slice_page(job):
             # принудительный convert("RGB") раздувал превью до 392 % от веса
             # страницы целиком — «кусок» выходил дороже оригинала.
             img.load()
+            if max(img.size) > max_px:      # страховка: djvu рендерится без -scale
+                k = max_px / max(img.size)
+                img = img.resize((max(1, int(img.width * k)), max(1, int(img.height * k))),
+                                 Image.Resampling.LANCZOS)
+                rec["dpi_reason"] = f"собственная сетка, срезана до --max-px {max_px}"
             w, h = img.size
             rec.update(rendered=True, width=w, height=h)
 
@@ -317,8 +390,14 @@ def slice_doc(src: Path, out_root: Path, a) -> dict:
     out_doc = out_root / doc_id
     out_doc.mkdir(parents=True, exist_ok=True)
 
-    jobs = [(str(src), kind, p, str(out_doc), a.dpi, a.tile_size, a.overlap, a.thumb_size,
-             a.min_chars, a.chunk_size, a.chunk_overlap, a.render_all) for p in pages]
+    native = native_grid(src, kind, pages)
+    sizes = page_size_pt(src, pages) if kind == "pdf" else {}
+    jobs = []
+    for p_ in pages:
+        d, why = effective_dpi(p_, native, sizes, a.dpi, a.max_px)
+        jobs.append((str(src), kind, p_, str(out_doc), d, a.tile_size, a.overlap,
+                     a.thumb_size, a.min_chars, a.chunk_size, a.chunk_overlap,
+                     a.render_all, why, a.max_px))
     with ProcessPoolExecutor(max_workers=a.jobs) as ex:
         recs = list(ex.map(slice_page, jobs))
 
@@ -442,7 +521,9 @@ def cmd_stats(a):
         print(f"  разобрано    : {d['pages_processed']} страниц за {d['seconds']} с")
         print(f"  текстовый слой: {d['pages_with_text']} страниц ({cov:.0f} %), "
               f"{d['chars_total']} символов")
-        print(f"  растр        : {d['pages_rendered']} страниц, {d['tiles_total']} фрагментов")
+        dpis = sorted({p["dpi"] for p in d["pages"] if p["rendered"]})
+        print(f"  растр        : {d['pages_rendered']} страниц, {d['tiles_total']} фрагментов"
+              + (f", разрешение {dpis[0]}…{dpis[-1]} dpi" if dpis else ""))
         print(f"  куски текста : {d['chunks_total']}")
         print(f"  на диске     : {out_bytes / 2**20:.2f} МиБ "
               f"(×{out_bytes / max(1, d['source_bytes']):.1f} к источнику)")
@@ -457,7 +538,11 @@ def main():
     s.add_argument("files", nargs="+")
     s.add_argument("-o", "--output", default="./sliced_output")
     s.add_argument("--pages", default=None, help="страницы: 1-10,15 (по умолчанию все)")
-    s.add_argument("--dpi", type=int, default=300)
+    s.add_argument("--dpi", type=int, default=300,
+                   help="разрешение ТОЛЬКО для страниц без растра (вектор, текст); "
+                        "растровая страница рендерится в собственной сетке (default: 300)")
+    s.add_argument("--max-px", type=int, default=6000,
+                   help="потолок длинной стороны страницы в пикселях (default: 6000)")
     s.add_argument("--tile-size", type=int, default=1024)
     s.add_argument("--overlap", type=int, default=64)
     s.add_argument("--thumb-size", type=int, default=1024)
