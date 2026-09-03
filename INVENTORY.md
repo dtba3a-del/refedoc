@@ -181,3 +181,19 @@
 | `references/vendor/rme/fface_ucx_ru.pdf` | 2.02 |
 | `references/vendor/rme/fface_ufx_e.pdf` | 1.50 |
 | `references/vendor/rme/fface_ufxplus_e.pdf` | 1.79 |
+
+## Дубли
+
+**Побайтно одинаковые:** 5 групп, лишних копий 5, впустую 9.8 МиБ.
+
+* 4.42 МиБ — `-Ctpu-bintape-timechannel-/references/daw/NEK_Cubase_Music_Tools (1).pdf`; `-Ctpu-bintape-timechannel-/references/daw/NEK_Cubase_Music_Tools.pdf`
+* 4.04 МиБ — `-Ctpu-bintape-timechannel-/references/daw/tc_electronic_lm2_manual_english (1).pdf`; `-Ctpu-bintape-timechannel-/references/daw/tc_electronic_lm2_manual_english.pdf`
+* 0.64 МиБ — `-Ctpu-bintape-timechannel-/references/daw/MTC-Users-Manual-Modular-Midi-Time-Code-Reader (1).pdf`; `-Ctpu-bintape-timechannel-/references/daw/MTC-Users-Manual-Modular-Midi-Time-Code-Reader.pdf`
+* 0.50 МиБ — `GPIBNIE7-12/docs/2407.11220v2.pdf`; `GPIBNIE7-12/docs/A digital four-arm bridge for the comparison of resistance with capacitance.pdf`
+* 0.19 МиБ — `InvesePolar/inbox/sci_data/r002h.pdf`; `InvesePolar/inbox/запрос материалов — SCI/r002h.pdf`
+
+**Один документ в разной обёртке:** 3 групп, лишних копий 3, впустую 1.7 МиБ.
+
+* 0.82 МиБ — `GPIBNIE7-12/docs/9606155.pdf`; `GPIBNIE7-12/docs/capacitance measurement circuit and method us_patent9606155.pdf`
+* 0.51 МиБ — `GPIBNIE7-12/docs/5793640.pdf`; `GPIBNIE7-12/docs/US_patent 5793640 cfpacitance measurement RLC model.pdf`
+* 0.34 МиБ — `GPIBNIE7-12/docs/4283676.pdf`; `GPIBNIE7-12/docs/Direct reading capacitance meter us_patent4283676.pdf`
