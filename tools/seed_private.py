@@ -9,9 +9,9 @@ seed_private.py — заготовка приватной зоны справо�
 | зона | что лежит |
 |---|---|
 | `refedoc` (публичная) | инструменты, разборы, перепись, указатели, карточки; материал с решением «публично» — целыми файлами |
-| `refedoc-private` (приватная) | всё прочее: спорное, непубличное, не установленное; исходники, полные наборы кусков, индексы с координатами |
+| `prefedoc` (приватная) | всё прочее: спорное, непубличное, не установленное; исходники, полные наборы кусков, индексы с координатами |
 
-    python3 tools/seed_private.py --dest /home/user/refedoc-private
+    python3 tools/seed_private.py --dest /home/user/prefedoc
 """
 import argparse
 import json
@@ -19,7 +19,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 
-README = """# `refedoc-private` — приватная зона справочного корпуса
+README = """# `prefedoc` — приватная зона справочного корпуса
 
 Вторая половина корпуса. Публичная — [`refedoc`](https://github.com/dtba3a-del/refedoc).
 
