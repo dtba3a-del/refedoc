@@ -1,0 +1,10 @@
+# Приватное и производное — в публичную зону не кладётся (канон refedoc §1–2)
+data/
+runs/
+host_log.json
+LOCAL_STATE.json
+*.gguf
+*.gguf.part-*
+InvesePolar/
+llama.cpp/
+__pycache__/

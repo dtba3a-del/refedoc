@@ -38,6 +38,21 @@ QLoRA (Dettmers et al. 2023) по [`train_config.json`](train_config.json).
 отправляет, пишет лог рядом); если карта есть, а torch собран без CUDA,
 нужна сборка `cu128`: `pip install --force-reinstall torch --index-url https://download.pytorch.org/whl/cu128`.
 
+## Как обучить — комплект в этой папке
+
+Папка модели и есть комплект: `run_local.py` (одна команда: замер → набор →
+обучение → досмотр → GGUF, с возобновлением), `probe_host.py`,
+`train_lora.py`, `leak_test.py`, `export_gguf.py`, `train_config.json`.
+Приватного здесь нет и не будет: набор из диалогов и его сборщик живут в
+репозитории-источнике; шаг `data` берёт набор по `--data <папка>` либо
+находит сборщик в соседнем клоне источника и запускает его там.
+`data/`, `runs/`, `host_log.json`, `*.gguf` в этой папке — в `.gitignore`.
+
+```powershell
+irm https://raw.githubusercontent.com/dtba3a-del/refedoc/main/models/Aletheia/0.0.5/bootstrap.ps1 | iex   # комплект в C:\0.0.5 + замер
+python C:\0.0.5\run_local.py                                                                                 # всё подряд
+```
+
 ## Замер хоста на Windows — одна вставка
 
 `'C:\\0.0.5\\probe_host.py': [Errno 2] No such file or directory` значит:
@@ -48,18 +63,12 @@ PowerShell делает всё (папка, загрузка, запуск):
 irm https://raw.githubusercontent.com/dtba3a-del/refedoc/main/models/Aletheia/0.0.5/bootstrap.ps1 | iex
 ```
 
-Или вручную, три строки:
-
-```powershell
-mkdir C:\0.0.5 -Force; cd C:\0.0.5
-irm https://raw.githubusercontent.com/dtba3a-del/refedoc/main/models/Aletheia/0.0.5/probe_host.py -OutFile probe_host.py
-python probe_host.py
-```
+Или вручную: скачать папку целиком (все файлы выше) в `C:\0.0.5` и
+`python C:\0.0.5\run_local.py --only probe`.
 
 Лог — `C:\0.0.5\host_log.json`. Скрипт ничего не отправляет и ничего не
-меняет. Обучение целиком (набор → QLoRA → досмотр → GGUF) идёт из клона
-рабочего репозитория проекта, не отсюда: здесь только карточка, замер и
-конфигурация.
+меняет. Обучение целиком (набор → QLoRA → досмотр → GGUF) — `run_local.py` из этой
+же папки; набор — приватный, подаётся по `--data`.
 
 ## Права
 
