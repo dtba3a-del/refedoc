@@ -75,19 +75,18 @@ def title_from_pdf(path: Path):
         t = SITE_CRUFT.sub("", clean(m.group(1)))
         if t and not DROP.match(t) and not is_mush(t) and len(t) > 8:
             return t, "заголовок в метаданных"
-    try:
-        txt = subprocess.run(["pdftotext", "-layout", "-f", "1", "-l", "2", str(path), "-"],
-                             capture_output=True, text=True, errors="replace").stdout
-    except OSError:
-        txt = ""
-    for line in txt.splitlines():
-        t = clean(line)
-        if len(t) < 12 or DROP.match(t):
-            continue
-        if sum(c.isdigit() for c in t) > len(t) / 2:
-            continue
-        return t, "первая содержательная строка"
-    return None, "ни заголовка, ни текстового слоя"
+    # «Первая содержательная строка» как источник имени ОТВЕРГНУТА замером
+    # 2026-09-04. На статьях она давала колонтитул («188 В. А. Панчелюга,
+    # С. Э. Шноль О.»), строку PACS-кодов, адрес электронной почты и шапку
+    # «Draft version February 2, 2023» — всё это выглядит как имя и им не
+    # является. Три настройки подряд её не выправили: неверен приём, а не
+    # порог.
+    #
+    # Остаются источники, у которых имя размечено в самом документе:
+    # заголовок метаданных, код ИНИД [54] у патентов, обозначение стандарта.
+    # Прочее остаётся под прежним именем и ждёт прямого чтения — это
+    # работа не механическая.
+    return None, "заголовок в документе не размечен; нужно прямое чтение"
 
 
 def from_evidence(cache_text: str, stem: str):
@@ -133,6 +132,40 @@ def from_evidence(cache_text: str, stem: str):
     if num:
         return f"Патент США {num}", "номер из имени; заголовок не выведен"
     return None, "в улике ни номера, ни заголовка"
+
+
+
+BOILER = re.compile(r"^(draft|preprint|submitted|accepted|typeset|to appear|"
+                    r"copyright|©|proceedings of|arxiv|manuscript|"
+                    r"version \w+|черновик|препринт)\b", re.I)
+
+
+def looks_like_language(s: str) -> bool:
+    """
+    Годно ли имя как ИМЯ. Замер 2026-09-04: у трёх файлов (`r002h`, `r002i`,
+    `r002j`) текстовый слой лежит в битой кодировке, и первая редакция
+    произвела из неё «¶ÇÄÓÂÎß 2000 Å. ´ÑÏ 170, å 2» — уверенную кашу, которая
+    хуже прежнего номера, потому что выглядит осмысленной.
+
+    Проверяется три вещи: доля букв одного алфавита, отсутствие знаков,
+    которых в русском и английском не бывает, и что это не служебная шапка.
+    """
+    if BOILER.match(s):
+        return False
+    if SPEAKS.search(s):
+        return True                       # обозначение стандарта говорит само
+    letters = [c for c in s if c.isalpha()]
+    if len(letters) < 8:
+        return False
+    cyr = sum(1 for c in letters if "А" <= c <= "я" or c in "Ёё")
+    lat = sum(1 for c in letters if "A" <= c <= "z")
+    share = max(cyr, lat) / len(letters)
+    if share < 0.9:
+        return False                      # алфавиты перемешаны — признак кодировки
+    if re.search(r"[¶ÇÄÓÂÎßÑÏåª³¾®¡£¦¥¬¸À§µ¢©°±²´·¹º»¼½¿×Ø]", s):
+        return False                      # знаки, которых в тексте не бывает
+    words = re.findall(r"[A-Za-zА-Яа-яЁё]{3,}", s)
+    return len(words) >= 2
 
 
 def shorten(name: str) -> str:
@@ -182,6 +215,9 @@ def main():
             skipped.append((rel, f"имя не выведено: {why}"))
             continue
         new = shorten(clean(name)) + f.suffix.lower()
+        if not looks_like_language(Path(new).stem):
+            skipped.append((rel, "выведенное имя не похоже на язык — оставлено прежнее"))
+            continue
         if new == f.name:
             skipped.append((rel, "совпало с прежним"))
             continue
