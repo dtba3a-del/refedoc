@@ -92,6 +92,19 @@ def check_rights(paths):
     """
     viol, checked = [], 0
     rm = rights_map()
+    # Переименование в понятное имя (канон §4е) не должно выглядеть как
+    # появление неразобранного файла: путь приводится к тому, под которым
+    # решение принималось. Замер 2026-09-04: без этого ворота задержали
+    # восемь только что переименованных файлов с уже принятым решением.
+    back = {}
+    np = REPO / "имена.json"
+    if np.is_file():
+        try:
+            for r in json.loads(np.read_text(encoding="utf-8")):
+                if r.get("стало_путь"):
+                    back[r["стало_путь"]] = r["путь"]
+        except (OSError, ValueError):
+            back = {}
     # Решение автора по файлам в состоянии «не установлено» перекрывает разбор:
     # сведений нет, и выбор принадлежит тому, кто несёт последствия.
     dec = REPO / "tools" / "rights_decision.json"
@@ -113,7 +126,8 @@ def check_rights(paths):
             viol.append((r, "разбора прав нет вовсе (нет rights.json): "
                             "запустите tools/rights_classify.py"))
             continue
-        v = decided.get(r, rm.get(r))
+        key = back.get(r, r)
+        v = decided.get(key, rm.get(key))
         if v == "публично":
             continue
         viol.append((r, f"правовое решение: {v or 'файла нет в разборе'} — "

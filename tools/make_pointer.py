@@ -10,6 +10,7 @@ make_pointer.py — указатели на месте переехавшего 
 """
 import argparse
 import json
+import urllib.parse
 from collections import defaultdict
 from pathlib import Path
 
@@ -27,6 +28,7 @@ FILE_TPL = """# {name} — переехал
 |---|---|
 | было здесь | `{rel}` |
 | стало | [`{dest}`]({web}) |
+| прежнее имя сохранено в | `refedoc/ИМЕНА.md` |
 | вес | {mib:.2f} МиБ |
 | sha256 | `{sha}` |
 | скачать | `{raw}` |
@@ -66,54 +68,89 @@ def main():
     # Указатель ставится только на то, что ДЕЙСТВИТЕЛЬНО лежит в публичной
     # зоне. Указатель на непереехавший файл — ложь в производном файле,
     # и хуже отсутствия указателя.
-    moved = {(r["repo"], r["rel"]) for r in
-             json.loads((root_pub / "rights.json").read_text(encoding="utf-8"))
-             if r["verdict"] == "публично"
-             and (root_pub / r["repo"] / r["rel"]).is_file()}
+    # Имя в публичной зоне могло смениться на понятное (правило 4е канона):
+    # указатель обязан вести на НЫНЕШНЕЕ имя, иначе он ведёт в пустоту.
+    renamed = {}
+    np = root_pub / "имена.json"
+    if np.is_file():
+        for r in json.loads(np.read_text(encoding="utf-8")):
+            renamed[r["путь"]] = r.get("стало_путь", r["путь"])
+
+    moved = {}
+    for r in json.loads((root_pub / "rights.json").read_text(encoding="utf-8")):
+        if r["verdict"] != "публично":
+            continue
+        dest_rel = f"{r['repo']}/{r['rel']}"
+        dest_rel = renamed.get(dest_rel, dest_rel)
+        if (root_pub / dest_rel).is_file():
+            moved[(r["repo"], r["rel"])] = dest_rel
     rules = {r["repo"]: r for r in json.loads(
         (HERE / "refdoc_rules.json").read_text(encoding="utf-8"))["repos"]}
     ws = Path(a.workspace)
     written = 0
+    by_dir = defaultdict(list)
 
-    for r in inv["repos"]:
-        if a.repo and r["repo"] != a.repo:
+    # Итерация идёт по РЕШЕНИЯМ и по факту наличия файла в публичной зоне,
+    # а не по переписи источника: после переноса файла в переписи источника
+    # его уже нет, и обход по ней даёт ноль указателей там, где перенос
+    # состоялся. Замер 2026-09-04: так генератор написал «0 указателей»
+    # после переноса пятнадцати файлов.
+    inv_by = {}
+    for rep in inv["repos"]:
+        for x in rep["taken"]:
+            inv_by[(rep["repo"], x["rel"])] = x
+
+    import hashlib
+
+    def sha256_of(path: Path) -> str:
+        h = hashlib.sha256()
+        with open(path, "rb") as fh:
+            for b in iter(lambda: fh.read(1 << 20), b""):
+                h.update(b)
+        return h.hexdigest()
+
+    for (repo, rel), dest in sorted(moved.items()):
+        if a.repo and repo != a.repo:
             continue
-        root = ws / rules[r["repo"]]["clone"]
-        by_dir = defaultdict(list)
-        for rec in r["taken"]:
-            rel = rec["rel"]
-            if (r["repo"], rel) not in moved:
-                continue
-            dest = f"{r['repo']}/{rel}"
-            name = Path(rel).name
-            body = FILE_TPL.format(
-                name=name, rel=rel, dest=dest, web=f"{WEB}/{dest}",
-                raw=f"{RAW}/{dest}", mib=rec["bytes"] / 2**20,
-                sha=rec.get("sha256", "— (перепись без --hash)"))
-            out = root / (rel + ".где.md")
-            by_dir[Path(rel).parent.as_posix()].append((name, rec, dest))
-            if a.dry_run:
-                print(f"[указатель] {out.relative_to(ws)}")
-            else:
-                out.parent.mkdir(parents=True, exist_ok=True)
-                out.write_text(body, encoding="utf-8")
-            written += 1
+        root_src = ws / rules[repo]["clone"]
+        pub = Path(a.refedoc) / dest
+        rec = inv_by.get((repo, rel), {})
+        size = rec.get("bytes") or pub.stat().st_size
+        sha = rec.get("sha256") or sha256_of(pub)
+        name = Path(rel).name
+        # Пробелы и кириллица в имени обязаны быть закодированы: иначе ссылка
+        # и команда скачивания не работают, а указатель без рабочей ссылки —
+        # не указатель.
+        q = urllib.parse.quote(dest)
+        body = FILE_TPL.format(name=name, rel=rel, dest=dest, web=f"{WEB}/{q}",
+                               raw=f"{RAW}/{q}", mib=size / 2**20, sha=sha)
+        out = root_src / (rel + ".где.md")
+        by_dir.setdefault(Path(rel).parent.as_posix(), []).append(
+            (repo, name, size, dest))
+        if a.dry_run:
+            print(f"[указатель] {out.relative_to(ws)}")
+        else:
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text(body, encoding="utf-8")
+        written += 1
 
-        for d, items in by_dir.items():
-            rows = "\n".join(
-                f"| `{n}` | {rec['bytes'] / 2**20:.2f} | [там]({WEB}/{dest}) |"
-                for n, rec, dest in sorted(items))
-            dest_dir = f"{r['repo']}/{d}"
-            body = DIR_TPL.format(n=len(items),
-                                  mib=sum(x[1]["bytes"] for x in items) / 2**20,
-                                  dest_dir=dest_dir, web_dir=f"{WEB}/{dest_dir}", rows=rows)
-            out = root / d / "КУДА-ПЕРЕЕХАЛО.md"
-            if a.dry_run:
-                print(f"[каталог]   {out.relative_to(ws)}  ({len(items)} файлов)")
-            else:
-                out.parent.mkdir(parents=True, exist_ok=True)
-                out.write_text(body, encoding="utf-8")
-            written += 1
+    for d, items in by_dir.items():
+        repo = items[0][0]
+        root_src = ws / rules[repo]["clone"]
+        rows = "\n".join(f"| `{n}` | {sz / 2**20:.2f} | [там]({WEB}/{urllib.parse.quote(dest)}) |"
+                          for _, n, sz, dest in sorted(items, key=lambda x: x[1]))
+        body = DIR_TPL.format(n=len(items),
+                              mib=sum(x[2] for x in items) / 2**20,
+                              dest_dir=f"{repo}/{d}",
+                              web_dir=f"{WEB}/{urllib.parse.quote(repo + '/' + d)}",
+                              rows=rows)
+        out = root_src / d / "КУДА-ПЕРЕЕХАЛО.md"
+        if a.dry_run:
+            print(f"[каталог]   {out.relative_to(ws)}  ({len(items)} файлов)")
+        else:
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_text(body, encoding="utf-8")
+        written += 1
 
     print(f"{'план: ' if a.dry_run else 'записано: '}{written} указателей")
 

@@ -1,0 +1,58 @@
+[
+  {
+    "путь": "-Ctpu-bintape-timechannel-/references/patents/US10534019.pdf",
+    "было": "US10534019.pdf",
+    "стало": "Патент США 10534019 — Variable Resolution.pdf",
+    "основание": "номер из имени, заголовок по коду [54]",
+    "стало_путь": "-Ctpu-bintape-timechannel-/references/patents/Патент США 10534019 — Variable Resolution.pdf"
+  },
+  {
+    "путь": "-Ctpu-bintape-timechannel-/references/patents/US5272449.pdf",
+    "было": "US5272449.pdf",
+    "стало": "Патент США 5272449 — Vertical Amplifier System.pdf",
+    "основание": "номер из имени, заголовок по коду [54]",
+    "стало_путь": "-Ctpu-bintape-timechannel-/references/patents/Патент США 5272449 — Vertical Amplifier System.pdf"
+  },
+  {
+    "путь": "-Ctpu-bintape-timechannel-/references/patents/US6314278.pdf",
+    "было": "US6314278.pdf",
+    "стало": "Патент США 6314278 — Adjusting Gain In A Receiver.pdf",
+    "основание": "номер из имени, заголовок по коду [54]",
+    "стало_путь": "-Ctpu-bintape-timechannel-/references/patents/Патент США 6314278 — Adjusting Gain In A Receiver.pdf"
+  },
+  {
+    "путь": "GPIBNIE7-12/docs/3986108.pdf",
+    "было": "3986108.pdf",
+    "стало": "Патент США 3986108 — Window Comparator.pdf",
+    "основание": "номер из имени, заголовок по коду [54]",
+    "стало_путь": "GPIBNIE7-12/docs/Патент США 3986108 — Window Comparator.pdf"
+  },
+  {
+    "путь": "GPIBNIE7-12/docs/4283676.pdf",
+    "было": "4283676.pdf",
+    "стало": "Патент США 4283676 — Direct Reading Capacitance.pdf",
+    "основание": "номер из имени, заголовок по коду [54]",
+    "стало_путь": "GPIBNIE7-12/docs/Патент США 4283676 — Direct Reading Capacitance.pdf"
+  },
+  {
+    "путь": "GPIBNIE7-12/docs/4459541.pdf",
+    "было": "4459541.pdf",
+    "стало": "Патент США 4459541 — Circuit For Measuring.pdf",
+    "основание": "номер из имени, заголовок по коду [54]",
+    "стало_путь": "GPIBNIE7-12/docs/Патент США 4459541 — Circuit For Measuring.pdf"
+  },
+  {
+    "путь": "GPIBNIE7-12/docs/5793640.pdf",
+    "было": "5793640.pdf",
+    "стало": "Патент США 5793640 — Capacitance Measurement.pdf",
+    "основание": "номер из имени, заголовок по коду [54]",
+    "стало_путь": "GPIBNIE7-12/docs/Патент США 5793640 — Capacitance Measurement.pdf"
+  },
+  {
+    "путь": "GPIBNIE7-12/docs/9606155.pdf",
+    "было": "9606155.pdf",
+    "стало": "Патент США 9606155 — Capacitance Measurement.pdf",
+    "основание": "номер из имени, заголовок по коду [54]",
+    "стало_путь": "GPIBNIE7-12/docs/Патент США 9606155 — Capacitance Measurement.pdf"
+  }
+]
