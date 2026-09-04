@@ -61,7 +61,15 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
 
-    inv = json.loads((Path(a.refedoc) / "inventory.json").read_text(encoding="utf-8"))
+    root_pub = Path(a.refedoc)
+    inv = json.loads((root_pub / "inventory.json").read_text(encoding="utf-8"))
+    # Указатель ставится только на то, что ДЕЙСТВИТЕЛЬНО лежит в публичной
+    # зоне. Указатель на непереехавший файл — ложь в производном файле,
+    # и хуже отсутствия указателя.
+    moved = {(r["repo"], r["rel"]) for r in
+             json.loads((root_pub / "rights.json").read_text(encoding="utf-8"))
+             if r["verdict"] == "публично"
+             and (root_pub / r["repo"] / r["rel"]).is_file()}
     rules = {r["repo"]: r for r in json.loads(
         (HERE / "refdoc_rules.json").read_text(encoding="utf-8"))["repos"]}
     ws = Path(a.workspace)
@@ -74,6 +82,8 @@ def main():
         by_dir = defaultdict(list)
         for rec in r["taken"]:
             rel = rec["rel"]
+            if (r["repo"], rel) not in moved:
+                continue
             dest = f"{r['repo']}/{rel}"
             name = Path(rel).name
             body = FILE_TPL.format(

@@ -25,60 +25,11 @@
           "signature": "965f91bffd57e72824a6007af2f445c4effdce224a949243ca7825fcb7ce4397"
         },
         {
-          "rel": "docs/3986108.pdf",
-          "bytes": 594626,
-          "ext": "pdf",
-          "sha256": "708fa55b1382607a225213f724bbe188aadd8d6ebd0e40a227b6ae8b82f2afb6",
-          "signature": "b9ee94e93fc15f8e1d23ae9c602cdec23b61b18e2ca07da4e60c16718c53a2f0"
-        },
-        {
-          "rel": "docs/4283676.pdf",
-          "bytes": 355703,
-          "ext": "pdf",
-          "sha256": "f6804417810707bb24d50c9565f3ba09a017a483c519639ae833a338c64938ec",
-          "signature": "fda69f0a460533b282654f8a4e95cf19b175032cab96f442e6e4b9b3df57b590"
-        },
-        {
-          "rel": "docs/4459541.pdf",
-          "bytes": 639656,
-          "ext": "pdf",
-          "sha256": "20b19089c1be245f8139a58591036b9db2ae83125d7ab89cf43f8d8e9800f4b0",
-          "signature": "e6880161c84b355d1e496eefb49d107c4dee041a29e9799db2ed5c79aba79010"
-        },
-        {
-          "rel": "docs/5793640.pdf",
-          "bytes": 535509,
-          "ext": "pdf",
-          "sha256": "26ed27f348aeec9f505b8a20ea9ae890b371de429875a184810cdec7edb44567",
-          "signature": "cf2eedb3b185623168e35ae3b67a40682f59cfa2d44d755abd0d871a8b65ca5c"
-        },
-        {
-          "rel": "docs/9606155.pdf",
-          "bytes": 859625,
-          "ext": "pdf",
-          "sha256": "dc4a0203cfeadf35d2e8c2e0096d151f17c4d02568e81340c17cb892bd3d000c",
-          "signature": "199db21225ddba44458475b923e23a3f67483841510b776768d1ff02a6ea342e"
-        },
-        {
           "rel": "docs/A digital four-arm bridge for the comparison of resistance with capacitance.pdf",
           "bytes": 529165,
           "ext": "pdf",
           "sha256": "d011cbbb9c79402bcc51eb72908c05a138973e32b67c6ef57b4f2b79e6701d57",
           "signature": "965f91bffd57e72824a6007af2f445c4effdce224a949243ca7825fcb7ce4397"
-        },
-        {
-          "rel": "docs/Capacitor test apparatusand method us_patent3943439.pdf",
-          "bytes": 803384,
-          "ext": "pdf",
-          "sha256": "60b5ad759fff449f6e6cd9d60f85b833f4d0372043a7a0cf89b1d785ec0fbd6e",
-          "signature": "0040160fc7f0ff517c7f5c0e962b103248f8d822143fc68fa53616f4562cb424"
-        },
-        {
-          "rel": "docs/Direct reading capacitance meter us_patent4283676.pdf",
-          "bytes": 355704,
-          "ext": "pdf",
-          "sha256": "5967997b8d98f8f13fd17f775af86a6c88699ffbc88cc479a32c6bb63b0da49d",
-          "signature": "fda69f0a460533b282654f8a4e95cf19b175032cab96f442e6e4b9b3df57b590"
         },
         {
           "rel": "docs/HP4271A.pdf",
@@ -95,13 +46,6 @@
           "signature": "33b82d2c8e528648cb3a3eec6fda0b89f748aaeb134efe0447858f509955a20a"
         },
         {
-          "rel": "docs/US_patent 5793640 cfpacitance measurement RLC model.pdf",
-          "bytes": 535510,
-          "ext": "pdf",
-          "sha256": "2dbec34b1bb5b63e918f3526d9e814c18282ab052af8dcb3295f1de63ac4b448",
-          "signature": "cf2eedb3b185623168e35ae3b67a40682f59cfa2d44d755abd0d871a8b65ca5c"
-        },
-        {
           "rel": "docs/Uncertainty Analysis for Four Terminal-Pair Capacitance and Dissipation Factor.pdf",
           "bytes": 260781,
           "ext": "pdf",
@@ -114,13 +58,6 @@
           "ext": "pdf",
           "sha256": "188c5a4ee033f87fac7809475129e51ac5a0b18688225d8b714b8ac15d1fc35d",
           "signature": "95994148a73133ddefbb7299322a5f2f77cd5afa66306afc453caea4de9ecf3e"
-        },
-        {
-          "rel": "docs/capacitance measurement circuit and method us_patent9606155.pdf",
-          "bytes": 859626,
-          "ext": "pdf",
-          "sha256": "d54974a5c793132ed674031a4e9be4ddb3067d98989a41dace20290ac304a1fe",
-          "signature": "199db21225ddba44458475b923e23a3f67483841510b776768d1ff02a6ea342e"
         },
         {
           "rel": "docs/cutkosky1964.pdf",
@@ -142,27 +79,6 @@
           "ext": "pdf",
           "sha256": "f9cbaa075277b2db9106a4fdc261165d9da1450523a2e39fa7f46cda7a504571",
           "signature": "ce2c21bc2c43e88ba9b5a8a80c54711db9899670d620450498404e3d4e5deed8"
-        },
-        {
-          "rel": "docs/us_patent_impedance3473117.pdf",
-          "bytes": 196056,
-          "ext": "pdf",
-          "sha256": "b62e7ef6d089f34101deedc4a374c473c9eabfadde203a7a99ed0d9908d47535",
-          "signature": "e83c4008afdccccca258cabe2f871a33bc3f04375781964aff342b3e9f423c39"
-        },
-        {
-          "rel": "docs/ГОСТ 26.003-80(КОП).pdf",
-          "bytes": 6567207,
-          "ext": "pdf",
-          "sha256": "13240de4e5f8a59b421d5bce39243d4781bda92c71f823e69a6ec250d9e792ff",
-          "signature": "6b52913366c0c7f9573790ae16bba3551a810285834486451770e39fc2ee10ae"
-        },
-        {
-          "rel": "docs/ГОСТ25752-83 наборы символов соответствуют ГОСТ13052-74s.pdf",
-          "bytes": 1070951,
-          "ext": "pdf",
-          "sha256": "f6fbc362db2a961e77f506f611a71eef07a4095ebce22a563bb94bf85517eb81",
-          "signature": "3d6acab44b2479630130664be8d4b1fbb54b89db709f698e6fe7af3fa04e4355"
         }
       ],
       "skipped": [
@@ -197,7 +113,7 @@
           "reason": "исключён правилом"
         }
       ],
-      "total": 26
+      "total": 14
     },
     {
       "repo": "InvesePolar",
@@ -908,13 +824,6 @@
           "signature": "b2c06368d62611184b7ca072cf87e14c149c5d4244e16b65783d516bfc0d204c"
         },
         {
-          "rel": "references/patents/US10534019.pdf",
-          "bytes": 2565284,
-          "ext": "pdf",
-          "sha256": "62ebeadd82af0b389cc4f9e59f224ed770674880336cfdb5d441c5b9ca3fd807",
-          "signature": "5463988eae66e6e5a4d690a4995ba94199a13b3901f1505fd031909e0cc320ed"
-        },
-        {
           "rel": "references/patents/US4743844.pdf",
           "bytes": 1830270,
           "ext": "pdf",
@@ -934,20 +843,6 @@
           "ext": "pdf",
           "sha256": "2ebe9d901c06bc8ba46b41a929d86df138d222a3768b5613f2a350910f60adc4",
           "signature": "872fd6c3838a25362a322a45073868dda1d3783166268f7b620674c816c06c52"
-        },
-        {
-          "rel": "references/patents/US5272449.pdf",
-          "bytes": 777699,
-          "ext": "pdf",
-          "sha256": "c55e4540985f2b65481fedcb7ff122949ce0b3156ec2fb85b7f444e94233c7a9",
-          "signature": "ba4fe19071247d94f44f696a47c9fa8fa4c967b62693a015ed15c2ef912f6511"
-        },
-        {
-          "rel": "references/patents/US6314278.pdf",
-          "bytes": 831175,
-          "ext": "pdf",
-          "sha256": "c6c6ed5711056654f22dbb668226c99901c29cdc2651c4d33d95eaf0b0e9d7ab",
-          "signature": "e3b7607dcf45af41c3ca707a743e2f2edbcfff64fc12dbda2109a73d684e1652"
         },
         {
           "rel": "references/standards/PAS-Understanding-ISA-18-2.pdf",
@@ -993,7 +888,7 @@
         }
       ],
       "skipped": [],
-      "total": 73
+      "total": 70
     }
   ]
 }

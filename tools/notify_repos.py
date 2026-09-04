@@ -87,7 +87,7 @@ python3 tools/doc_slicer.py get out/index.json --page 7             # текст
 | | |
 |---|---|
 | справочных PDF/DjVu найдено | {found} |
-| отнесено к переносу | **{taken}** ({mib:.1f} МиБ) |
+| отнесено к переносу | **{taken}** (осталось здесь {mib:.1f} МиБ) |
 | остаётся на месте по правилам отбора | {skipped} |
 | **перенесено фактически** | **{moved}** |
 | указателей проставлено | {pointers} |
@@ -150,27 +150,34 @@ def main():
         if not clone.is_dir():
             print(f"[пропуск] нет клона {clone}")
             continue
-        # факт, а не намерение: что уже лежит в публичной зоне и сколько указателей
-        moved = sum(1 for x in r["taken"] if (root / repo / x["rel"]).is_file())
-        pointers = sum(1 for x in r["taken"] if (clone / (x["rel"] + ".где.md")).is_file())
+        # Факт берётся из публичной зоны и из клона, а НЕ из переписи источника:
+        # после переноса файла в переписи источника его уже нет, и счёт по ней
+        # даёт ноль там, где перенос состоялся. Замер 2026-09-04: так
+        # уведомление напечатало «перенесено 0» сразу после переноса 12 файлов.
+        pub_root = root / repo
+        moved = sum(1 for f in pub_root.rglob("*")
+                    if f.is_file() and f.suffix.lower() in (".pdf", ".djvu", ".djv"))
+        pointers = sum(1 for _ in clone.rglob("*.где.md"))
+        found_all = r["total"] + moved
+        taken_all = len(r["taken"]) + moved
         cnt = Counter(x["verdict"] for x in rights if x["repo"] == repo)
         rows = "\n".join(f"| {v} | {cnt[v]} |" for v in
                          ("публично", "спорно", "непублично", "не определён") if cnt[v]) \
             or "| разбор не запускался | — |"
         body = TPL.format(date=date, repo=repo, raw=RAW, web=WEB,
-                          found=r["total"], taken=len(r["taken"]),
+                          found=found_all, taken=taken_all,
                           mib=sum(x["bytes"] for x in r["taken"]) / 2**20,
                           skipped=len(r["skipped"]), moved=moved, pointers=pointers,
                           rights_rows=rows)
         box = clone / "inbox"
         dest = box / f"УВЕДОМЛЕНИЕ-refedoc-{date}.md"
         if a.dry_run:
-            print(f"[план] {dest}  (перенесено {moved}/{len(r['taken'])}, "
+            print(f"[план] {dest}  (перенесено {moved}/{taken_all}, "
                   f"указателей {pointers})")
             continue
         box.mkdir(parents=True, exist_ok=True)
         dest.write_text(body, encoding="utf-8")
-        print(f"записано: {dest}  (перенесено {moved}/{len(r['taken'])}, "
+        print(f"записано: {dest}  (перенесено {moved}/{taken_all}, "
               f"указателей {pointers})")
 
 

@@ -2,38 +2,26 @@
 
 **Файл производный.** Собран `tools/refdoc_inventory.py` по правилам
 `tools/refdoc_rules.json`. Руками не править — правка уходит в правила.
-Итого к переносу: **125** файлов, **356.1 МиБ**; остаётся на месте: **11**.
+Итого к переносу: **110** файлов, **339.4 МиБ**; остаётся на месте: **11**.
 
 
 ## 1. `GPIBNIE7-12`
 
-Найдено PDF/DjVu: **26**; к переносу: **21** (51.3 МиБ); остаётся на месте: **5**.
+Найдено PDF/DjVu: **14**; к переносу: **9** (38.6 МиБ); остаётся на месте: **5**.
 
 Основание отбора: docs/ — патенты, ГОСТы, схемы и ТО Е7-12, статьи. inbox/from-user/ — распоряжения автора, не справочник.
 
 | путь в источнике | МиБ |
 |---|---:|
 | `docs/2407.11220v2.pdf` | 0.50 |
-| `docs/3986108.pdf` | 0.57 |
-| `docs/4283676.pdf` | 0.34 |
-| `docs/4459541.pdf` | 0.61 |
-| `docs/5793640.pdf` | 0.51 |
-| `docs/9606155.pdf` | 0.82 |
 | `docs/A digital four-arm bridge for the comparison of resistance with capacitance.pdf` | 0.50 |
-| `docs/Capacitor test apparatusand method us_patent3943439.pdf` | 0.77 |
-| `docs/Direct reading capacitance meter us_patent4283676.pdf` | 0.34 |
 | `docs/HP4271A.pdf` | 13.33 |
 | `docs/HPJ-1974-03s.pdf` | 7.06 |
-| `docs/US_patent 5793640 cfpacitance measurement RLC model.pdf` | 0.51 |
 | `docs/Uncertainty Analysis for Four Terminal-Pair Capacitance and Dissipation Factor.pdf` | 0.25 |
 | `docs/callegaro2003.pdf` | 0.23 |
-| `docs/capacitance measurement circuit and method us_patent9606155.pdf` | 0.82 |
 | `docs/cutkosky1964.pdf` | 1.11 |
 | `docs/e7-12-sh(aabyy).pdf` | 8.30 |
 | `docs/e7-12-to(aabyy).pdf` | 7.29 |
-| `docs/us_patent_impedance3473117.pdf` | 0.19 |
-| `docs/ГОСТ 26.003-80(КОП).pdf` | 6.26 |
-| `docs/ГОСТ25752-83 наборы символов соответствуют ГОСТ13052-74s.pdf` | 1.02 |
 
 <details><summary>Остаётся на месте</summary>
 
@@ -102,7 +90,7 @@
 
 ## 3. `-Ctpu-bintape-timechannel-`
 
-Найдено PDF/DjVu: **73**; к переносу: **73** (221.5 МиБ); остаётся на месте: **0**.
+Найдено PDF/DjVu: **70**; к переносу: **70** (217.5 МиБ); остаётся на месте: **0**.
 
 Основание отбора: references/ — оформленный справочный каталог (appnotes, patents, daw, vendor, standards). docs/*.pdf — руководства OpenHantek.
 
@@ -169,12 +157,9 @@
 | `references/daw/waveform-quick-start-guide.pdf` | 10.51 |
 | `references/hardware/datasheets/AD8065_8066_RevE_p1-8.pdf` | 0.36 |
 | `references/patents/US10534019-full.pdf` | 3.39 |
-| `references/patents/US10534019.pdf` | 2.45 |
 | `references/patents/US4743844.pdf` | 1.75 |
 | `references/patents/US4823077.pdf` | 0.24 |
 | `references/patents/US5122996.pdf` | 1.09 |
-| `references/patents/US5272449.pdf` | 0.74 |
-| `references/patents/US6314278.pdf` | 0.79 |
 | `references/standards/PAS-Understanding-ISA-18-2.pdf` | 0.80 |
 | `references/vendor/rme/fface800_e.pdf` | 1.00 |
 | `references/vendor/rme/fface_uc_ru.pdf` | 2.30 |
@@ -191,9 +176,3 @@
 * 0.64 МиБ — `-Ctpu-bintape-timechannel-/references/daw/MTC-Users-Manual-Modular-Midi-Time-Code-Reader (1).pdf`; `-Ctpu-bintape-timechannel-/references/daw/MTC-Users-Manual-Modular-Midi-Time-Code-Reader.pdf`
 * 0.50 МиБ — `GPIBNIE7-12/docs/2407.11220v2.pdf`; `GPIBNIE7-12/docs/A digital four-arm bridge for the comparison of resistance with capacitance.pdf`
 * 0.19 МиБ — `InvesePolar/inbox/sci_data/r002h.pdf`; `InvesePolar/inbox/запрос материалов — SCI/r002h.pdf`
-
-**Один документ в разной обёртке:** 3 групп, лишних копий 3, впустую 1.7 МиБ.
-
-* 0.82 МиБ — `GPIBNIE7-12/docs/9606155.pdf`; `GPIBNIE7-12/docs/capacitance measurement circuit and method us_patent9606155.pdf`
-* 0.51 МиБ — `GPIBNIE7-12/docs/5793640.pdf`; `GPIBNIE7-12/docs/US_patent 5793640 cfpacitance measurement RLC model.pdf`
-* 0.34 МиБ — `GPIBNIE7-12/docs/4283676.pdf`; `GPIBNIE7-12/docs/Direct reading capacitance meter us_patent4283676.pdf`
