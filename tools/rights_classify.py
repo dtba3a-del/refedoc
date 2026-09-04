@@ -120,7 +120,12 @@ def main():
     for r in inv["repos"]:
         root = ws / clones[r["repo"]]["clone"]
         for x in r["taken"]:
-            jobs.append((r["repo"], x["rel"], root / x["rel"], x["bytes"]))
+            # После переноса файл лежит в зоне, а не в клоне источника:
+            # перепись хранит для него готовый путь. Замер 2026-09-04: без
+            # этого разбор искал файлы там, где их уже нет, и объявлял
+            # «улик нет» — то есть говорил о себе, а не о корпусе.
+            path = Path(x["abs"]) if x.get("abs") else root / x["rel"]
+            jobs.append((r["repo"], x["rel"], path, x["bytes"]))
 
     # Кэш улик: распознавание титулов стоит часы, а повторный прогон нужен
     # после каждой правки правил. Ключ — путь и размер файла: изменился файл,
@@ -136,10 +141,15 @@ def main():
     def work(j):
         repo, rel, path, size = j
         key = f"{repo}|{rel}|{size}"
+        # ПУСТАЯ улика в кэш НЕ кладётся. Замер 2026-09-04: сорванный прогон
+        # записал пустые строки как результат, и каждый следующий прогон
+        # переиспользовал их за 0.06 с, показывая покрытие 37 % вместо 88 %.
+        # Кэшируется измеренное, а не отсутствие измерения.
         text = cache.get(key)
-        if text is None:
+        if not text:
             text = evidence_text(path) if path.exists() else ""
-            cache[key] = text
+            if text.strip():
+                cache[key] = text
         hits = classify(text, rules)
         if hits:
             verdict = sorted(hits, key=lambda h: ORDER[h["verdict"]])[0]["verdict"]
