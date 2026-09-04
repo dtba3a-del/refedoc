@@ -36,7 +36,11 @@ Apache-2.0): ≥ 12 ГБ видеопамяти — 7B, ≥ 6 — 3B, иначе
 QLoRA (Dettmers et al. 2023) по [`train_config.json`](train_config.json).
 Замер хоста перед обучением — [`probe_host.py`](probe_host.py) (ничего не
 отправляет, пишет лог рядом); если карта есть, а torch собран без CUDA,
-нужна сборка `cu128`: `pip install --force-reinstall torch --index-url https://download.pytorch.org/whl/cu128`.
+нужна сборка `cu128`: `pip install --force-reinstall --no-deps torch --index-url https://download.pytorch.org/whl/cu128`
+(`--no-deps` — меняется только torch). Красные строки pip о конфликтах после установки —
+не ошибка torch: если `datasets` перестал ввозиться из-за `fsspec`, лечится
+`pip install "fsspec[http]<=2026.6.0"`; конфликты чужих пакетов (open-interpreter, selenium)
+комплекта не касаются. Установка удалась, когда последняя строка pip — `Successfully installed … torch-…+cu128`.
 
 ## Как обучить — комплект в этой папке
 

@@ -78,12 +78,20 @@ def host_profile() -> dict:
 
 
 def missing_modules() -> list:
+    """Модули комплекта, которые не ввозятся. Ловится любая ошибка ввоза, не
+    только ImportError: после `pip --force-reinstall torch` (04.09) pip
+    перетянул fsspec 2026.7.0 при требовании datasets fsspec<=2026.6.0 — такой
+    разлад проявляется не отсутствием модуля, а ошибкой внутри ввоза."""
     out = []
     for m in ("torch", "transformers", "peft", "datasets", "accelerate"):
         try:
             __import__(m)
-        except ImportError:
+        except Exception as e:  # noqa: BLE001 — любая причина, поимённо
             out.append(m)
+            msg = f"{type(e).__name__}: {e}"
+            print(f"!! {m}: ввоз не удался — {msg[:200]}")
+            if "fsspec" in msg:
+                print('   лечится: pip install "fsspec[http]<=2026.6.0"')
     return out
 
 
@@ -138,7 +146,10 @@ def main(argv=None) -> int:
                 print("!! CUDA-драйвер и карта NVIDIA есть (nvidia-smi отвечает), а УСТАНОВЛЕННАЯ СБОРКА torch — CPU (+cpu):")
                 print("   карта простаивает (0 % в диспетчере), обучение пошло бы на CPU. Поставить сборку cu128")
                 print("   (колёса для Python 3.13/3.14, Windows/Linux, есть):")
-                print("   pip install --force-reinstall torch --index-url https://download.pytorch.org/whl/cu128")
+                print("   pip install --force-reinstall --no-deps torch --index-url https://download.pytorch.org/whl/cu128")
+                print("   (--no-deps: меняется только torch; без него pip перетягивает fsspec и печатает красные строки о конфликтах —")
+                print("   datasets требует fsspec[http]<=2026.6.0; лечится: pip install \"fsspec[http]<=2026.6.0\"; конфликты чужих пакетов —")
+                print("   open-interpreter/starlette, selenium/urllib3 — комплекта не касаются)")
                 print("   Вторая карта другого производителя (экранная) для CUDA невидима — выбирать устройство не нужно,")
                 print("   torch cu128 увидит одну карту NVIDIA как device 0. Учить на CPU всё равно — флаг --cpu-ok (1.5B: часы)")
                 st["шаги"][step] = {"код": 4, "почему": "torch без CUDA при наличии GPU"}; save(st)
