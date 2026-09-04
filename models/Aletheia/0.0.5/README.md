@@ -29,10 +29,14 @@
 
 ## Основа
 
-База — [Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct)
-(Apache-2.0), дообучение — QLoRA (Dettmers et al. 2023) по
-[`train_config.json`](train_config.json). Замер хоста перед обучением —
-[`probe_host.py`](probe_host.py) (ничего не отправляет, пишет лог рядом).
+База выбирается по профилю хоста, на котором идёт обучение (семейство
+[Qwen2.5-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct),
+Apache-2.0): ≥ 12 ГБ видеопамяти — 7B, ≥ 6 — 3B, иначе 1.5B. Стадия 0.0.5
+учится на карте с 4 ГБ — база **Qwen2.5-1.5B-Instruct**. Дообучение —
+QLoRA (Dettmers et al. 2023) по [`train_config.json`](train_config.json).
+Замер хоста перед обучением — [`probe_host.py`](probe_host.py) (ничего не
+отправляет, пишет лог рядом); если карта есть, а torch собран без CUDA,
+нужна сборка `cu128`: `pip install --force-reinstall torch --index-url https://download.pytorch.org/whl/cu128`.
 
 ## Замер хоста на Windows — одна вставка
 

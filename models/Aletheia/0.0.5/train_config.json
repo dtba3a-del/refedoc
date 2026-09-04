@@ -1,14 +1,29 @@
 {
-  "name": "Aletheia",
   "stage": "0.0.5",
-  "base": "Qwen/Qwen2.5-7B-Instruct",
+  "internal_name": "AIAΣA",
+  "public_name": "Aletheia",
+  "base": "по профилю хоста (run_local.py PROFILES): VRAM ≥ 12 GiB → Qwen/Qwen2.5-7B-Instruct (max_len 2048); ≥ 6 → Qwen2.5-3B-Instruct (1024); иначе Qwen2.5-1.5B-Instruct (1024)",
   "base_license": "Apache-2.0",
   "method": "QLoRA 4-bit nf4, r=16, alpha=32, dropout=0.05, targets q/k/v/o/gate/up/down",
-  "max_len": 2048,
+  "max_len": "по профилю: 2048 / 1024 / 1024",
   "epochs": 2,
-  "lr": 2e-4,
+  "lr": 0.0002,
   "batch": 1,
   "grad_accum": 8,
+  "target_gpu": "замер хоста 04.09 (probe_host.py): NVIDIA RTX A400, 4094 MiB, compute 8.6, driver 595.97; torch 2.11.0+cpu — CUDA не собрана, нужна сборка cu128 (колесо cp314 win_amd64 есть)",
   "export": "GGUF Q4_K_M и Q8_0 (llama.cpp) для LM Studio",
-  "release": "веса — в GitHub Releases частями до 2 ГБ; сборка: cat Aletheia-0.0.5-Q4_K_M.gguf.part-* > Aletheia-0.0.5-Q4_K_M.gguf"
+  "gate_before_publish": "leak_test.py: точных продолжений ≤ 1 %, дословная длина ≤ 8 токенов",
+  "base_on_author_host": "Qwen/Qwen2.5-1.5B-Instruct — RTX A400 4094 MiB (лог хоста 04.09); 7B в 4 битах в 4 GiB не входит",
+  "host_2026_09_04": {
+    "os": "Windows 11",
+    "python": "3.14.4",
+    "cpu": "AMD, 12 потоков",
+    "ram_GiB": 47.9,
+    "disk_free_GiB": 366.4,
+    "transformers": "5.12.1",
+    "peft": "0.20.0",
+    "bitsandbytes": "0.50.2",
+    "accelerate": "1.14.0",
+    "datasets": "5.0.1"
+  }
 }
