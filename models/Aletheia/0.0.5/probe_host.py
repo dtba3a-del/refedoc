@@ -32,9 +32,18 @@ def main() -> int:
                  "cpu": platform.processor() or sh(["uname", "-p"]), "cpu_count": os.cpu_count()}
     log["nvidia-smi"] = sh(["nvidia-smi", "--query-gpu=name,memory.total,memory.free,driver_version,compute_cap",
                             "--format=csv,noheader"]) if shutil.which("nvidia-smi") else "nvidia-smi не найден"
+    log["cuda_driver"] = "есть (nvidia-smi отвечает)" if shutil.which("nvidia-smi") and "не найден" not in log["nvidia-smi"] else "нет"
+    # ВСЕ видеоадаптеры (04.09: у хоста две карты — одна для экрана, другая для ИИ;
+    # nvidia-smi показывает только NVIDIA, а вопрос «что грузится» требует обеих)
+    if os.name == "nt":
+        log["gpus_all"] = sh(["powershell", "-NoProfile", "-Command",
+                              "Get-CimInstance Win32_VideoController | ForEach-Object { $_.Name + ' | VRAM ' + [math]::Round($_.AdapterRAM/1GB,1) + ' GiB | драйвер ' + $_.DriverVersion }"])
+    else:
+        log["gpus_all"] = sh(["sh", "-c", "lspci | grep -i 'vga\\|3d\\|display'"])
     try:
         import torch  # noqa: WPS433
         log["torch"] = torch.__version__
+        log["torch_build"] = "CUDA" if torch.version.cuda else "CPU (+cpu) — карту не видит, даже если CUDA-драйвер есть"
         log["cuda"] = {"available": torch.cuda.is_available(), "version": torch.version.cuda,
                        "devices": [{"name": torch.cuda.get_device_name(i),
                                     "vram_GiB": round(torch.cuda.get_device_properties(i).total_memory / 2 ** 30, 1)}

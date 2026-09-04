@@ -135,9 +135,12 @@ def main(argv=None) -> int:
             if prof:
                 print(f"профиль хоста: GPU «{prof.get('gpu')}», VRAM {prof.get('vram_MiB')} MiB, CUDA в torch: {prof.get('cuda')} → база {prof.get('base')}, max_len {prof.get('max_len')}")
             if prof and prof.get("vram_MiB") and not prof.get("cuda") and not a.cpu_ok:
-                print("!! GPU есть, а torch без CUDA (сборка +cpu). Поставить сборку cu128 (колёса для Python 3.13/3.14, Windows/Linux, есть):")
+                print("!! CUDA-драйвер и карта NVIDIA есть (nvidia-smi отвечает), а УСТАНОВЛЕННАЯ СБОРКА torch — CPU (+cpu):")
+                print("   карта простаивает (0 % в диспетчере), обучение пошло бы на CPU. Поставить сборку cu128")
+                print("   (колёса для Python 3.13/3.14, Windows/Linux, есть):")
                 print("   pip install --force-reinstall torch --index-url https://download.pytorch.org/whl/cu128")
-                print("   затем повторить запуск; учить на CPU всё равно — флаг --cpu-ok (1.5B: часы)")
+                print("   Вторая карта другого производителя (экранная) для CUDA невидима — выбирать устройство не нужно,")
+                print("   torch cu128 увидит одну карту NVIDIA как device 0. Учить на CPU всё равно — флаг --cpu-ok (1.5B: часы)")
                 st["шаги"][step] = {"код": 4, "почему": "torch без CUDA при наличии GPU"}; save(st)
                 if not a.only:
                     return 4
