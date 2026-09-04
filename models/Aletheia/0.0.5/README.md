@@ -34,6 +34,29 @@
 [`train_config.json`](train_config.json). Замер хоста перед обучением —
 [`probe_host.py`](probe_host.py) (ничего не отправляет, пишет лог рядом).
 
+## Замер хоста на Windows — одна вставка
+
+`'C:\\0.0.5\\probe_host.py': [Errno 2] No such file or directory` значит:
+папка есть, файла в ней нет — его нужно сначала скачать. Одна команда в
+PowerShell делает всё (папка, загрузка, запуск):
+
+```powershell
+irm https://raw.githubusercontent.com/dtba3a-del/refedoc/main/models/Aletheia/0.0.5/bootstrap.ps1 | iex
+```
+
+Или вручную, три строки:
+
+```powershell
+mkdir C:\0.0.5 -Force; cd C:\0.0.5
+irm https://raw.githubusercontent.com/dtba3a-del/refedoc/main/models/Aletheia/0.0.5/probe_host.py -OutFile probe_host.py
+python probe_host.py
+```
+
+Лог — `C:\0.0.5\host_log.json`. Скрипт ничего не отправляет и ничего не
+меняет. Обучение целиком (набор → QLoRA → досмотр → GGUF) идёт из клона
+рабочего репозитория проекта, не отсюда: здесь только карточка, замер и
+конфигурация.
+
 ## Права
 
 База — Apache-2.0 (Qwen Team, 2024). Дообученные веса — стадия 0.0.5
