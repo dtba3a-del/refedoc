@@ -122,9 +122,25 @@ def main():
         for x in r["taken"]:
             jobs.append((r["repo"], x["rel"], root / x["rel"], x["bytes"]))
 
+    # Кэш улик: распознавание титулов стоит часы, а повторный прогон нужен
+    # после каждой правки правил. Ключ — путь и размер файла: изменился файл,
+    # изменился и ключ.
+    cache_path = out / "rights_cache.json"
+    cache = {}
+    if cache_path.is_file():
+        try:
+            cache = json.loads(cache_path.read_text(encoding="utf-8"))
+        except ValueError:
+            cache = {}
+
     def work(j):
         repo, rel, path, size = j
-        hits = classify(evidence_text(path), rules) if path.exists() else []
+        key = f"{repo}|{rel}|{size}"
+        text = cache.get(key)
+        if text is None:
+            text = evidence_text(path) if path.exists() else ""
+            cache[key] = text
+        hits = classify(text, rules)
         if hits:
             verdict = sorted(hits, key=lambda h: ORDER[h["verdict"]])[0]["verdict"]
         else:
@@ -138,6 +154,25 @@ def main():
     workers = max(1, min(3, (os.cpu_count() or 2) - 1))
     with ThreadPoolExecutor(max_workers=workers) as ex:
         rows = list(ex.map(work, jobs))
+
+    # Решения прямого чтения перекрывают автоматический разбор: улика,
+    # прочитанная человеком или зрением, старше улики, найденной по образцу.
+    man_path = HERE / "rights_manual.json"
+    manual = {}
+    if man_path.is_file():
+        for m in json.loads(man_path.read_text(encoding="utf-8"))["records"]:
+            manual[(m["repo"], m["rel"])] = m
+    applied = 0
+    for x in rows:
+        m = manual.get((x["repo"], x["rel"]))
+        if not m:
+            continue
+        x["verdict"] = m["verdict"]
+        x["hits"] = [{"id": m["class"], "verdict": m["verdict"], "marker": "прямое чтение",
+                      "snippet": m["evidence"][:300], "why": m["why"]}]
+        applied += 1
+    if applied:
+        print(f"решений прямого чтения применено: {applied}")
 
     counts = {}
     for x in rows:
@@ -186,6 +221,7 @@ def main():
     (out / "ПРАВА-ПОФАЙЛОВО.md").write_text("\n".join(lines), encoding="utf-8")
     (out / "rights.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2),
                                      encoding="utf-8")
+    cache_path.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
     print(f"файлов {len(rows)}; улики найдены у {determined} "
           f"({100 * determined / max(1, len(rows)):.0f} %)")
     for v in ("публично", "спорно", "непублично", "не определён"):

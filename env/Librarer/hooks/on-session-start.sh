@@ -32,6 +32,20 @@ echo " Разбор прав    : python3 tools/rights_classify.py --workspace /
 echo " Поставить крючки: bash env/Librarer/hooks/install.sh"
 echo "=============================================================="
 
+# Чужие изменения: репозиторий общий, и соседний дом кладёт сюда своё по
+# плану. Появление чужой папки не должно быть неожиданностью — поэтому она
+# называется на входе, а не обнаруживается случайно.
+if git -C "$REPO" rev-parse --git-dir >/dev/null 2>&1; then
+  git -C "$REPO" fetch --quiet origin 2>/dev/null || true
+  NEW=$(git -C "$REPO" log --oneline HEAD..origin/main 2>/dev/null | head -5)
+  if [ -n "$NEW" ]; then
+    echo " ЧУЖИЕ ИЗМЕНЕНИЯ на origin/main (не из этой сессии):"
+    echo "$NEW" | sed 's/^/   /'
+    echo "   Досмотреть: git diff --name-only HEAD..origin/main | xargs python3 env/Librarer/hooks/guard.py path"
+  fi
+  echo " Каталоги верхнего уровня: $(ls -1 "$REPO" | grep -v '^\.' | tr '\n' ' ')"
+fi
+
 if [ ! -x "$REPO/.git/hooks/pre-commit" ]; then
   echo " ВНИМАНИЕ: git-крючок pre-commit не поставлен — граница держится"
   echo " только на дисциплине. Поставьте: bash env/Librarer/hooks/install.sh"

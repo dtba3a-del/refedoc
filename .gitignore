@@ -11,3 +11,4 @@ sessions/
 context-export/
 *.jsonl
 .env
+rights_cache.json
