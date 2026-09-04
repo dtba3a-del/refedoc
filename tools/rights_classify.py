@@ -40,15 +40,20 @@ def ocr_first_page(path: Path) -> str:
             # «200 dpi» означало 6444×9467 — распознаванию титульной страницы
             # столько не нужно, а время растёт с площадью. Замер 2026-09-03:
             # прогон по 50 сканам не уложился в десять минут и был прерван.
-            subprocess.run(["pdftoppm", "-png", "-scale-to", "2200", "-f", "1", "-l", "1",
+            # Предел времени обязателен. Замер 2026-09-04: один tesseract
+            # проработал 24 минуты на одной странице и заморозил прогон по
+            # всему корпусу. Внешний вызов без предела времени — не
+            # медленный файл, а дефект устройства: отказ одной страницы
+            # становится отказом всей работы.
+            subprocess.run(["pdftoppm", "-png", "-scale-to", "2000", "-f", "1", "-l", "1",
                             "-singlefile", str(path), str(pref)],
-                           check=True, capture_output=True, env=ENV)
+                           check=True, capture_output=True, env=ENV, timeout=60)
             r = subprocess.run(["tesseract", str(pref.with_suffix(".png")), "stdout",
                                 "-l", "rus+eng"], capture_output=True, text=True,
-                               errors="replace", env=ENV)
+                               errors="replace", env=ENV, timeout=90)
             return r.stdout
-    except (OSError, subprocess.SubprocessError):
-        return ""
+    except (OSError, subprocess.SubprocessError, subprocess.TimeoutExpired):
+        return ""                          # отказ распознавания есть факт о нём
 
 
 def evidence_text(path: Path) -> str:

@@ -16,40 +16,244 @@
       "exclude": [
         "inbox/"
       ],
-      "taken": [],
-      "skipped": [
+      "taken": [
         {
-          "rel": "inbox/from-user/2026-08-22_восстановление_правила_ссылка_прямое_распоряжение.pdf",
-          "bytes": 22456,
+          "rel": "docs/Capacitor test apparatusand method us_patent3943439.pdf",
+          "bytes": 803384,
           "ext": "pdf",
-          "reason": "исключён правилом"
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/GPIBNIE7-12/docs/Capacitor test apparatusand method us_patent3943439.pdf",
+          "sha256": "60b5ad759fff449f6e6cd9d60f85b833f4d0372043a7a0cf89b1d785ec0fbd6e",
+          "signature": "0040160fc7f0ff517c7f5c0e962b103248f8d822143fc68fa53616f4562cb424"
         },
         {
-          "rel": "inbox/from-user/2026-08-22_по_оформлению_и_структуре.pdf",
-          "bytes": 153326,
+          "rel": "docs/Direct reading capacitance meter us_patent4283676.pdf",
+          "bytes": 355704,
           "ext": "pdf",
-          "reason": "исключён правилом"
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/GPIBNIE7-12/docs/Direct reading capacitance meter us_patent4283676.pdf",
+          "sha256": "5967997b8d98f8f13fd17f775af86a6c88699ffbc88cc479a32c6bb63b0da49d",
+          "signature": "fda69f0a460533b282654f8a4e95cf19b175032cab96f442e6e4b9b3df57b590"
         },
         {
-          "rel": "inbox/from-user/2026-08-22_подключить_правило_ответа_для_claude_code.pdf",
-          "bytes": 25456,
+          "rel": "docs/US_patent 5793640 cfpacitance measurement RLC model.pdf",
+          "bytes": 535510,
           "ext": "pdf",
-          "reason": "исключён правилом"
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/GPIBNIE7-12/docs/US_patent 5793640 cfpacitance measurement RLC model.pdf",
+          "sha256": "2dbec34b1bb5b63e918f3526d9e814c18282ab052af8dcb3295f1de63ac4b448",
+          "signature": "cf2eedb3b185623168e35ae3b67a40682f59cfa2d44d755abd0d871a8b65ca5c"
         },
         {
-          "rel": "inbox/from-user/2026-08-22_правило_вход_любой_формат_хранение_md.pdf",
-          "bytes": 36697,
+          "rel": "docs/capacitance measurement circuit and method us_patent9606155.pdf",
+          "bytes": 859626,
           "ext": "pdf",
-          "reason": "исключён правилом"
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/GPIBNIE7-12/docs/capacitance measurement circuit and method us_patent9606155.pdf",
+          "sha256": "d54974a5c793132ed674031a4e9be4ddb3067d98989a41dace20290ac304a1fe",
+          "signature": "199db21225ddba44458475b923e23a3f67483841510b776768d1ff02a6ea342e"
         },
         {
-          "rel": "inbox/from-user/2026-08-22_правило_повтор_ссылка_вместо_текста.pdf",
-          "bytes": 22929,
+          "rel": "docs/us_patent_impedance3473117.pdf",
+          "bytes": 196056,
           "ext": "pdf",
-          "reason": "исключён правилом"
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/GPIBNIE7-12/docs/us_patent_impedance3473117.pdf",
+          "sha256": "b62e7ef6d089f34101deedc4a374c473c9eabfadde203a7a99ed0d9908d47535",
+          "signature": "e83c4008afdccccca258cabe2f871a33bc3f04375781964aff342b3e9f423c39"
+        },
+        {
+          "rel": "docs/ГОСТ 26.003-80(КОП).pdf",
+          "bytes": 6567207,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/GPIBNIE7-12/docs/ГОСТ 26.003-80(КОП).pdf",
+          "sha256": "13240de4e5f8a59b421d5bce39243d4781bda92c71f823e69a6ec250d9e792ff",
+          "signature": "6b52913366c0c7f9573790ae16bba3551a810285834486451770e39fc2ee10ae"
+        },
+        {
+          "rel": "docs/ГОСТ25752-83 наборы символов соответствуют ГОСТ13052-74s.pdf",
+          "bytes": 1070951,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/GPIBNIE7-12/docs/ГОСТ25752-83 наборы символов соответствуют ГОСТ13052-74s.pdf",
+          "sha256": "f6fbc362db2a961e77f506f611a71eef07a4095ebce22a563bb94bf85517eb81",
+          "signature": "3d6acab44b2479630130664be8d4b1fbb54b89db709f698e6fe7af3fa04e4355"
+        },
+        {
+          "rel": "docs/Патент США 3986108 — Window Comparator.pdf",
+          "bytes": 594626,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/GPIBNIE7-12/docs/Патент США 3986108 — Window Comparator.pdf",
+          "sha256": "708fa55b1382607a225213f724bbe188aadd8d6ebd0e40a227b6ae8b82f2afb6",
+          "signature": "b9ee94e93fc15f8e1d23ae9c602cdec23b61b18e2ca07da4e60c16718c53a2f0"
+        },
+        {
+          "rel": "docs/Патент США 4283676 — Direct Reading Capacitance.pdf",
+          "bytes": 355703,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/GPIBNIE7-12/docs/Патент США 4283676 — Direct Reading Capacitance.pdf",
+          "sha256": "f6804417810707bb24d50c9565f3ba09a017a483c519639ae833a338c64938ec",
+          "signature": "fda69f0a460533b282654f8a4e95cf19b175032cab96f442e6e4b9b3df57b590"
+        },
+        {
+          "rel": "docs/Патент США 4459541 — Circuit For Measuring.pdf",
+          "bytes": 639656,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/GPIBNIE7-12/docs/Патент США 4459541 — Circuit For Measuring.pdf",
+          "sha256": "20b19089c1be245f8139a58591036b9db2ae83125d7ab89cf43f8d8e9800f4b0",
+          "signature": "e6880161c84b355d1e496eefb49d107c4dee041a29e9799db2ed5c79aba79010"
+        },
+        {
+          "rel": "docs/Патент США 5793640 — Capacitance Measurement.pdf",
+          "bytes": 535509,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/GPIBNIE7-12/docs/Патент США 5793640 — Capacitance Measurement.pdf",
+          "sha256": "26ed27f348aeec9f505b8a20ea9ae890b371de429875a184810cdec7edb44567",
+          "signature": "cf2eedb3b185623168e35ae3b67a40682f59cfa2d44d755abd0d871a8b65ca5c"
+        },
+        {
+          "rel": "docs/Патент США 9606155 — Capacitance Measurement.pdf",
+          "bytes": 859625,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/GPIBNIE7-12/docs/Патент США 9606155 — Capacitance Measurement.pdf",
+          "sha256": "dc4a0203cfeadf35d2e8c2e0096d151f17c4d02568e81340c17cb892bd3d000c",
+          "signature": "199db21225ddba44458475b923e23a3f67483841510b776768d1ff02a6ea342e"
+        },
+        {
+          "rel": "docs/2407.11220v2.pdf",
+          "bytes": 529165,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/2407.11220v2.pdf",
+          "sha256": "d011cbbb9c79402bcc51eb72908c05a138973e32b67c6ef57b4f2b79e6701d57",
+          "signature": "965f91bffd57e72824a6007af2f445c4effdce224a949243ca7825fcb7ce4397"
+        },
+        {
+          "rel": "docs/A digital four-arm bridge for the comparison of resistance with capacitance.pdf",
+          "bytes": 529165,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/A digital four-arm bridge for the comparison of resistance with capacitance.pdf",
+          "sha256": "d011cbbb9c79402bcc51eb72908c05a138973e32b67c6ef57b4f2b79e6701d57",
+          "signature": "965f91bffd57e72824a6007af2f445c4effdce224a949243ca7825fcb7ce4397"
+        },
+        {
+          "rel": "docs/A digital four-arm bridge for the comparison of.pdf",
+          "bytes": 529165,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/A digital four-arm bridge for the comparison of.pdf",
+          "sha256": "d011cbbb9c79402bcc51eb72908c05a138973e32b67c6ef57b4f2b79e6701d57",
+          "signature": "965f91bffd57e72824a6007af2f445c4effdce224a949243ca7825fcb7ce4397"
+        },
+        {
+          "rel": "docs/An Automatic, Precision 1-MHz Digital.pdf",
+          "bytes": 7403153,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/An Automatic, Precision 1-MHz Digital.pdf",
+          "sha256": "2df314e578be51eae03fa1d6a07fc9b389798a1c704a476ce7fd41dfc545628b",
+          "signature": "33b82d2c8e528648cb3a3eec6fda0b89f748aaeb134efe0447858f509955a20a"
+        },
+        {
+          "rel": "docs/E7-12_A1_TO.pdf",
+          "bytes": 28659510,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/E7-12_A1_TO.pdf",
+          "sha256": "bb2d1fe06df838194882f336f1284529cfb53d6ddf4b354d13f83820ec6bc8b9",
+          "signature": "4eec4065f85d3a46b3be1dc14db992b578f70e7906828876006df9427fdd2ce1"
+        },
+        {
+          "rel": "docs/E7-12_A2_sh.pdf",
+          "bytes": 25596013,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/E7-12_A2_sh.pdf",
+          "sha256": "8e7a392817c8cbe5c93d6ca36c3899c882fe5bf460c7312c23e39744a9cbab01",
+          "signature": "672ec52d4aa0d7a2a49a79e3f8ba16d019c43250cf1a81e36a4f64045ccb92a9"
+        },
+        {
+          "rel": "docs/HP4271A.pdf",
+          "bytes": 13973815,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/HP4271A.pdf",
+          "sha256": "e51670f6f135fe824022fdcb1834f6b69bcc310cd51120e6d6b06745cb004c9f",
+          "signature": "c56edf72b8632f13561ebaf01b805652a03ce35e6eca8998d9db776019d69d91"
+        },
+        {
+          "rel": "docs/HPJ-1974-03s.pdf",
+          "bytes": 7403153,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/HPJ-1974-03s.pdf",
+          "sha256": "2df314e578be51eae03fa1d6a07fc9b389798a1c704a476ce7fd41dfc545628b",
+          "signature": "33b82d2c8e528648cb3a3eec6fda0b89f748aaeb134efe0447858f509955a20a"
+        },
+        {
+          "rel": "docs/OPERATING AND SERVICE MANUAL.pdf",
+          "bytes": 13973815,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/OPERATING AND SERVICE MANUAL.pdf",
+          "sha256": "e51670f6f135fe824022fdcb1834f6b69bcc310cd51120e6d6b06745cb004c9f",
+          "signature": "c56edf72b8632f13561ebaf01b805652a03ce35e6eca8998d9db776019d69d91"
+        },
+        {
+          "rel": "docs/Uncertainty Analysis for Four Terminal-Pair Capacitance and Dissipation Factor.pdf",
+          "bytes": 260781,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/Uncertainty Analysis for Four Terminal-Pair Capacitance and Dissipation Factor.pdf",
+          "sha256": "8b91f245ec2c2239e5e671d92ebd5985f44f90f0125ef30066bacf5166d2cb7c",
+          "signature": "873060acc6f05937390e7e320c9f33746afc926ff210e20229f610cbb6d9caee"
+        },
+        {
+          "rel": "docs/callegaro2003.pdf",
+          "bytes": 236075,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/callegaro2003.pdf",
+          "sha256": "188c5a4ee033f87fac7809475129e51ac5a0b18688225d8b714b8ac15d1fc35d",
+          "signature": "95994148a73133ddefbb7299322a5f2f77cd5afa66306afc453caea4de9ecf3e"
+        },
+        {
+          "rel": "docs/cutkosky1964.pdf",
+          "bytes": 1161680,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/cutkosky1964.pdf",
+          "sha256": "a06eb2ebf6cd35ccf7e30a38881d7fdf0e90caa8dd6db3009df6111adf522138",
+          "signature": "40909a8d099d30201660aa53f4462a1bce15a3d953260603aafeeea5ed92687f"
+        },
+        {
+          "rel": "docs/e7-12-sh(aabyy).pdf",
+          "bytes": 8707229,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/e7-12-sh(aabyy).pdf",
+          "sha256": "313129020bdf6f09feb85ca479850edbf8e0680b3102f5a8286c1bc74977aae7",
+          "signature": "16810ae04569fddf7e426875194ace110120b1e987e98143ac08646fa9806ea0"
+        },
+        {
+          "rel": "docs/e7-12-to(aabyy).pdf",
+          "bytes": 7648274,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/GPIBNIE7-12/docs/e7-12-to(aabyy).pdf",
+          "sha256": "f9cbaa075277b2db9106a4fdc261165d9da1450523a2e39fa7f46cda7a504571",
+          "signature": "ce2c21bc2c43e88ba9b5a8a80c54711db9899670d620450498404e3d4e5deed8"
         }
       ],
-      "total": 5
+      "skipped": [],
+      "total": 26
     },
     {
       "repo": "InvesePolar",
@@ -63,46 +267,307 @@
       "exclude": [
         "inbox/raw/"
       ],
-      "taken": [],
-      "skipped": [
+      "taken": [
         {
-          "rel": "inbox/raw/1909.09231v3.pdf",
-          "bytes": 816035,
+          "rel": "inbox/запрос материалов — SCI/On the Relative Motion of the Earth and the Luminiferous Ether - Wikisource, the free online library.pdf",
+          "bytes": 1721675,
           "ext": "pdf",
-          "reason": "исключён правилом"
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/InvesePolar/inbox/запрос материалов — SCI/On the Relative Motion of the Earth and the Luminiferous Ether - Wikisource, the free online library.pdf",
+          "sha256": "45955037c632ebac85fd9325c2eb936c8cb0ef0cf9bf50bbb728e31f724991dd",
+          "signature": "4e7bddaeadd62509f5ebf22eee20dae392c7e88b3cd49a829e2c7db988fa0c42"
         },
         {
-          "rel": "inbox/raw/report_phikit_analysis.md.pdf",
-          "bytes": 599928,
+          "rel": "inbox/sci_data/06-17.pdf",
+          "bytes": 1092727,
           "ext": "pdf",
-          "reason": "исключён правилом"
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/06-17.pdf",
+          "sha256": "1491e0ea526f476ae3b101ee14b8bea3a4020e98d39a37cb9893a9e53deb2ba5",
+          "signature": "94841e02adf43910b80988cc0c913fcb83091384aa9a7d6dce22231f9d80eac5"
         },
         {
-          "rel": "inbox/raw/ОП-геометрия.pdf",
-          "bytes": 205844,
+          "rel": "inbox/sci_data/188 В. А. Панчелюга, С. Э. Шноль О.pdf",
+          "bytes": 1092727,
           "ext": "pdf",
-          "reason": "исключён правилом"
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/188 В. А. Панчелюга, С. Э. Шноль О.pdf",
+          "sha256": "1491e0ea526f476ae3b101ee14b8bea3a4020e98d39a37cb9893a9e53deb2ba5",
+          "signature": "94841e02adf43910b80988cc0c913fcb83091384aa9a7d6dce22231f9d80eac5"
         },
         {
-          "rel": "inbox/raw/Эволюция понятия нуля.pdf",
-          "bytes": 202964,
+          "rel": "inbox/sci_data/Chaitin Omega/A-fast-and-simple-algorithm-for-the-computation-of-the-Lerch-transcendent.pdf",
+          "bytes": 781789,
           "ext": "pdf",
-          "reason": "исключён правилом"
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/A-fast-and-simple-algorithm-for-the-computation-of-the-Lerch-transcendent.pdf",
+          "sha256": "2b7ac3926cb33d2c97b0c229844a12de8356a854d31d5c7fa3a2a1859c374dee",
+          "signature": "452ad7f8d992cb02a2ff71ef7e0dbbb66e7b95b75397e034389f87ddff55a40b"
         },
         {
-          "rel": "inbox/raw/четв ноль - Kimi.pdf",
-          "bytes": 123187,
+          "rel": "inbox/sci_data/Chaitin Omega/A-novel-approach-for-designing-secure-substitution-boxes-based-on-Catalan-number-and-elliptic.pdf",
+          "bytes": 1297714,
           "ext": "pdf",
-          "reason": "исключён правилом"
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/A-novel-approach-for-designing-secure-substitution-boxes-based-on-Catalan-number-and-elliptic.pdf",
+          "sha256": "62fffca3bc8867a784776d31d68b32852fecc6c9b74f1cec998be5ebdd85a305",
+          "signature": "f508fe6b0716f40e495bd89ceb7e8fc61426cac52654ef32a9a79668154ee2b4"
         },
         {
-          "rel": "inbox/критерий физической реальности сущность имеет смысл только если она может быть локализована во времени с разрешением Δt.pdf",
-          "bytes": 95869,
+          "rel": "inbox/sci_data/Chaitin Omega/A-refinement-of-Cauchy-Schwarz-complexity.pdf",
+          "bytes": 431756,
           "ext": "pdf",
-          "reason": "вне include"
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/A-refinement-of-Cauchy-Schwarz-complexity.pdf",
+          "sha256": "84578d4edb779e6eb526d0d3a5540d41aad34040f3a2c3e270aed03db28241dc",
+          "signature": "ce88372c191c9be67f81ff45a589b717d0e5502cae4b2dc1edc0ece727eefd53"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/Computing a Glimpse of Randomness.pdf",
+          "bytes": 305410,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/Computing a Glimpse of Randomness.pdf",
+          "sha256": "585dfdc6888163ea8dbb4bc15087d397a309af114ec95d91201888568fce4cb6",
+          "signature": "684fe65ad471d9798e4ae5165bac5f642a69f2863a76dc8fe2d56efaf7d6757a"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/Constructing-Galois-representations-with-large-Iwasawa-lambda-invariant.pdf",
+          "bytes": 307775,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/Constructing-Galois-representations-with-large-Iwasawa-lambda-invariant.pdf",
+          "sha256": "936ca059cdd5062d1fbb499aa3a580e6f7339ff1aaa3735dd8ffee405a111791",
+          "signature": "986756d5507eb217415316d5d8a4635f952df30094b4455ef4cc884ec17e5be8"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/Global-Numerical-Bounds-for-the-Number-Theoretic-Omega-Functions.pdf",
+          "bytes": 410777,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/Global-Numerical-Bounds-for-the-Number-Theoretic-Omega-Functions.pdf",
+          "sha256": "79cfc50d85ea55bd7ce1d9dbb3f43fdfdb8dbae625a5c1875af17808dc408df3",
+          "signature": "8c746975db4e4496f776c119ede7bcbebba9c01b304652ab371f538e3d317409"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/On-Hilbert-cubes-and-primitive-roots-in-finite-fields.pdf",
+          "bytes": 304348,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/On-Hilbert-cubes-and-primitive-roots-in-finite-fields.pdf",
+          "sha256": "6a54a9a300149c4bcfc7838ba0aabf24368d9850e40bfd8d1e8ef075540be39b",
+          "signature": "63c7ae7f1fd58143e455afc8599b56ad9f9071d6ee9bc9a0a93a234d1497a3e5"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/On-the-efficient-numerical-computation-of-covariant-Lyapunov-vectors.pdf",
+          "bytes": 5600677,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/On-the-efficient-numerical-computation-of-covariant-Lyapunov-vectors.pdf",
+          "sha256": "c0a46e0c7a621cfe67647c13852f4cfa7bc4ac3fcd29a136c9503cdeb9b058cc",
+          "signature": "9a9a387e2bb99bde422e96e0754db770b67d866d8d2085db71660de3e60b6647"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/Toward-Computational-Morse-Floer-Homology-Forcing-Results-for-Connecting-Orbits-by-Computing.pdf",
+          "bytes": 3344582,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/Toward-Computational-Morse-Floer-Homology-Forcing-Results-for-Connecting-Orbits-by-Computing.pdf",
+          "sha256": "6c8e59adf79b6345fda39ff707915817af1319dcd6310543dad693aed149dae8",
+          "signature": "a7268a9751fd05f0636a51e35540b95f31fc0babc33c87bc224606d92c9d7968"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/bukor2009.pdf",
+          "bytes": 368442,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/bukor2009.pdf",
+          "sha256": "bb2350bf15cce6e73183cd2eb4a096cbf271c4ba4d7381a90f7260989dbb6d84",
+          "signature": "891953aa30bf4b43342aebca8b8185be0e16cbcfe27cef1fcbe3047ff3fb11ee"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/deshouillers2011.pdf",
+          "bytes": 324313,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/deshouillers2011.pdf",
+          "sha256": "19dcff7fba111d7c0a4f638295233f625746cd6b069464493ddb85a6f6de86da",
+          "signature": "8364342e85daf69d415bfbe35c7ae8c5d9645e5cabf06460f8b4a57d29929ede"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/kruse2003.pdf",
+          "bytes": 58745,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/kruse2003.pdf",
+          "sha256": "6cb66c21b41c54691cda9f416b9cfe80f026bfda81b6b4e3f9a104e164d199fd",
+          "signature": "f7718e680e8a70db7c8f9cffc6952b71a2768ffec72de2d66c0891f79a544872"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/shafique2022.pdf",
+          "bytes": 9797960,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/shafique2022.pdf",
+          "sha256": "b3af9b6b8c442a4972163cac8bde406eccccc3c6a04739c77b2a303024de687f",
+          "signature": "871340e258ba8eb61b136ad32f0c0985d090a653b64ce2fe7bf68523e6a860ab"
+        },
+        {
+          "rel": "inbox/sci_data/Chaitin Omega/toffalori2005.pdf",
+          "bytes": 121215,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Chaitin Omega/toffalori2005.pdf",
+          "sha256": "e2376e6a7938094012a26b8c54a73d387fb6bfff786bdda281bea7f2e2a924b1",
+          "signature": "6487b320b1b503dca308b04a22eac326af6901d352c7f586d8c5aa37f4e35c64"
+        },
+        {
+          "rel": "inbox/sci_data/r002h.pdf",
+          "bytes": 199201,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/r002h.pdf",
+          "sha256": "cd53284b434192a55183d2ab67ce03de07c967619965111b69b62e904bb8be3c",
+          "signature": "fea0aae3ccd730e62adeefcc53a4bd18de2ce4c01eb26c73c91967d352578cc6"
+        },
+        {
+          "rel": "inbox/sci_data/shnol_biologicheskie.pdf",
+          "bytes": 107035,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/shnol_biologicheskie.pdf",
+          "sha256": "8e2b6e562bf462df9a01f4ea629cad529caa76e1b2e67178fca383d7d675e170",
+          "signature": "29952f156ff64f51055dfbab42e73783f384dc23fd3c346e19463ede7484e25d"
+        },
+        {
+          "rel": "inbox/sci_data/shnol_ufn.pdf",
+          "bytes": 927938,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/shnol_ufn.pdf",
+          "sha256": "3e9d58f857ef32e5ca6442e9f54483bcea433c9e62359e2d263796974599d4fa",
+          "signature": "b76c3334cafbfedaaaa5e0a8177f94925147f5cd96d4aba4c9c8be5e65346ea1"
+        },
+        {
+          "rel": "inbox/sci_data/shnoll_kosmofizich.pdf",
+          "bytes": 12815878,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/shnoll_kosmofizich.pdf",
+          "sha256": "31ccfb7efd8eac15536ba4cea2e66e5dda1fd5a69611bea2de39178863e13b47",
+          "signature": "0413162ad86dbb983162c82c92acc63ae8fe2ec432fd24dde170ac73edda00f8"
+        },
+        {
+          "rel": "inbox/sci_data/Шноль С.Э. - Физико-химические факторы биологической эволюции формулы в текстоовом слое испорчены. текст распознан .pdf",
+          "bytes": 14373247,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Шноль С.Э. - Физико-химические факторы биологической эволюции формулы в текстоовом слое испорчены. текст распознан .pdf",
+          "sha256": "e55ff0437f8630bf0dbe91be4d7bb756d22f5bad6348a2bd61c892633395b5d0",
+          "signature": "8ad93e5c32eef21f771dfc98a2534561a1c81b58005a19bac35c91dec1fff4fe"
+        },
+        {
+          "rel": "inbox/sci_data/Шноль С.Э. - Физико-химические факторы биологической эволюции.djvu",
+          "bytes": 2146931,
+          "ext": "djvu",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/sci_data/Шноль С.Э. - Физико-химические факторы биологической эволюции.djvu",
+          "sha256": "0289241d03fb443f882a57d7fc0ede1c7924881e5dbbb80ad1ae91f8a692c40c",
+          "signature": "6faf96450aa3c249369de72a616122877a6bb9d424480f5ba417831e7d8e54bd"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/2106.04352v3.pdf",
+          "bytes": 10584735,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/запрос материалов — SCI/2106.04352v3.pdf",
+          "sha256": "b394836bdbf00a89626bb7bc9da507ad94582111ff12c9a2266e3802ae56365d",
+          "signature": "d78b2dd3fa5f9a2cd5d3d701d1a7f5ccdc8740782a41fa23439ac41ed7f2574f"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/2506.08932v1.pdf",
+          "bytes": 1800237,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/запрос материалов — SCI/2506.08932v1.pdf",
+          "sha256": "744c6e1fce8368bad5fa68612aa8e0e8c9df71d1e833f2f2a8acdf75dbecb7dc",
+          "signature": "5588d403bc27ea2f3dded6e1fa19d82515028403a325d20b5d2c27016f70cadb"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/Amiri_2021_ApJS_257_59.pdf",
+          "bytes": 8563889,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/запрос материалов — SCI/Amiri_2021_ApJS_257_59.pdf",
+          "sha256": "9fd960cbbd48e6f748ffce2e0a0a8e40317499963c12d357277d040c2aab6aaf",
+          "signature": "e41b629c5c8b604173a3e460d604d98e199a5682d4d1e670850ec3cb50707250"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/Measurement of the Dispersion–Galaxy Cross-Power.pdf",
+          "bytes": 1800237,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/запрос материалов — SCI/Measurement of the Dispersion–Galaxy Cross-Power.pdf",
+          "sha256": "744c6e1fce8368bad5fa68612aa8e0e8c9df71d1e833f2f2a8acdf75dbecb7dc",
+          "signature": "5588d403bc27ea2f3dded6e1fa19d82515028403a325d20b5d2c27016f70cadb"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/The_CHIME_FRB_Collaboration_2023_ApJS_264_53.pdf",
+          "bytes": 570617,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/запрос материалов — SCI/The_CHIME_FRB_Collaboration_2023_ApJS_264_53.pdf",
+          "sha256": "b44d61f18d97790fde640a445f2601c871adfe2e110ae8d82d2b21e4abd8c558",
+          "signature": "ff555977ae77a74673f8f0e7168dbfc97e5448a5b3edc356eaa545f66ed3886a"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/anderson1998.pdf",
+          "bytes": 8295686,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/запрос материалов — SCI/anderson1998.pdf",
+          "sha256": "9bad2e3df9686f436673ae7bd8b1592bcedef7232b5d5c8c880996735baf471d",
+          "signature": "77115c9f839b2d6a71b0fc7840b83f5ce6518d9ca6615371e68ccef08107b215"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/r002h.pdf",
+          "bytes": 199201,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/запрос материалов — SCI/r002h.pdf",
+          "sha256": "cd53284b434192a55183d2ab67ce03de07c967619965111b69b62e904bb8be3c",
+          "signature": "fea0aae3ccd730e62adeefcc53a4bd18de2ce4c01eb26c73c91967d352578cc6"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/r002i.pdf",
+          "bytes": 116033,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/запрос материалов — SCI/r002i.pdf",
+          "sha256": "40e90d1f5c7912b0eb28cdb8e630f77b31474663850ec81e4cc2cb37c3c92069",
+          "signature": "22e5eed1b7bac252d67ffe6b2ab973e757824dd7556acb2545f39bb2f83bf2a6"
+        },
+        {
+          "rel": "inbox/запрос материалов — SCI/r002j.pdf",
+          "bytes": 231016,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/inbox/запрос материалов — SCI/r002j.pdf",
+          "sha256": "3c6b64694fe230aaf16b1a430e340883583d223116187a66034e7f8801fcd940",
+          "signature": "f583f21b46e3c544a1e8cce265a195e5faf67cf40c34d298dfd78d77b3ec71fd"
+        },
+        {
+          "rel": "notes/материалы/2026-09-01 — заметка о случайных процессах в детерминированной системе.pdf",
+          "bytes": 199095,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/InvesePolar/notes/материалы/2026-09-01 — заметка о случайных процессах в детерминированной системе.pdf",
+          "sha256": "25dfbc56f0f41263ab1a3c92f3e8508f853369983dae5e8d2bfaa33b439c0951",
+          "signature": "80a9c34c5f4e143c9bf3070d84d86042b1a9b01e45e57d7ce92ebf144b079976"
         }
       ],
-      "total": 6
+      "skipped": [],
+      "total": 33
     },
     {
       "repo": "-Ctpu-bintape-timechannel-",
@@ -113,9 +578,784 @@
         "docs/"
       ],
       "exclude": [],
-      "taken": [],
+      "taken": [
+        {
+          "rel": "references/patents/US4743844.pdf",
+          "bytes": 1830270,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/-Ctpu-bintape-timechannel-/references/patents/US4743844.pdf",
+          "sha256": "ca0ab75a5623195f9182e4b2e22b5dbbc95a7042fad1db339dc56e116f07b9de",
+          "signature": "535f51927fba8e6243c34b2801dab2500f0db0f2fc2d42db7daf614a3e1b8297"
+        },
+        {
+          "rel": "references/patents/US4823077.pdf",
+          "bytes": 252074,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/-Ctpu-bintape-timechannel-/references/patents/US4823077.pdf",
+          "sha256": "45843724f416d84436d28d5450f981cb75f710ee1e4874cc87221c5e7aa20666",
+          "signature": "d09b5b9eb0c8b22a9c2f097b39bd0a05ab008d1e77e57196e70f5b53187a8604"
+        },
+        {
+          "rel": "references/patents/US5122996.pdf",
+          "bytes": 1145761,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/-Ctpu-bintape-timechannel-/references/patents/US5122996.pdf",
+          "sha256": "2ebe9d901c06bc8ba46b41a929d86df138d222a3768b5613f2a350910f60adc4",
+          "signature": "872fd6c3838a25362a322a45073868dda1d3783166268f7b620674c816c06c52"
+        },
+        {
+          "rel": "references/patents/Патент США 10534019 — Variable Resolution.pdf",
+          "bytes": 2565284,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/-Ctpu-bintape-timechannel-/references/patents/Патент США 10534019 — Variable Resolution.pdf",
+          "sha256": "62ebeadd82af0b389cc4f9e59f224ed770674880336cfdb5d441c5b9ca3fd807",
+          "signature": "5463988eae66e6e5a4d690a4995ba94199a13b3901f1505fd031909e0cc320ed"
+        },
+        {
+          "rel": "references/patents/Патент США 4743844.pdf",
+          "bytes": 1830270,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/-Ctpu-bintape-timechannel-/references/patents/Патент США 4743844.pdf",
+          "sha256": "ca0ab75a5623195f9182e4b2e22b5dbbc95a7042fad1db339dc56e116f07b9de",
+          "signature": "535f51927fba8e6243c34b2801dab2500f0db0f2fc2d42db7daf614a3e1b8297"
+        },
+        {
+          "rel": "references/patents/Патент США 4823077.pdf",
+          "bytes": 252074,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/-Ctpu-bintape-timechannel-/references/patents/Патент США 4823077.pdf",
+          "sha256": "45843724f416d84436d28d5450f981cb75f710ee1e4874cc87221c5e7aa20666",
+          "signature": "d09b5b9eb0c8b22a9c2f097b39bd0a05ab008d1e77e57196e70f5b53187a8604"
+        },
+        {
+          "rel": "references/patents/Патент США 5272449 — Vertical Amplifier System.pdf",
+          "bytes": 777699,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/-Ctpu-bintape-timechannel-/references/patents/Патент США 5272449 — Vertical Amplifier System.pdf",
+          "sha256": "c55e4540985f2b65481fedcb7ff122949ce0b3156ec2fb85b7f444e94233c7a9",
+          "signature": "ba4fe19071247d94f44f696a47c9fa8fa4c967b62693a015ed15c2ef912f6511"
+        },
+        {
+          "rel": "references/patents/Патент США 6314278 — Adjusting Gain In A Receiver.pdf",
+          "bytes": 831175,
+          "ext": "pdf",
+          "зона": "публичная",
+          "abs": "/home/user/refedoc/-Ctpu-bintape-timechannel-/references/patents/Патент США 6314278 — Adjusting Gain In A Receiver.pdf",
+          "sha256": "c6c6ed5711056654f22dbb668226c99901c29cdc2651c4d33d95eaf0b0e9d7ab",
+          "signature": "e3b7607dcf45af41c3ca707a743e2f2edbcfff64fc12dbda2109a73d684e1652"
+        },
+        {
+          "rel": "docs/HANTEK6022_AC_Modification.pdf",
+          "bytes": 1781368,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/docs/HANTEK6022_AC_Modification.pdf",
+          "sha256": "4d5ed87344e85417f18f0924b94066bbbd818fee7ae5b3790f84bdce3ca1e3e4",
+          "signature": "6d3eea16cd2010d167e3521bdb211b4fe1a66db2cdbef5fb562b27f91a2c2150"
+        },
+        {
+          "rel": "docs/HANTEK6022_Frequency_Generator_Modification.pdf",
+          "bytes": 1210078,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/docs/HANTEK6022_Frequency_Generator_Modification.pdf",
+          "sha256": "cb8d15dc957c77d3e91f6a2ddf8948b78cd95380cc6b47d1e6d86aa2b44299af",
+          "signature": "0b71f4d4840b9c4909e4fd13c0f88440d734a031a44feed464f6739327b6e243"
+        },
+        {
+          "rel": "docs/OpenHantek6022_User_Manual.pdf",
+          "bytes": 1888949,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/docs/OpenHantek6022_User_Manual.pdf",
+          "sha256": "62a92f9f2decb22f85dea42f3ef294b743b3b3b62e80be2921970f79f83e9264",
+          "signature": "62c16dc555fa8b7f63c39af95b27fd05ec2c6e96508839802c119d5a3e3cd282"
+        },
+        {
+          "rel": "docs/OpenHantek6022_zadig_Win10.pdf",
+          "bytes": 349470,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/docs/OpenHantek6022_zadig_Win10.pdf",
+          "sha256": "b38f097fa945cce08f0fb4de184c7323f6cde34266da41a2077f21720fd9535b",
+          "signature": "828097247e2500cb25cb0f58a9a4f01fc189d2b5a014c818e3803483c670d6ff"
+        },
+        {
+          "rel": "references/aiasa/AIAΣA и ортогональный АМН — DeepSeek, 2026-03-22.pdf",
+          "bytes": 95869,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/aiasa/AIAΣA и ортогональный АМН — DeepSeek, 2026-03-22.pdf",
+          "sha256": "b2c7dcf21a795614529d72f846c7badb625464129be0b3b017c0611527f8062c",
+          "signature": "8a6e776018868c08e7ebfc656dd096fcdbc67fffead58e3bb9bd4f1bae35aab3"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-DPO2024-datasheet.pdf",
+          "bytes": 2028818,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/en/Tektronix-DPO2024-datasheet.pdf",
+          "sha256": "ae88fb7d9f80923e6b1064afeced4880890e3008f6957080f18c72727b16a5a5",
+          "signature": "1d7acf7260c3b479737d12d696375ae1c48f0bff730879861ed797771737e174"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-DPO4000-datasheet.pdf",
+          "bytes": 906238,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/en/Tektronix-DPO4000-datasheet.pdf",
+          "sha256": "8cce9f124d29546f76fa787ecd6df1fbf388d843d09fbe3b64bff6e7dcb1932e",
+          "signature": "bb65c70dcfabd517c599f7de04ea361f3856ef216e4bc9da036a2b734dab5b65"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-DPO4000-datasheet_48W-19032-10.pdf",
+          "bytes": 2472886,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/en/Tektronix-DPO4000-datasheet_48W-19032-10.pdf",
+          "sha256": "3ccd0d8bc128c2f2f3422f49193a75dfef40fca251dab329b7c71967691611a4",
+          "signature": "6179f2ffe9e1d56d9c57c573200be6e2a46bfe69d3d644c0ede0304b27e2971d"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-Not-so-High-on-High-Resolution.pdf",
+          "bytes": 1129097,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/en/Tektronix-Not-so-High-on-High-Resolution.pdf",
+          "sha256": "7924eea2e2ece4cb6e47db5ee9918849ab7c5421bf2d388233bf571ec9d23523",
+          "signature": "354fc43e7bdefdda6ea5e8122ac412bdf1794b3a9123a0414cd43829b18e1255"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-TDS3000-datasheet.pdf",
+          "bytes": 666121,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/en/Tektronix-TDS3000-datasheet.pdf",
+          "sha256": "8a6db4338745a513f5ef8bb5209c30347c168b919ae512d4185fb58be250e861",
+          "signature": "c6cdc22a26ad8a4b6526dc523458da3d40750eccb68ec5fb3cc49c521e7cd677"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-TDS3000B-datasheet.pdf",
+          "bytes": 1015292,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/en/Tektronix-TDS3000B-datasheet.pdf",
+          "sha256": "f7ff012fe01cac8284ea332216e932c1aa1478d59456b1afcae949eefe784188",
+          "signature": "c50d9deea1fac01973887b9a3c3d1747b50df8ab105fd78c13faf3ba5722f0b2"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-TDS700D-datasheet_55W-11336-4.pdf",
+          "bytes": 769645,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/en/Tektronix-TDS700D-datasheet_55W-11336-4.pdf",
+          "sha256": "0529b566337bacceb1f5b6b13eff5116029108a746b5a7257f666638d8f38da7",
+          "signature": "0fe344fafb66396a5f047761d9039b960651bb40697183150b7a3123946afe2b"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-Tools-to-Boost-Resolution-11-Bits.pdf",
+          "bytes": 486130,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/en/Tektronix-Tools-to-Boost-Resolution-11-Bits.pdf",
+          "sha256": "a71d1a1d0c586fbed885856a5ca1a443ab1fdf679d7782850af5066a0e38f97f",
+          "signature": "dd24267a812832bb4f5f0dfbffc30f80f5b3ec7a00aa9e6ecf7c0fe9144c757e"
+        },
+        {
+          "rel": "references/appnotes/en/Tektronix-XYZs-of-Oscilloscopes-primer_03W-8605-7.pdf",
+          "bytes": 12447362,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/en/Tektronix-XYZs-of-Oscilloscopes-primer_03W-8605-7.pdf",
+          "sha256": "b7b508006d988d405d9f94bb293535f9cb835458750208c7e8786bfcdd95dc70",
+          "signature": "959b8e9ed83116fa447ae4f8fa426432bf75358ea103d5ec2c99646c810d441e"
+        },
+        {
+          "rel": "references/appnotes/en/TeledyneLeCroy-ERES-vs-HiRes.pdf",
+          "bytes": 660408,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/en/TeledyneLeCroy-ERES-vs-HiRes.pdf",
+          "sha256": "d09f35faa930852b67756277f59ec5894244a6704ccb948d5100e30e1745fe9d",
+          "signature": "378385f1aeb77846323791dab6c4c3f7fea0240494ac4aac49112329750a46af"
+        },
+        {
+          "rel": "references/appnotes/ru/Tektronix-Not-so-High-on-High-Resolution_ru.pdf",
+          "bytes": 1158802,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/ru/Tektronix-Not-so-High-on-High-Resolution_ru.pdf",
+          "sha256": "ba8eb3c81431020b470a27c0d06ebe1fd2e8cb047d2fc695ea5a1ffa51cdea38",
+          "signature": "7cdf764e5ce5dff8f164447bfd1bc428629226835ff5a3fcda4def0a58543f71"
+        },
+        {
+          "rel": "references/appnotes/ru/Tektronix-Oscilloscope-Types-primer_ru.pdf",
+          "bytes": 1126041,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/ru/Tektronix-Oscilloscope-Types-primer_ru.pdf",
+          "sha256": "ee52e8d8292e95b2494b5ba79229d024e1c694979f885582c0fb3392517adbc8",
+          "signature": "01e42b0dccdd79dc8b890cd5417da7e4f075aac4a68668dbe985d5435f95c91f"
+        },
+        {
+          "rel": "references/appnotes/ru/Tektronix-TDS5000-datasheet_ru.pdf",
+          "bytes": 807598,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/ru/Tektronix-TDS5000-datasheet_ru.pdf",
+          "sha256": "7abdab3b26aa0347f16d1dd6cb5ecdb505dd1bb6747bdc4c28c63871c4361910",
+          "signature": "a2d6808dd4fa2dc768526da00abcafe43a98022abaccc4b792390b31c9804d6d"
+        },
+        {
+          "rel": "references/appnotes/ru/Tektronix-TDS784D-datasheet_ru.pdf",
+          "bytes": 657932,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/ru/Tektronix-TDS784D-datasheet_ru.pdf",
+          "sha256": "5f15b601bc3c33337cc8cec11a5b1e7ec3c166fedb7ed5ab06232398aed3fe8a",
+          "signature": "88603fdfbc7c38cf6237acc7e675a66c61d796c765084fbf48b38d0e95f65c36"
+        },
+        {
+          "rel": "references/appnotes/ru/Tektronix-Tools-to-Boost-Resolution-11-Bits_ru.pdf",
+          "bytes": 1666314,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/appnotes/ru/Tektronix-Tools-to-Boost-Resolution-11-Bits_ru.pdf",
+          "sha256": "33697f1cf6489e8915099bc74e3986bf45dc195ff3274b62f361bc858739fbf2",
+          "signature": "ac7459694a15c04ab98e0bbf9822490a3cfa2a5a789188646efd1386366c1a43"
+        },
+        {
+          "rel": "references/daw/32054-GenelecGLM3SystemOperatingManual.pdf",
+          "bytes": 3530508,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/32054-GenelecGLM3SystemOperatingManual.pdf",
+          "sha256": "f1c6395f0bc9be4593b9ffcd221c2a4dd39578a51edd5e6e9d810ecfa8338337",
+          "signature": "558e9211c50b002761462fd9c28017ca8af04d99373898fa3f5a0fb45d59828e"
+        },
+        {
+          "rel": "references/daw/828mk3_User_Guide_Win.pdf",
+          "bytes": 4059114,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/828mk3_User_Guide_Win.pdf",
+          "sha256": "5ced5fa28445c4590a9e262ac446682f621af743039468763287dfff979959d7",
+          "signature": "e132e6f2dd45143f9248b27f574ee0ebb70c7353743ffd96c7da1f90dbae37c0"
+        },
+        {
+          "rel": "references/daw/AUDIO DEFINITION MODEL.pdf",
+          "bytes": 204973,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/AUDIO DEFINITION MODEL.pdf",
+          "sha256": "d140a49f1ddb47cd546c9d9f239524190cda2d9af594d4f8da0a171d3856f2f8",
+          "signature": "1e62df7b5b4b5900a0844136f5a29b035bf3679dff7546ae76e1d60a9ed9c2ed"
+        },
+        {
+          "rel": "references/daw/Audio Definition Model.pdf",
+          "bytes": 1938616,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/Audio Definition Model.pdf",
+          "sha256": "a1e093fc93a09bdfc8d913aeac1099482a6f47a4983fe020674df1146e8e367b",
+          "signature": "2e1829efa194e1c1ed696423030260255745079ce7e20a1da0409cde7bfb3b47"
+        },
+        {
+          "rel": "references/daw/EBU Tech 3285s2-2001 BWF, Supplement 2.pdf",
+          "bytes": 248165,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/EBU Tech 3285s2-2001 BWF, Supplement 2.pdf",
+          "sha256": "bde61bf800a0f2803afc192250cec235318ec4d2529e59048df0b7217c748053",
+          "signature": "248f892d208562d3d128b31291cc193980ab46cb6cd5bc6ffeccde340b08b8bf"
+        },
+        {
+          "rel": "references/daw/GLM4_System_Operating_Manual_2022-05-16_FINAL.pdf",
+          "bytes": 3915081,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/GLM4_System_Operating_Manual_2022-05-16_FINAL.pdf",
+          "sha256": "7abf0eb8b40b06380a25c56114da85efa834d557e41b46657b713154bba08ac9",
+          "signature": "aa4a8430cee5506be8d17bfe9f381b8860c7d219c1e259251f9f94307cc5d928"
+        },
+        {
+          "rel": "references/daw/GLM_3_System_Operating_Manual.pdf",
+          "bytes": 2740406,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/GLM_3_System_Operating_Manual.pdf",
+          "sha256": "4765e0f73166dbce5bd26070b1a900068e990521993755f24bfdf085055be12a",
+          "signature": "ce5426ccd4c05bb050664f566ab2e8e0d0d1e37d0b369c6b546e9cd92a0a5fd3"
+        },
+        {
+          "rel": "references/daw/GLM_5.0_System_Operating_Manual.pdf",
+          "bytes": 4146386,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/GLM_5.0_System_Operating_Manual.pdf",
+          "sha256": "7204e3b6a1f9294308540ddc1e7c25602dd3117af6f1890050fca2ba8fdcb22c",
+          "signature": "650e0fa6d026e195cb4a33172b25007c970b5c1cd1a84f95e14a3653de4220b4"
+        },
+        {
+          "rel": "references/daw/LOUDNESS METERING ‘EBU MODE’.pdf",
+          "bytes": 362927,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/LOUDNESS METERING ‘EBU MODE’.pdf",
+          "sha256": "dd5a7b0b611024e616b86a42c89eed0ded33f3129afc1994204885216fa1619e",
+          "signature": "bab961de3fbfe55b3505ac2d70f0a40265984e9c78f15f5c253c02a97f49e383"
+        },
+        {
+          "rel": "references/daw/LOUDNESS NORMALISATION.pdf",
+          "bytes": 281142,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/LOUDNESS NORMALISATION.pdf",
+          "sha256": "4292cd2396e4cb386c3a6c1412cb4370fc108ef50956e78a24fbd8657ce2ca28",
+          "signature": "a67f7808893607192fc34bca40c657726b85f593a9784d2166d83c8785b36300"
+        },
+        {
+          "rel": "references/daw/MAYA44_eX-English.pdf",
+          "bytes": 1897321,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/MAYA44_eX-English.pdf",
+          "sha256": "5911b08425abf618ef0ad2a6f9074e7a6314c758a82ea507671a5b1a50ab319f",
+          "signature": "640935c3294b28c88be68586b8b3494d0778b79ac87170dacaa666f5561101da"
+        },
+        {
+          "rel": "references/daw/MIDI Time Code 26 04 2022, 10 57.pdf",
+          "bytes": 99200,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/MIDI Time Code 26 04 2022, 10 57.pdf",
+          "sha256": "4f5b8df1e13290c169608e94fb1ef0f7d9f902766e4c1b8d6f4602e36355ca11",
+          "signature": "61670c40cad3d753077ab018e999057497c9408645e2327555698045a733182f"
+        },
+        {
+          "rel": "references/daw/MIDI-Time-Code.pdf",
+          "bytes": 99200,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/MIDI-Time-Code.pdf",
+          "sha256": "4f5b8df1e13290c169608e94fb1ef0f7d9f902766e4c1b8d6f4602e36355ca11",
+          "signature": "61670c40cad3d753077ab018e999057497c9408645e2327555698045a733182f"
+        },
+        {
+          "rel": "references/daw/MTC-Users-Manual-Modular-Midi-Time-Code-Reader (1).pdf",
+          "bytes": 674658,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/MTC-Users-Manual-Modular-Midi-Time-Code-Reader (1).pdf",
+          "sha256": "70987288a7fac28f3d295e178c0f577dcd79da847e125da47cb961ca71e61163",
+          "signature": "bfcac945202cd87b712811bfc27948efc6d93c51b7a9609a8605da3c0cba4de6"
+        },
+        {
+          "rel": "references/daw/MTC-Users-Manual-Modular-Midi-Time-Code-Reader.pdf",
+          "bytes": 674658,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/MTC-Users-Manual-Modular-Midi-Time-Code-Reader.pdf",
+          "sha256": "70987288a7fac28f3d295e178c0f577dcd79da847e125da47cb961ca71e61163",
+          "signature": "bfcac945202cd87b712811bfc27948efc6d93c51b7a9609a8605da3c0cba4de6"
+        },
+        {
+          "rel": "references/daw/Mackie-Onyx-1640-Rental-Manual.pdf",
+          "bytes": 1897192,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/Mackie-Onyx-1640-Rental-Manual.pdf",
+          "sha256": "500033391aa0c8c33f523e048341ffaebdd89fa40d28ef36ddc7270858fc3f56",
+          "signature": "936c68309bb1aa5d2d2ef98d7f6b4d39f7068a0196afd57a6eca49bff29ca6db"
+        },
+        {
+          "rel": "references/daw/NEK_Cubase_Music_Tools (1).pdf",
+          "bytes": 4639544,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/NEK_Cubase_Music_Tools (1).pdf",
+          "sha256": "ca860adf3f6a6a897bad8392f9ce75d291872405eb487b10823e5619faf9fea1",
+          "signature": "25e7ad7fc171841fa43d278ab6a669c5e21b7eec67f46ba849ddfe1fd2dcc09e"
+        },
+        {
+          "rel": "references/daw/NEK_Cubase_Music_Tools.pdf",
+          "bytes": 4639544,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/NEK_Cubase_Music_Tools.pdf",
+          "sha256": "ca860adf3f6a6a897bad8392f9ce75d291872405eb487b10823e5619faf9fea1",
+          "signature": "25e7ad7fc171841fa43d278ab6a669c5e21b7eec67f46ba849ddfe1fd2dcc09e"
+        },
+        {
+          "rel": "references/daw/Onyx_Series_SS.pdf",
+          "bytes": 3338144,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/Onyx_Series_SS.pdf",
+          "sha256": "f23e9ec2e937ad9641489c4f5a3b3fe9f5b1955c624efb6719d8530227cb83d1",
+          "signature": "e7185ba6b22d93eb2855955f07e0f9f3bc19038b5c8d63db50c138d2781d7b9e"
+        },
+        {
+          "rel": "references/daw/Operation_Manual_en.pdf",
+          "bytes": 981603,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/Operation_Manual_en.pdf",
+          "sha256": "1626fc960f18784ae63e587998dce8fee030328cb8c4c32b0a0f1e4e7b6e1e3f",
+          "signature": "4effdb465b74f1c850d8918b1e8f9bcfb5905a37294315db547d6bccb6100218"
+        },
+        {
+          "rel": "references/daw/PTExpert_Julian Rodgers_The A-Z Of Pro Tools.pdf",
+          "bytes": 6481140,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/PTExpert_Julian Rodgers_The A-Z Of Pro Tools.pdf",
+          "sha256": "6cc57e149584a8377fdfc479048e4facc96e04de1a2d1f699e7b9315b6219778",
+          "signature": "6b4ba1606fe15f50478aaee04ede19575189ad363406e460eb1373097f962f5a"
+        },
+        {
+          "rel": "references/daw/Pro Tools Sesion Guidelines One Sheet.pdf",
+          "bytes": 890726,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/Pro Tools Sesion Guidelines One Sheet.pdf",
+          "sha256": "07f596bf3c40e8ddbbbc8eac900b75b47a5e3036fc78b841a3c2c34cc59cfeba",
+          "signature": "8adaf14a1ed7bfb96aad9a68ab54b2a73f3aa409a06fff5524ccba77a4702ba0"
+        },
+        {
+          "rel": "references/daw/Pro_Tools_6.9_Reference_Guide.pdf",
+          "bytes": 11435271,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/Pro_Tools_6.9_Reference_Guide.pdf",
+          "sha256": "7773fb29e664f3b18864bf7db058a8840882d8fa42bb369a23ca9dfae99a3233",
+          "signature": "e1f654ab733117827e59549f650b8d31c356bab21cfe9045a6a2a9795ccd49a2"
+        },
+        {
+          "rel": "references/daw/Pro_Tools_Quick_Reference_Guide.pdf",
+          "bytes": 17328553,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/Pro_Tools_Quick_Reference_Guide.pdf",
+          "sha256": "42c39672de34991b1d6ebe8e46b40f3cbc9e0298ed3445dc19ba59f3c3c30e58",
+          "signature": "c55184cf6bcb84c6d438168b28ecc4a6c5701c5747886f047d502bc9db853a28"
+        },
+        {
+          "rel": "references/daw/Quick Start Guide.pdf",
+          "bytes": 3798486,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/Quick Start Guide.pdf",
+          "sha256": "8e8ef7693c0475abb2151fd8efd5c2078400fe97fcc93147a3fa8a39e3638ea7",
+          "signature": "60d5d0250fd4fbf6b2ac596fbfb167cf6f48487f6e7cb74bb95d6bfd3c472ed7"
+        },
+        {
+          "rel": "references/daw/R-REC-BS.2076-1-201706-S!!PDF-E.pdf",
+          "bytes": 1938616,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/R-REC-BS.2076-1-201706-S!!PDF-E.pdf",
+          "sha256": "a1e093fc93a09bdfc8d913aeac1099482a6f47a4983fe020674df1146e8e367b",
+          "signature": "2e1829efa194e1c1ed696423030260255745079ce7e20a1da0409cde7bfb3b47"
+        },
+        {
+          "rel": "references/daw/R-REC-BS.2076-2-201910-S!!PDF-E.pdf",
+          "bytes": 4842230,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/R-REC-BS.2076-2-201910-S!!PDF-E.pdf",
+          "sha256": "142d415adcde8ea71973253e08341d817593ca212f69683fc977860263cb1f21",
+          "signature": "83d2da6862ed5a15d9099959b34744c45e8bba3db3fb2610b24e0a732063b2da"
+        },
+        {
+          "rel": "references/daw/R-REC-BS.2076-3-202502-I!!PDF-E.pdf",
+          "bytes": 4600607,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/R-REC-BS.2076-3-202502-I!!PDF-E.pdf",
+          "sha256": "337e78d026331dd8a5cc89f2e87e32b1ef31ac2443a6d21d3b849e847a0c79a1",
+          "signature": "b33b096c4ca61e52c82b9727887c41b64da4ae07ad563d8695e7392c26521158"
+        },
+        {
+          "rel": "references/daw/ReaperUserGuide473C.pdf",
+          "bytes": 12625198,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/ReaperUserGuide473C.pdf",
+          "sha256": "eb12ed564a68dc0aa05b35c653da1d4cb30d7acaf02d5ce443adca78cffa8195",
+          "signature": "1a571555b688b411363b1f6c675efd7c85cff84121ea018c8e7db5efa126a863"
+        },
+        {
+          "rel": "references/daw/ReaperUserGuide530c.pdf",
+          "bytes": 12925950,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/ReaperUserGuide530c.pdf",
+          "sha256": "9a605502fa1e4d782c6a0095b7577d0231a261e306423ac341fde5d2eb8bad4d",
+          "signature": "90875c1817248629c63b38168138d8d7787e099bc8fc05c6da4c9fdd7d8fb69d"
+        },
+        {
+          "rel": "references/daw/Recommendation ITU-R BS.2076-2 (10 2019) - Audio.pdf",
+          "bytes": 4842230,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/Recommendation ITU-R BS.2076-2 (10 2019) - Audio.pdf",
+          "sha256": "142d415adcde8ea71973253e08341d817593ca212f69683fc977860263cb1f21",
+          "signature": "83d2da6862ed5a15d9099959b34744c45e8bba3db3fb2610b24e0a732063b2da"
+        },
+        {
+          "rel": "references/daw/Recommendation ITU-R BS.2076-3 (02 2025) - Audio.pdf",
+          "bytes": 4600607,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/Recommendation ITU-R BS.2076-3 (02 2025) - Audio.pdf",
+          "sha256": "337e78d026331dd8a5cc89f2e87e32b1ef31ac2443a6d21d3b849e847a0c79a1",
+          "signature": "b33b096c4ca61e52c82b9727887c41b64da4ae07ad563d8695e7392c26521158"
+        },
+        {
+          "rel": "references/daw/STEINBERG_NUENDO4_ENG.pdf",
+          "bytes": 16315243,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/STEINBERG_NUENDO4_ENG.pdf",
+          "sha256": "267464e90ad0c49ff84153c44e4479301688ad934b7d50a4c51d1aa7b4c2f3bd",
+          "signature": "61704c2d1e2106b605941ea40c4e7dc9ca0ed335128b695230009ed2014d4182"
+        },
+        {
+          "rel": "references/daw/[Jeff_Strong]_Pro_Tools_All-in-One_Desk_Reference_(libcats.org).pdf",
+          "bytes": 8151182,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/[Jeff_Strong]_Pro_Tools_All-in-One_Desk_Reference_(libcats.org).pdf",
+          "sha256": "3a5aba85130ef5895c7c0e12bfb6d74fb09007dc9fbc24a018d51f06e6c3e646",
+          "signature": "b0cac5dc5e6fb873f6c3c604c7db148146609cf328ef4b81188c60d749c9f446"
+        },
+        {
+          "rel": "references/daw/dynaudio_manuals_pro_audio_lyd_en.pdf",
+          "bytes": 197627,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/dynaudio_manuals_pro_audio_lyd_en.pdf",
+          "sha256": "c45b25fe75a16e1ef410599f3d87b26e2a6a69d5b7d00c9930efa72334fc86c9",
+          "signature": "7693ae65de4cde20ddf0e4528957d3f3f03c86ffb5d9bc11275da089e1cdc6dc"
+        },
+        {
+          "rel": "references/daw/lm1n_manual (1).pdf",
+          "bytes": 3151318,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/lm1n_manual (1).pdf",
+          "sha256": "068d2cb73f2f38a85b5b5b8ed7d50c1577273c91a54cc0a6cce5562b93caaf8c",
+          "signature": "ae367399722fbcdb4e6c1bf2703735b28cd0534d50be7d2a9d7d77c4914c359e"
+        },
+        {
+          "rel": "references/daw/pt_reference_guide.pdf",
+          "bytes": 9813285,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/pt_reference_guide.pdf",
+          "sha256": "f4bcc8371196dd4eeb599161a7836d582f9dec91a054cfa1137a75769ef68516",
+          "signature": "2e8c045aff00bb6ad08f465739a3957360f69a077bbd7efa866273623b5900e3"
+        },
+        {
+          "rel": "references/daw/r128.pdf",
+          "bytes": 281142,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/r128.pdf",
+          "sha256": "4292cd2396e4cb386c3a6c1412cb4370fc108ef50956e78a24fbd8657ce2ca28",
+          "signature": "a67f7808893607192fc34bca40c657726b85f593a9784d2166d83c8785b36300"
+        },
+        {
+          "rel": "references/daw/tc_electronic_lm2_manual_english (1).pdf",
+          "bytes": 4231169,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/tc_electronic_lm2_manual_english (1).pdf",
+          "sha256": "2abcf8e94e6a183b9a1e2dbc17d8618080edc78762bb5f6de1b008e8a0f9bb8b",
+          "signature": "86a71de0874873222ca6d1cf9e86c904d723ca05ef40e011b57afd1978cf69b6"
+        },
+        {
+          "rel": "references/daw/tc_electronic_lm2_manual_english.pdf",
+          "bytes": 4231169,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/tc_electronic_lm2_manual_english.pdf",
+          "sha256": "2abcf8e94e6a183b9a1e2dbc17d8618080edc78762bb5f6de1b008e8a0f9bb8b",
+          "signature": "86a71de0874873222ca6d1cf9e86c904d723ca05ef40e011b57afd1978cf69b6"
+        },
+        {
+          "rel": "references/daw/tc_electronic_lm2n_lm6n.pdf",
+          "bytes": 4020927,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/tc_electronic_lm2n_lm6n.pdf",
+          "sha256": "93a9dbbe6022bce0311b6c7f771ab077db4650c569f7f0b653faaa8d8b0d2daa",
+          "signature": "bcb11ca3bedab92aa84c7388705765eaa829d5d36e629692044cdca8ec0a0e07"
+        },
+        {
+          "rel": "references/daw/tech3285.pdf",
+          "bytes": 243500,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/tech3285.pdf",
+          "sha256": "60f59140c7dfa4c4b26a9c05914da98a69b47c07d24f07fb02ac2c4b11a7321c",
+          "signature": "43c6d69d1134b1cfede6203a237fe3f0a081fc3e97e84aa0b24694d73f7a14cc"
+        },
+        {
+          "rel": "references/daw/tech3285s2.pdf",
+          "bytes": 248165,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/tech3285s2.pdf",
+          "sha256": "bde61bf800a0f2803afc192250cec235318ec4d2529e59048df0b7217c748053",
+          "signature": "248f892d208562d3d128b31291cc193980ab46cb6cd5bc6ffeccde340b08b8bf"
+        },
+        {
+          "rel": "references/daw/tech3341.pdf",
+          "bytes": 362927,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/tech3341.pdf",
+          "sha256": "dd5a7b0b611024e616b86a42c89eed0ded33f3129afc1994204885216fa1619e",
+          "signature": "bab961de3fbfe55b3505ac2d70f0a40265984e9c78f15f5c253c02a97f49e383"
+        },
+        {
+          "rel": "references/daw/tech3341v2_0.pdf",
+          "bytes": 1097710,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/tech3341v2_0.pdf",
+          "sha256": "08379f4a50eff2546e0d5405e1eb2f709596f58cb66dd6893074bacf24c5582d",
+          "signature": "0841c2c1bd96b07e56338fa0345b370c11fd75590d778c946bd66b976bd7e0dd"
+        },
+        {
+          "rel": "references/daw/tech3364v2_0.pdf",
+          "bytes": 204973,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/tech3364v2_0.pdf",
+          "sha256": "d140a49f1ddb47cd546c9d9f239524190cda2d9af594d4f8da0a171d3856f2f8",
+          "signature": "1e62df7b5b4b5900a0844136f5a29b035bf3679dff7546ae76e1d60a9ed9c2ed"
+        },
+        {
+          "rel": "references/daw/waveform-quick-start-guide.pdf",
+          "bytes": 11016640,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/daw/waveform-quick-start-guide.pdf",
+          "sha256": "b8f57c1e18fe943da96f4c0cb27e34a2a22389d92343e1ef077322f9e5c630a0",
+          "signature": "5a161521a253d06546941c0629cec46395e3adddd7ea5d6cc15bf3df12fcebf4"
+        },
+        {
+          "rel": "references/hardware/datasheets/AD8065 AD8066 High Performance, 145 MHz FastFET™.pdf",
+          "bytes": 373210,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/hardware/datasheets/AD8065 AD8066 High Performance, 145 MHz FastFET™.pdf",
+          "sha256": "348f9136689b84e60ec69517cb5dc1dd85137954b13b19ce26cb35ee95b94f62",
+          "signature": "17dd4709c62a7178cbcc71f59b0d32feac59e8adfb27952d567cb52bcdb57713"
+        },
+        {
+          "rel": "references/hardware/datasheets/AD8065_8066_RevE_p1-8.pdf",
+          "bytes": 373210,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/hardware/datasheets/AD8065_8066_RevE_p1-8.pdf",
+          "sha256": "348f9136689b84e60ec69517cb5dc1dd85137954b13b19ce26cb35ee95b94f62",
+          "signature": "17dd4709c62a7178cbcc71f59b0d32feac59e8adfb27952d567cb52bcdb57713"
+        },
+        {
+          "rel": "references/patents/(12) United States Patent.pdf",
+          "bytes": 3558457,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/patents/(12) United States Patent.pdf",
+          "sha256": "d8a64264d6f566fbf6d04eb8aa34aa67fd122d400ddf05dd7ba168647f298a4b",
+          "signature": "b2c06368d62611184b7ca072cf87e14c149c5d4244e16b65783d516bfc0d204c"
+        },
+        {
+          "rel": "references/patents/US10534019-full.pdf",
+          "bytes": 3558457,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/patents/US10534019-full.pdf",
+          "sha256": "d8a64264d6f566fbf6d04eb8aa34aa67fd122d400ddf05dd7ba168647f298a4b",
+          "signature": "b2c06368d62611184b7ca072cf87e14c149c5d4244e16b65783d516bfc0d204c"
+        },
+        {
+          "rel": "references/patents/Патент США 5122996.pdf",
+          "bytes": 1145761,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/patents/Патент США 5122996.pdf",
+          "sha256": "2ebe9d901c06bc8ba46b41a929d86df138d222a3768b5613f2a350910f60adc4",
+          "signature": "872fd6c3838a25362a322a45073868dda1d3783166268f7b620674c816c06c52"
+        },
+        {
+          "rel": "references/standards/PAS-Understanding-ISA-18-2.pdf",
+          "bytes": 842963,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/standards/PAS-Understanding-ISA-18-2.pdf",
+          "sha256": "991e230e0459c2cf5680871cffe2a7ccd463c15229345eb290967a470c4c60c6",
+          "signature": "e46e291e2a01a70f9f66a380f0ed70c29d17c98bff3a3aa8febf9026491bf89d"
+        },
+        {
+          "rel": "references/vendor/rme/fface800_e.pdf",
+          "bytes": 1049144,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/vendor/rme/fface800_e.pdf",
+          "sha256": "07c5c87537dafaff5b6de262e43e4c03b81153b77a57102e784694b230f84b41",
+          "signature": "f6d3305bfb59d675db1ab88a0c78570f6b2c186a7d4955689b8fd173a02ed5a6"
+        },
+        {
+          "rel": "references/vendor/rme/fface_uc_ru.pdf",
+          "bytes": 2411352,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/vendor/rme/fface_uc_ru.pdf",
+          "sha256": "f3d1ba8d1e9ebad234190e4bf253d0c8027c296a8265815debd6a6a033904c4c",
+          "signature": "215fef79ae58e280fdbec37e86ac3b67145f6469ff2969e04bf867b829e5fb6e"
+        },
+        {
+          "rel": "references/vendor/rme/fface_ucx_ru.pdf",
+          "bytes": 2121124,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/vendor/rme/fface_ucx_ru.pdf",
+          "sha256": "fe37ac0196163147365ea56cf122984e89ae0242d6ae1ee54229d6db003ccc9a",
+          "signature": "9d69f2d2034079bced89dea593eae3f35b3702a033129632f78a6c7e3a086f3a"
+        },
+        {
+          "rel": "references/vendor/rme/fface_ufx_e.pdf",
+          "bytes": 1577947,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/vendor/rme/fface_ufx_e.pdf",
+          "sha256": "8f7e41e6a60479ee44f5ad4c20416115b503a9ce930a7bbf2cae03f996fb6b63",
+          "signature": "ec14b72778ba3ede6b0fbdfa018f991f0a6b775cfcdad5db819c10ae190df1a4"
+        },
+        {
+          "rel": "references/vendor/rme/fface_ufxplus_e.pdf",
+          "bytes": 1880671,
+          "ext": "pdf",
+          "зона": "приватная",
+          "abs": "/home/user/prefedoc/-Ctpu-bintape-timechannel-/references/vendor/rme/fface_ufxplus_e.pdf",
+          "sha256": "61c45723a90fd50ef9f07ab6d96c89b8f58abe2100a9f5f08e6ddbd7683cf7bd",
+          "signature": "6908ddc97c8f0d471f1cadbb6c2d43d032df7fab8ba328017f54cdda16e4cfee"
+        }
+      ],
       "skipped": [],
-      "total": 0
+      "total": 86
     }
   ]
 }
