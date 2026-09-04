@@ -118,6 +118,9 @@ def main():
     ap.add_argument("--workspace", default="/home/user", help="каталог, где лежат клоны репозиториев")
     ap.add_argument("--out", default=str(HERE.parent), help="куда писать INVENTORY.md и inventory.json")
     ap.add_argument("--hash", action="store_true", help="считать sha256 (медленно, для сверки после переноса)")
+    ap.add_argument("--from-zones", action="store_true",
+                    help="обходить зоны (refedoc, prefedoc), а не клоны источников: "
+                         "после переноса материал живёт там")
     ap.add_argument("--signature", action="store_true",
                     help="считать подпись содержимого — ловит один документ в разных обёртках")
     args = ap.parse_args()
@@ -130,7 +133,34 @@ def main():
     for r in repos:
         r["_exts"] = rules["extensions"]
 
+    zones = rules.get("zones", {})
+
     def work(rule):
+        if args.from_zones:
+            merged = {"taken": [], "skipped": [], "total": 0}
+            for zname, zdir in zones.items():
+                zroot = ws / zdir / rule["repo"]
+                if not zroot.is_dir():
+                    continue
+                zrule = dict(rule); zrule["include"] = [""]; zrule["exclude"] = []
+                res = scan_repo(zroot, zrule)
+                for rec in res["taken"]:
+                    rec["зона"] = zname
+                    rec["abs"] = str(zroot / rec["rel"])
+                merged["taken"] += res["taken"]
+                merged["skipped"] += res["skipped"]
+                merged["total"] += res["total"]
+            if args.hash:
+                with ThreadPoolExecutor(max_workers=8) as ex:
+                    for rec, h in zip(merged["taken"],
+                                      ex.map(lambda rc: sha256(Path(rc["abs"])), merged["taken"])):
+                        rec["sha256"] = h
+            if args.signature:
+                with ThreadPoolExecutor(max_workers=4) as ex:
+                    for rec, sg in zip(merged["taken"],
+                                       ex.map(lambda rc: signature(Path(rc["abs"])), merged["taken"])):
+                        rec["signature"] = sg
+            return rule, merged
         root = ws / rule["clone"]
         if not root.is_dir():
             return rule, {"taken": [], "skipped": [], "total": 0, "error": f"нет клона: {root}"}

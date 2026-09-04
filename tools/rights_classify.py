@@ -157,6 +157,27 @@ def main():
 
     # Решения прямого чтения перекрывают автоматический разбор: улика,
     # прочитанная человеком или зрением, старше улики, найденной по образцу.
+    # Решение принимается о ДОКУМЕНТЕ, а не о строке пути: после
+    # переименования в понятное имя (канон §4е) путь меняется, и решение
+    # обязано идти за файлом. Мост строится по указателям имён обеих зон.
+    # Замер 2026-09-04: без него 44 принятых решения перестали находиться, и
+    # уже разобранные патенты снова показались «не определён».
+    alias = {}
+    for zdir in ("refedoc", "prefedoc"):
+        np = ws / zdir / "имена.json"
+        if not np.is_file():
+            continue
+        try:
+            for r in json.loads(np.read_text(encoding="utf-8")):
+                src = r.get("источник")
+                cur = r.get("стало_путь") or r.get("путь")
+                if src and cur:
+                    alias[cur] = src            # «где лежит» → «как называлось»
+                elif cur and r.get("было"):
+                    alias[cur] = str(Path(cur).with_name(r["было"]))
+        except (OSError, ValueError):
+            pass
+
     man_path = HERE / "rights_manual.json"
     manual = {}
     if man_path.is_file():
@@ -164,7 +185,12 @@ def main():
             manual[(m["repo"], m["rel"])] = m
     applied = 0
     for x in rows:
+        key_now = f"{x['repo']}/{x['rel']}"
+        src = alias.get(key_now)
         m = manual.get((x["repo"], x["rel"]))
+        if not m and src:
+            srepo, _, srel = src.partition("/")
+            m = manual.get((srepo, srel))
         if not m:
             continue
         x["verdict"] = m["verdict"]

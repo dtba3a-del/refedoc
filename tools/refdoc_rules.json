@@ -1,30 +1,52 @@
 {
   "_": "Правила отбора справочного материала. Инструмент читает ЭТОТ файл; править надо здесь, а не в производных списках.",
-  "extensions": ["pdf", "djvu", "djv"],
+  "extensions": [
+    "pdf",
+    "djvu",
+    "djv"
+  ],
   "repos": [
     {
       "repo": "GPIBNIE7-12",
       "clone": "gpibnie7-12",
       "order": 1,
-      "include": ["docs/"],
-      "exclude": ["inbox/"],
+      "include": [
+        "docs/"
+      ],
+      "exclude": [
+        "inbox/"
+      ],
       "note": "docs/ — патенты, ГОСТы, схемы и ТО Е7-12, статьи. inbox/from-user/ — распоряжения автора, не справочник."
     },
     {
       "repo": "InvesePolar",
       "clone": "InvesePolar",
       "order": 2,
-      "include": ["inbox/sci_data/", "inbox/запрос материалов — SCI/", "notes/материалы/"],
-      "exclude": ["inbox/raw/"],
+      "include": [
+        "inbox/sci_data/",
+        "inbox/запрос материалов — SCI/",
+        "notes/материалы/"
+      ],
+      "exclude": [
+        "inbox/raw/"
+      ],
       "note": "inbox/raw/ — рабочее сырьё бесед, не внешний справочник."
     },
     {
       "repo": "-Ctpu-bintape-timechannel-",
       "clone": "-Ctpu-bintape-timechannel-",
       "order": 3,
-      "include": ["references/", "docs/"],
+      "include": [
+        "references/",
+        "docs/"
+      ],
       "exclude": [],
       "note": "references/ — оформленный справочный каталог (appnotes, patents, daw, vendor, standards). docs/*.pdf — руководства OpenHantek."
     }
-  ]
+  ],
+  "zones": {
+    "публичная": "refedoc",
+    "приватная": "prefedoc"
+  },
+  "_зоны": "После переноса материал живёт не в источниках, а в двух зонах. Перепись и разбор прав ходят по зонам (--from-zones); обход по источникам оставлен для стадии, когда перенос ещё не сделан."
 }
