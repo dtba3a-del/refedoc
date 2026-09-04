@@ -50,7 +50,7 @@ FORBIDDEN_TEXT = [
     (re.compile(r"(?m)^\s*<(user|assistant)_message>"), "разметка стенограммы в XML", True),
 ]
 
-TEXT_EXT = {".md", ".txt", ".py", ".json", ".sh", ".yml", ".yaml", ".toml", ".cfg",
+TEXT_EXT = {".md", ".txt", ".py", ".json", ".sh", ".ps1", ".yml", ".yaml", ".toml", ".cfg",
             ".ini", ".c", ".h", ".cpp", ".js", ".ts", ".html", ".csv", ".rst", ""}
 MAX_SCAN = 4 << 20  # 4 МиБ: дальше не читаем и объявляем это числом
 
