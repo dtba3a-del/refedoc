@@ -92,6 +92,16 @@ def check_rights(paths):
     """
     viol, checked = [], 0
     rm = rights_map()
+    # Решение автора по файлам в состоянии «не установлено» перекрывает разбор:
+    # сведений нет, и выбор принадлежит тому, кто несёт последствия.
+    dec = REPO / "tools" / "rights_decision.json"
+    decided = {}
+    if dec.is_file():
+        try:
+            for r in json.loads(dec.read_text(encoding="utf-8"))["records"]:
+                decided[f"{r['repo']}/{r['rel']}"] = r["verdict"]
+        except (OSError, ValueError, KeyError):
+            decided = {}
     for raw in paths:
         r = rel(Path(raw))
         if not any(r.startswith(m) for m in MATERIAL_ROOTS):
@@ -103,7 +113,7 @@ def check_rights(paths):
             viol.append((r, "разбора прав нет вовсе (нет rights.json): "
                             "запустите tools/rights_classify.py"))
             continue
-        v = rm.get(r)
+        v = decided.get(r, rm.get(r))
         if v == "публично":
             continue
         viol.append((r, f"правовое решение: {v or 'файла нет в разборе'} — "
