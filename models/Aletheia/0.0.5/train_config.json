@@ -1,0 +1,14 @@
+{
+  "name": "Aletheia",
+  "stage": "0.0.5",
+  "base": "Qwen/Qwen2.5-7B-Instruct",
+  "base_license": "Apache-2.0",
+  "method": "QLoRA 4-bit nf4, r=16, alpha=32, dropout=0.05, targets q/k/v/o/gate/up/down",
+  "max_len": 2048,
+  "epochs": 2,
+  "lr": 2e-4,
+  "batch": 1,
+  "grad_accum": 8,
+  "export": "GGUF Q4_K_M и Q8_0 (llama.cpp) для LM Studio",
+  "release": "веса — в GitHub Releases частями до 2 ГБ; сборка: cat Aletheia-0.0.5-Q4_K_M.gguf.part-* > Aletheia-0.0.5-Q4_K_M.gguf"
+}
