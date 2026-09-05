@@ -44,8 +44,13 @@ MARKS = {
     "/XFA": "форма XFA",
 }
 INFO = {"/URI": "внешняя ссылка"}
-DANGEROUS = {"/JavaScript", "/JS", "/Launch", "/EmbeddedFile", "/RichMedia", "/XFA",
-             "/OpenAction", "/AA"}
+# Тяжесть разная, и смешивать её нельзя. Замер 2026-09-05: при одном общем
+# разряде «опасно» набралось 90 файлов из 123 — потому что /OpenAction и /AA
+# стоят почти в каждом журнальном PDF (настройки просмотра, действия
+# страницы) и вредоносности не означают. Признак, срабатывающий на трёх
+# четвертях корпуса, не признак, а шум: он не отделяет, а усыпляет.
+ИСПОЛНЯЕМОЕ = {"/JavaScript", "/JS", "/Launch", "/EmbeddedFile", "/RichMedia", "/XFA"}
+ОБЫЧНОЕ = {"/OpenAction", "/AA", "/Movie", "/Sound", "/Filespec"}
 
 
 def scan(path: Path) -> dict:
@@ -72,7 +77,8 @@ def scan(path: Path) -> dict:
                 info[k] = info.get(k, 0) + n
     return {"файл": str(path), "исполняемое": {k: v for k, v in found.items()},
             "для сведения": info,
-            "опасно": sorted(set(found) & DANGEROUS),
+            "исполняемое (тяжёлое)": sorted(set(found) & ИСПОЛНЯЕМОЕ),
+            "обычное для PDF": sorted(set(found) & ОБЫЧНОЕ),
             "потоков распаковано": len(blobs) - 1}
 
 
@@ -88,12 +94,17 @@ def main():
     files = [f for f in root.rglob("*.pdf") if f.is_file() and ".git" not in f.parts]
     with ThreadPoolExecutor(max_workers=a.jobs) as ex:
         rows = list(ex.map(scan, files))
-    bad = [r for r in rows if r.get("опасно")]
-    print(f"просмотрено файлов: {len(rows)}; с исполняемой частью: {len(bad)}")
+    bad = [r for r in rows if r.get("исполняемое (тяжёлое)")]
+    routine = [r for r in rows if r.get("обычное для PDF") and not r.get("исполняемое (тяжёлое)")]
+    print(f"просмотрено файлов: {len(rows)}")
+    print(f"  со ВСТРОЕННОЙ ПРОГРАММОЙ (сценарий, запуск, вложение, XFA): {len(bad)}")
+    print(f"  только с обычными для PDF действиями (/OpenAction, /AA): {len(routine)} — "
+          f"это не признак вредоносного")
     for r in bad:
-        print(f"  ! {Path(r['файл']).name[:60]}")
         det = r["исполняемое"]
-        print("      " + ", ".join(f"{k}×{det[k]} ({MARKS[k]})" for k in r["опасно"]))
+        print(f"  ! {Path(r['файл']).name[:60]}")
+        print("      " + ", ".join(f"{k}×{det[k]} ({MARKS[k]})"
+                                   for k in r["исполняемое (тяжёлое)"]))
     if a.out:
         Path(a.out).write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"подробности: {a.out}")
