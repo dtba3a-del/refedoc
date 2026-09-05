@@ -78,7 +78,21 @@ def main(argv=None) -> int:
     from datasets import Dataset
     from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
     from transformers import (AutoModelForCausalLM, AutoTokenizer, DataCollatorForSeq2Seq, Trainer,
-                              TrainingArguments)
+                              TrainerCallback, TrainingArguments)
+
+    out = pathlib.Path(a.out); out.mkdir(parents=True, exist_ok=True)
+    progress_path = out / "PROGRESS.json"
+    t_start = time.perf_counter()
+
+    def progress(**kw):
+        """Ход — файлом, который читает run_local.py каждую минуту (письмо
+        хоста 05.09: «молчаливое поведение не даёт информации о состоянии»)."""
+        kw["когда"] = time.strftime("%Y-%m-%dT%H:%M:%S")
+        kw["прошло, с"] = round(time.perf_counter() - t_start)
+        progress_path.write_text(json.dumps(kw, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    progress(этап="загрузка базы", база=a.base)
+    print(f"[{time.strftime('%H:%M:%S')}] загрузка базы {a.base} (первый раз — скачивание, минуты)", flush=True)
 
     cuda = torch.cuda.is_available()
     tok = AutoTokenizer.from_pretrained(a.base)
@@ -108,23 +122,52 @@ def main(argv=None) -> int:
             rows = rows[:a.max_examples]
         return Dataset.from_list(list(windows(rows, tok, a.max_len)))
 
+    progress(этап="окна набора")
     train_ds, val_ds = load("train"), load("val")
     print(f"окон: train {len(train_ds)}, val {len(val_ds)}; max_len {a.max_len}; cuda {cuda}")
+    import math
+    full_total = math.ceil(len(train_ds) / (a.batch * a.accum)) * max(a.epochs, 1e-9)
+    full_total = int(math.ceil(full_total))
+
+    class Progress(TrainerCallback):
+        """PROGRESS.json на каждом логе: шаг, всего, с/шаг, остаток, loss."""
+        def __init__(self):
+            self.t0 = None
+        def on_train_begin(self, args, state, control, **kw):
+            self.t0 = time.perf_counter()
+            progress(этап="train", шаг=0, всего=state.max_steps, **{"полных шагов": full_total})
+        def on_log(self, args, state, control, logs=None, **kw):
+            done = max(state.global_step, 1)
+            sps = round((time.perf_counter() - self.t0) / done, 2)
+            left = round(sps * max(state.max_steps - state.global_step, 0))
+            loss = (logs or {}).get("loss")
+            progress(этап="train", шаг=state.global_step, всего=state.max_steps, **{"с/шаг": sps, "осталось, с": left,
+                     "loss": loss, "полных шагов": full_total})
+            print(f"[{time.strftime('%H:%M:%S')}] шаг {state.global_step}/{state.max_steps}, {sps} с/шаг, осталось ~{left // 60} мин, loss {loss}", flush=True)
     args = TrainingArguments(output_dir=a.out, per_device_train_batch_size=a.batch, gradient_accumulation_steps=a.accum,
                              num_train_epochs=a.epochs, max_steps=a.steps if a.steps > 0 else -1, learning_rate=a.lr,
-                             lr_scheduler_type="cosine", warmup_steps=10, logging_steps=10, save_strategy="epoch",
+                             lr_scheduler_type="cosine", warmup_steps=10, logging_steps=5, save_strategy="epoch", disable_tqdm=False,
                              eval_strategy="epoch" if len(val_ds) else "no", bf16=cuda, fp16=False,
                              gradient_checkpointing=cuda, report_to=[], remove_unused_columns=False)
     trainer = Trainer(model=model, args=args, train_dataset=train_ds, eval_dataset=val_ds if len(val_ds) else None,
-                      data_collator=DataCollatorForSeq2Seq(tok, padding=True, label_pad_token_id=-100))
+                      data_collator=DataCollatorForSeq2Seq(tok, padding=True, label_pad_token_id=-100),
+                      callbacks=[Progress()])
     t0 = time.perf_counter()
     trainer.train()
     dt = time.perf_counter() - t0
-    out = pathlib.Path(a.out); out.mkdir(parents=True, exist_ok=True)
+    steps_done = max(trainer.state.global_step, 1)
+    progress(этап="сохранение адаптера", шаг=trainer.state.global_step, всего=trainer.state.max_steps,
+             **{"с/шаг": round(dt / steps_done, 2), "полных шагов": full_total})
     model.save_pretrained(out / "adapter"); tok.save_pretrained(out / "adapter")
+    import hashlib
+    tr_path = pathlib.Path(a.data) / "train.jsonl"
     report = {"база": a.base, "окон train": len(train_ds), "окон val": len(val_ds), "шагов": trainer.state.global_step,
-              "время, с": round(dt, 1), "cuda": cuda, "потеря последняя": next((h["loss"] for h in reversed(trainer.state.log_history) if "loss" in h), None)}
+              "полных шагов при epochs": full_total, "с/шаг": round(dt / steps_done, 2),
+              "время, с": round(dt, 1), "cuda": cuda, "потеря последняя": next((h["loss"] for h in reversed(trainer.state.log_history) if "loss" in h), None),
+              "набор sha256": hashlib.sha256(tr_path.read_bytes()).hexdigest()[:16] if tr_path.is_file() else None,
+              "набор байт": tr_path.stat().st_size if tr_path.is_file() else None}
     if not a.no_merge:
+        progress(этап="слияние адаптера с базой", шаг=trainer.state.global_step, всего=trainer.state.max_steps)
         merged = model.merge_and_unload() if not cuda or "quantization_config" not in kw else None
         if merged is None:
             # QLoRA: слияние — в bf16 поверх незаквантованной базы
@@ -134,6 +177,7 @@ def main(argv=None) -> int:
         merged.save_pretrained(out / "merged"); tok.save_pretrained(out / "merged")
         report["слито"] = str(out / "merged")
     (out / "TRAIN_REPORT.json").write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+    progress(этап="готово", шаг=trainer.state.global_step, всего=trainer.state.max_steps, **{"с/шаг": report["с/шаг"], "полных шагов": full_total})
     print(json.dumps(report, ensure_ascii=False, indent=1))
     return 0
 
