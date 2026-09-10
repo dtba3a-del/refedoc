@@ -9,6 +9,7 @@
     python run_local.py --only probe         # один шаг: probe|data|train|leak|gguf
     python run_local.py --data <папка с train.jsonl/val.jsonl>
     python run_local.py --base Qwen/Qwen2.5-3B-Instruct --max-len 512
+    python run_local.py --variant t                # сборка 0.0.5t — учитель ОП-геометрии (набор data_t/, GGUF Aletheia-0.0.5t)
 
 Каждый шаг пишет отметку в runs/LOCAL_STATE.json; повтор команды
 продолжает с места остановки (--redo — повторить сделанное).
@@ -45,6 +46,10 @@ HERE = pathlib.Path(__file__).resolve().parent
 RUNS = HERE / "runs"
 STATE = RUNS / "LOCAL_STATE.json"
 STEPS = ("probe", "data", "train", "leak", "gguf")
+STAGE = "0.0.5"
+#: Сборки (слово автора 10.09): "" — базовая; "t" — teacher, по умолчанию учитель ОП-геометрии
+#: (набор data_t/ собирается сборщиком источника с флагом --teacher; системная подсказка учителя внутри набора).
+VARIANTS = {"": "исполнитель проекта Ф-чисел", "t": "учитель ОП-геометрии: курс с нуля до задач высшей сложности"}
 SOURCE_REPO = "InvesePolar"     # репозиторий-источник (приватный): там сборщик набора
 
 #: Профиль хоста по VRAM: (порог GiB, база, max_len). 7B в 4 битах не входит в 4 GiB.
@@ -285,13 +290,16 @@ def main(argv=None) -> int:
     ap.add_argument("--base", default=None, help="база; без флага — по профилю хоста (VRAM)")
     ap.add_argument("--max-len", type=int, default=None, help="без флага — по профилю хоста")
     ap.add_argument("--epochs", type=float, default=2.0)
-    ap.add_argument("--out", default="runs/aiasa-0.0.5", help="папка прогона ОТНОСИТЕЛЬНО комплекта")
+    ap.add_argument("--out", default=None, help="папка прогона ОТНОСИТЕЛЬНО комплекта (по умолчанию runs/aiasa-0.0.5<вариант>)")
+    ap.add_argument("--variant", default="", choices=sorted(VARIANTS), help="сборка: '' — базовая, t — учитель ОП-геометрии (набор data_t/, GGUF Aletheia-0.0.5t)")
     ap.add_argument("--cpu-ok", action="store_true", help="учить на CPU, даже если GPU есть, а CUDA в torch нет")
     ap.add_argument("--redo", action="store_true", help="повторить уже сделанные шаги")
     ap.add_argument("--status", action="store_true", help="показать ход и выйти (ничего не запускать)")
     ap.add_argument("--no-probe", action="store_true", help="не мерить скорость (3 шага) перед обучением")
     ap.add_argument("--max-hours", type=float, default=0, help="если оценка времени обучения больше — не начинать (0 — без предела)")
     a = ap.parse_args(argv)
+    if a.out is None:
+        a.out = f"runs/aiasa-{STAGE}{a.variant}"
     if a.status:
         return status(a.out)
     if not take_lock():
@@ -305,7 +313,10 @@ def main(argv=None) -> int:
 def _main(a) -> int:
     st = load()
     py = sys.executable
-    data_dir = absol(a.data if a.data else (st.get("data") or "data"), must_exist="train.jsonl")
+    data_dir = absol(a.data if a.data else (st.get("data") or f"data{'_' + a.variant if a.variant else ''}"), must_exist="train.jsonl")
+    if a.variant:
+        print(f"сборка {STAGE}{a.variant}: {VARIANTS[a.variant]}")
+        st["сборка"] = f"{STAGE}{a.variant}"
     steps = [a.only] if a.only else list(STEPS)
     for step in steps:
         if not a.redo and st["шаги"].get(step, {}).get("код") == 0 and step != "probe":
@@ -350,8 +361,8 @@ def _main(a) -> int:
                     if not a.only:
                         return 5
                     continue
-                rc = run([py, "-B", builder], st, step, cwd=builder.parent)
-                data_dir = builder.parent / "data"
+                rc = run([py, "-B", builder] + (["--teacher"] if a.variant == "t" else []), st, step, cwd=builder.parent)
+                data_dir = builder.parent / ("data_t" if a.variant == "t" else "data")
             st["data"] = rel(data_dir)
             tr = data_dir / "train.jsonl"
             if tr.is_file():
@@ -398,7 +409,7 @@ def _main(a) -> int:
                       "&& pip install -r llama.cpp/requirements.txt && cmake -B llama.cpp/build -S llama.cpp && cmake --build llama.cpp/build --config Release -j")
                 st["шаги"][step] = {"код": 3, "почему": "нет llama.cpp"}; save(st)
                 continue
-            rc = run([py, "-B", HERE / "export_gguf.py", absol(a.out) / "merged", "Aletheia-0.0.5", "--llama", llama, "--outdir", HERE], st, step)
+            rc = run([py, "-B", HERE / "export_gguf.py", absol(a.out) / "merged", f"Aletheia-{STAGE}{a.variant}", "--llama", llama, "--outdir", HERE], st, step)
         if rc != 0 and not a.only:
             print(f"!! шаг {step} завершился кодом {rc}; остальное не запускалось. Повтор: python {HERE / pathlib.Path(__file__).name}")
             return rc
