@@ -12,6 +12,11 @@
 
 Каждый шаг пишет отметку в runs/LOCAL_STATE.json; повтор команды
 продолжает с места остановки (--redo — повторить сделанное).
+Пути: всё относительно ПАПКИ КОМПЛЕКТА (где лежит этот файл), а не текущей
+папки оболочки — команда работает из любой папки: `python C:\\0.0.5\\run_local.py`.
+llama.cpp ищется в папке комплекта, рядом с ней и по LLAMA_CPP; GGUF кладётся в
+папку комплекта. Копия папки — своя: состояние другой папки распознаётся по
+записанной в нём папке и отбрасывается.
 Что прислать обратно (файлами): runs/LOCAL_STATE.json,
 runs/aiasa-0.0.5/TRAIN_REPORT.json, runs/aiasa-0.0.5/merged/LEAK_TEST.json,
 host_log.json. Веса (GGUF) — в Releases частями; в чат их не слать.
@@ -25,6 +30,16 @@ import pathlib
 import subprocess
 import sys
 import time
+
+if os.name == "nt":
+    # Вывод в файл на Windows (`python run_local.py > log.txt`) шёл бы в кодировке
+    # консоли (cp1251/cp866) и падал на «→» — пускач, который «не молчит», обязан
+    # печатать при любом перенаправлении.
+    for _stream in (sys.stdout, sys.stderr):
+        try:
+            _stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
 
 HERE = pathlib.Path(__file__).resolve().parent
 RUNS = HERE / "runs"
@@ -51,23 +66,40 @@ def rel(path) -> str:
         return str(p)
 
 
-def absol(path) -> pathlib.Path:
+def absol(path, must_exist: str | None = None) -> pathlib.Path:
+    """Относительный путь считается ОТ ПАПКИ КОМПЛЕКТА, не от текущей папки
+    оболочки: `python C:\\0.0.5\\run_local.py --data data2` из любой папки
+    значит `C:\\0.0.5\\data2`. Для входа (`must_exist` — имя файла, который
+    обязан лежать внутри) допускается запасной вариант от текущей папки, если
+    от папки комплекта его нет: команда, набранная «здесь», не отвергается."""
     p = pathlib.Path(path)
-    return p if p.is_absolute() else HERE / p
+    if p.is_absolute():
+        return p
+    here = HERE / p
+    if must_exist and not (here / must_exist).is_file():
+        cwd = pathlib.Path.cwd() / p
+        if (cwd / must_exist).is_file():
+            return cwd.resolve()
+    return here
 
 
 def load() -> dict:
     if not STATE.is_file():
         return {"шаги": {}}
-    st = json.loads(STATE.read_text(encoding="utf-8"))
-    # Состояние другой папки (скопировано вместе с комплектом) — чужое: его пути
-    # вели бы в исходный процесс. Такие пути отбрасываются, шаги обнуляются.
-    foreign = [k for k in ("data", "out") if st.get(k) and pathlib.Path(st[k]).is_absolute()
-               and not str(pathlib.Path(st[k]).resolve()).startswith(str(HERE))]
-    if foreign:
-        print(f"!! LOCAL_STATE.json несёт абсолютные пути другой папки ({', '.join(st[k] for k in foreign)}) — "
-              f"состояние чужое, начинаю заново в {HERE}")
-        st = {"шаги": {}, "чужое состояние отброшено": {k: st[k] for k in foreign}}
+    try:
+        st = json.loads(STATE.read_text(encoding="utf-8"))
+    except ValueError:
+        print(f"!! {STATE} нечитаем — начинаю заново")
+        return {"шаги": {}}
+    # Состояние другой папки (скопировано вместе с комплектом) — чужое: его
+    # шаги относятся к другому процессу. Узнаётся по записанной папке, а не по
+    # абсолютности путей: набор, собранный в соседнем клоне источника, лежит
+    # вне комплекта законно и абсолютным путём. Сравнение путей — через
+    # pathlib (на Windows без учёта регистра букв и с любым наклоном черты).
+    own = st.get("папка")
+    if own and pathlib.Path(own) != HERE:
+        print(f"!! LOCAL_STATE.json записан в другой папке ({own}) — состояние чужое, начинаю заново в {HERE}")
+        st = {"шаги": {}, "чужое состояние отброшено": {"папка": own, "шаги": st.get("шаги", {})}}
     return st
 
 
@@ -102,7 +134,7 @@ def take_lock() -> bool:
         if pid and _alive(pid):
             print(f"!! в этой папке уже идёт процесс pid {pid} с {info.get('с', '?')} — вторая копия не запускается.\n"
                   f"   Для пробы скопируйте папку целиком (пути относительные, состояние копии своё) или дождитесь конца;\n"
-                  f"   ход текущего: python {pathlib.Path(__file__).name} --status")
+                  f"   ход текущего: python {HERE / pathlib.Path(__file__).name} --status")
             return False
         print(f"   замок от завершившегося процесса pid {pid} снят")
     LOCK.write_text(json.dumps({"pid": os.getpid(), "с": time.strftime("%Y-%m-%dT%H:%M:%S"), "папка": str(HERE)}, ensure_ascii=False), encoding="utf-8")
@@ -233,6 +265,19 @@ def find_builder() -> pathlib.Path | None:
     return None
 
 
+def find_llama() -> pathlib.Path | None:
+    """Клон llama.cpp: в папке комплекта, рядом с ней, по LLAMA_CPP, в текущей папке.
+    Прежде проверялась только текущая папка оболочки — из `C:\\` комплект в
+    `C:\\0.0.5` своего клона не видел."""
+    cands = [HERE / "llama.cpp", HERE.parent / "llama.cpp",
+             pathlib.Path(os.environ["LLAMA_CPP"]) if os.environ.get("LLAMA_CPP") else None,
+             pathlib.Path.cwd() / "llama.cpp"]
+    for c in cands:
+        if c is not None and (c / "convert_hf_to_gguf.py").is_file():
+            return c.resolve()
+    return None
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", choices=STEPS)
@@ -260,7 +305,7 @@ def main(argv=None) -> int:
 def _main(a) -> int:
     st = load()
     py = sys.executable
-    data_dir = pathlib.Path(a.data) if a.data else absol(st.get("data") or "data")
+    data_dir = absol(a.data if a.data else (st.get("data") or "data"), must_exist="train.jsonl")
     steps = [a.only] if a.only else list(STEPS)
     for step in steps:
         if not a.redo and st["шаги"].get(step, {}).get("код") == 0 and step != "probe":
@@ -347,17 +392,19 @@ def _main(a) -> int:
             if rc != 0:
                 print("!! досмотр не пройден: веса НЕ публиковать (см. LEAK_TEST.json)")
         elif step == "gguf":
-            if not pathlib.Path("llama.cpp").is_dir():
-                print("!! llama.cpp не найден рядом: git clone https://github.com/ggml-org/llama.cpp && pip install -r llama.cpp/requirements.txt && cmake -B llama.cpp/build -S llama.cpp && cmake --build llama.cpp/build --config Release -j")
+            llama = find_llama()
+            if llama is None:
+                print(f"!! llama.cpp не найден ни в {HERE}, ни рядом с ней, ни по LLAMA_CPP: cd {HERE} && git clone https://github.com/ggml-org/llama.cpp "
+                      "&& pip install -r llama.cpp/requirements.txt && cmake -B llama.cpp/build -S llama.cpp && cmake --build llama.cpp/build --config Release -j")
                 st["шаги"][step] = {"код": 3, "почему": "нет llama.cpp"}; save(st)
                 continue
-            rc = run([py, "-B", HERE / "export_gguf.py", absol(a.out) / "merged", "Aletheia-0.0.5"], st, step)
+            rc = run([py, "-B", HERE / "export_gguf.py", absol(a.out) / "merged", "Aletheia-0.0.5", "--llama", llama, "--outdir", HERE], st, step)
         if rc != 0 and not a.only:
-            print(f"!! шаг {step} завершился кодом {rc}; остальное не запускалось. Повтор: python {pathlib.Path(__file__).name}")
+            print(f"!! шаг {step} завершился кодом {rc}; остальное не запускалось. Повтор: python {HERE / pathlib.Path(__file__).name}")
             return rc
     print("\nитог:", json.dumps(st["шаги"], ensure_ascii=False))
     print(f"прислать: {STATE}, {absol(a.out) / 'TRAIN_REPORT.json'}, {absol(a.out) / 'merged' / 'LEAK_TEST.json'}, {HERE / 'host_log.json'}")
-    print(f"ход в любой момент: python {pathlib.Path(__file__).name} --status")
+    print(f"ход в любой момент: python {HERE / pathlib.Path(__file__).name} --status")
     return 0
 
 
