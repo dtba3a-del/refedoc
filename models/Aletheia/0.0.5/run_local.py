@@ -36,6 +36,7 @@ host_log.json. Веса (GGUF) — в Releases частями; в чат их н
 from __future__ import annotations
 
 import argparse
+import importlib
 import json
 import os
 import pathlib
@@ -66,6 +67,26 @@ SOURCE_REPO = "InvesePolar"     # репозиторий-источник (пр�
 SOURCE_URL = "https://github.com/dtba3a-del/InvesePolar"
 LLAMA_URL = "https://github.com/ggml-org/llama.cpp"
 NEEDED = ("torch", "transformers", "peft", "datasets", "accelerate")
+# Имена пакетов pip, отличные от имени модуля, по платформе. Сборки `triton`
+# на PyPI выложены только для Linux: на Windows `pip install triton` даёт
+# «No matching distribution found (from versions: none)», а рабочая сборка
+# зовётся `triton-windows` (woct0rdho; версия к torch: 2.8 ↔ 3.4, 2.9 ↔ 3.5,
+# 2.10 ↔ 3.6). Комплекту triton не нужен — ни один шаг его не ввозит; ставится
+# только по --triton (для torch.compile).
+PIP_NAMES = {"triton": {"nt": "triton-windows<3.7"}}
+
+
+def pip_name(module: str) -> str:
+    """Имя пакета pip для модуля на этой платформе (по умолчанию — то же имя)."""
+    return PIP_NAMES.get(module, {}).get(os.name, module)
+
+
+def _importable(module: str) -> bool:
+    try:
+        importlib.import_module(module)
+        return True
+    except Exception:
+        return False
 
 #: Профиль хоста по VRAM: (порог GiB, база, max_len). 7B в 4 битах не входит в 4 GiB.
 PROFILES = ((12, "Qwen/Qwen2.5-7B-Instruct", 2048), (6, "Qwen/Qwen2.5-3B-Instruct", 1024),
@@ -332,9 +353,18 @@ def deploy(a, st: dict) -> dict:
     # 1. модули Python
     miss = missing_modules()
     if miss and not a.no_net:
-        _run_quiet([py, "-m", "pip", "install", "--quiet", *miss, "bitsandbytes"])
+        _run_quiet([py, "-m", "pip", "install", "--quiet", *[pip_name(m) for m in miss], "bitsandbytes"])
         miss = missing_modules()
     rep["модули"] = "все на месте" if not miss else f"не хватает {miss}"
+    # 1б. triton — только по просьбе (torch.compile); на Windows — triton-windows
+    if getattr(a, "triton", False):
+        if _importable("triton"):
+            rep["triton"] = "есть"
+        elif a.no_net:
+            rep["triton"] = f"нет; --no-net — не ставился (pip install {pip_name('triton')!r})"
+        else:
+            _run_quiet([py, "-m", "pip", "install", "--quiet", pip_name("triton")])
+            rep["triton"] = f"поставлен как {pip_name('triton')!r}" if _importable("triton") else f"не ввозится после pip install {pip_name('triton')!r}"
     # 2. torch с CUDA при карте NVIDIA
     prof = host_profile()
     if prof.get("vram_MiB") and not prof.get("cuda") and not a.cpu_ok and not a.no_net:
@@ -401,6 +431,7 @@ def main(argv=None) -> int:
     ap.add_argument("--max-hours", type=float, default=0, help="если оценка времени обучения больше — не начинать (0 — без предела)")
     ap.add_argument("--source", default=None, help="клон репозитория-источника (набор и сборщик внутри); иначе ищется рядом / AIASA_SOURCE")
     ap.add_argument("--deploy", action="store_true", help="только развёртывание с коррекцией недостачи (модули, torch cu128, клон источника, llama.cpp)")
+    ap.add_argument("--triton", action="store_true", help="при развёртывании поставить и triton (для torch.compile); на Windows — triton-windows")
     ap.add_argument("--no-net", action="store_true", help="ничего не скачивать: только проверить наличие")
     argv = list(sys.argv[1:] if argv is None else argv)
     for tok in list(argv):            # КЛЮЧ=ЗНАЧЕНИЕ в командной строке — переменная среды (хост 11.09 набрал AIASA_SOURCE=… аргументом)
@@ -441,7 +472,7 @@ def _main(a) -> int:
             rc = run([py, HERE / "probe_host.py"], st, step)
             miss = missing_modules()
             if miss:
-                print(f"!! не хватает модулей: {miss} — pip install {' '.join(miss)} bitsandbytes")
+                print(f"!! не хватает модулей: {miss} — pip install {' '.join(pip_name(m) for m in miss)} bitsandbytes")
                 st["не хватает"] = miss; save(st)
                 if not a.only:
                     return 2

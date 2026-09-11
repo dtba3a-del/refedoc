@@ -124,6 +124,10 @@ def main(argv=None) -> int:
 
     progress(этап="окна набора")
     train_ds, val_ds = load("train"), load("val")
+    if a.steps > 0 and len(val_ds) > 16:
+        # дым (--steps N): оценка на всём val после N шагов не укладывается в отведённое
+        # время (замер 11.09: 65 окон val — 9 батчей по 18…228 с на CPU) — берётся 16 окон
+        val_ds = val_ds.select(range(16))
     print(f"окон: train {len(train_ds)}, val {len(val_ds)}; max_len {a.max_len}; cuda {cuda}")
     import math
     full_total = math.ceil(len(train_ds) / (a.batch * a.accum)) * max(a.epochs, 1e-9)
@@ -146,7 +150,7 @@ def main(argv=None) -> int:
             print(f"[{time.strftime('%H:%M:%S')}] шаг {state.global_step}/{state.max_steps}, {sps} с/шаг, осталось ~{left // 60} мин, loss {loss}", flush=True)
     args = TrainingArguments(output_dir=a.out, per_device_train_batch_size=a.batch, gradient_accumulation_steps=a.accum,
                              num_train_epochs=a.epochs, max_steps=a.steps if a.steps > 0 else -1, learning_rate=a.lr,
-                             lr_scheduler_type="cosine", warmup_steps=10, logging_steps=5, save_strategy="epoch", disable_tqdm=False,
+                             lr_scheduler_type="cosine", warmup_steps=10, logging_steps=max(1, min(5, a.steps)) if a.steps > 0 else 5, save_strategy="epoch", disable_tqdm=False,
                              eval_strategy="epoch" if len(val_ds) else "no", bf16=cuda, fp16=False,
                              gradient_checkpointing=cuda, report_to=[], remove_unused_columns=False)
     trainer = Trainer(model=model, args=args, train_dataset=train_ds, eval_dataset=val_ds if len(val_ds) else None,

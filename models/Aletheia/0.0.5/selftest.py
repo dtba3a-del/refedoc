@@ -15,6 +15,8 @@
   6. --variant t --only gguf: Aletheia-0.0.5t-*.gguf;
   7. копия папки: состояние другой папки распознано как чужое, исходное цело;
   8. --status из другой папки; обёртка run_local_0_0_5.py.
+  9. имена pip по платформе: triton на Windows — triton-windows, прочие модули — своё имя;
+     --triton --no-net в отчёте развёртывания.
 
     python selftest.py            # печатает «самопроверка: N пройдено, M провалено», код 1 при провале
 """
@@ -110,6 +112,15 @@ def main() -> int:
         r = run([rl, "--status"], elsewhere)
         r2 = run([kit / "run_local_0_0_5.py", "--status"], elsewhere)
         check("8 --status из другой папки и через обёртку", r.returncode == 0 and "папка:" in r.stdout and r2.returncode == 0 and "папка:" in r2.stdout)
+        # 9. имена пакетов pip по платформе (сборок triton на PyPI для Windows нет)
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("run_local_kit", kit / "run_local.py")
+        rl = importlib.util.module_from_spec(spec); spec.loader.exec_module(rl)
+        names = {osn: rl.PIP_NAMES.get("triton", {}).get(osn, "triton") for osn in ("nt", "posix")}
+        r = run([copy / "run_local.py", "--deploy", "--no-net", "--triton"], elsewhere)
+        check("9 pip-имена по платформе: nt → triton-windows, posix → triton, torch → torch; --triton --no-net в отчёте",
+              names["nt"].startswith("triton-windows") and names["posix"] == "triton" and rl.pip_name("torch") == "torch"
+              and r.returncode == 0 and "triton" in r.stdout)
     print(f"самопроверка: {len(OK)} пройдено, {len(FAIL)} провалено")
     return 1 if FAIL else 0
 
