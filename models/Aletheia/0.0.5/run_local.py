@@ -10,6 +10,17 @@
     python run_local.py --data <папка с train.jsonl/val.jsonl>
     python run_local.py --base Qwen/Qwen2.5-3B-Instruct --max-len 512
     python run_local.py --variant t                # сборка 0.0.5t — учитель ОП-геометрии (набор data_t/, GGUF Aletheia-0.0.5t)
+    python run_local.py --source <клон InvesePolar>  # где лежит клон источника (иначе ищется рядом; AIASA_SOURCE=… тоже принимается)
+    python run_local.py --deploy                   # только развёртывание: недостающее ставится/клонируется, ничего не учится
+
+Развёртывание с коррекцией недостачи (слово хоста 11.09: «необходимые компоненты
+должны определяться наличием в системе и скачиваться из сети, если не обнаружены
+локально»): шаг deploy идёт первым и сам добирает недостающее — модули Python
+(pip), сборку torch с CUDA при карте NVIDIA (cu128), клон источника рядом
+(git clone InvesePolar — набор лежит в нём: ENV/*/model/data/train.jsonl),
+клон llama.cpp для шага gguf; что добрать не удалось — названо кодом и строкой,
+не молча. Аргумент вида КЛЮЧ=ЗНАЧЕНИЕ в командной строке принимается как
+переменная среды (`run_local.py AIASA_SOURCE=E:\\…\\InvesePolar`).
 
 Каждый шаг пишет отметку в runs/LOCAL_STATE.json; повтор команды
 продолжает с места остановки (--redo — повторить сделанное).
@@ -28,6 +39,7 @@ import argparse
 import json
 import os
 import pathlib
+import shutil
 import subprocess
 import sys
 import time
@@ -51,6 +63,9 @@ STAGE = "0.0.5"
 #: (набор data_t/ собирается сборщиком источника с флагом --teacher; системная подсказка учителя внутри набора).
 VARIANTS = {"": "исполнитель проекта Ф-чисел", "t": "учитель ОП-геометрии: курс с нуля до задач высшей сложности"}
 SOURCE_REPO = "InvesePolar"     # репозиторий-источник (приватный): там сборщик набора
+SOURCE_URL = "https://github.com/dtba3a-del/InvesePolar"
+LLAMA_URL = "https://github.com/ggml-org/llama.cpp"
+NEEDED = ("torch", "transformers", "peft", "datasets", "accelerate")
 
 #: Профиль хоста по VRAM: (порог GiB, база, max_len). 7B в 4 битах не входит в 4 GiB.
 PROFILES = ((12, "Qwen/Qwen2.5-7B-Instruct", 2048), (6, "Qwen/Qwen2.5-3B-Instruct", 1024),
@@ -255,19 +270,106 @@ def missing_modules() -> list:
     return out
 
 
-def find_builder() -> pathlib.Path | None:
-    """Сборщик набора в соседнем клоне репозитория-источника (приватного)."""
-    roots = [HERE / SOURCE_REPO, HERE.parents[3] / SOURCE_REPO if len(HERE.parents) > 3 else None,
-             pathlib.Path.home() / SOURCE_REPO, pathlib.Path(os.environ.get("AIASA_SOURCE", "")) if os.environ.get("AIASA_SOURCE") else None]
+def source_roots(explicit=None) -> list:
+    """Где ищется клон источника: --source, AIASA_SOURCE, рядом с комплектом, над ним, в домашней, C:\\."""
+    roots = []
+    if explicit:
+        roots.append(pathlib.Path(explicit))
+    if os.environ.get("AIASA_SOURCE"):
+        roots.append(pathlib.Path(os.environ["AIASA_SOURCE"]))
+    roots += [HERE / SOURCE_REPO, HERE.parent / SOURCE_REPO]
+    roots += [HERE.parents[3] / SOURCE_REPO] if len(HERE.parents) > 3 else []
+    roots.append(pathlib.Path.home() / SOURCE_REPO)
     if os.name == "nt":
         roots.append(pathlib.Path("C:/") / SOURCE_REPO)
-    for root in roots:
-        if root is None:
+    seen, out = set(), []
+    for r in roots:
+        k = str(r).lower()
+        if k not in seen:
+            seen.add(k); out.append(r)
+    return out
+
+
+def find_source(explicit=None, variant: str = "") -> tuple:
+    """(корень клона, папка набора, сборщик) — что нашлось; печатает, где искал и что там есть.
+
+    Набор лежит В КЛОНЕ (ENV/*/model/data/train.jsonl — файл версионирован), поэтому
+    сборщик запускать не нужно, если набор уже есть; сборщик нужен только для сборки t
+    (data_t/ — производное) или когда набора в клоне нет."""
+    data_name = "data_t" if variant == "t" else "data"
+    for root in source_roots(explicit):
+        if not root.is_dir():
+            print(f"   источник: {root} — папки нет")
             continue
-        hits = sorted(root.glob("ENV/*/model/build_dataset.py"))
-        if hits:
-            return hits[0]
-    return None
+        data = sorted(root.glob(f"ENV/*/model/{data_name}/train.jsonl"))
+        builder = sorted(root.glob("ENV/*/model/build_dataset.py"))
+        env = sorted(root.glob("ENV/*"))
+        print(f"   источник: {root} — папка есть; ENV/*: {len(env)}; {data_name}/train.jsonl: {'есть' if data else 'нет'}; сборщик: {'есть' if builder else 'нет'}")
+        if data or builder:
+            return root, (data[0].parent if data else None), (builder[0] if builder else None)
+        print(f"   {root}: похоже на неполный клон (нет ENV/*/model) — клон надо обновить: git -C \"{root}\" pull")
+    return None, None, None
+
+
+def find_builder() -> pathlib.Path | None:
+    return find_source()[2]
+
+
+def _run_quiet(cmd: list, cwd=None) -> int:
+    print("   $", " ".join(map(str, cmd)))
+    try:
+        return subprocess.call([str(c) for c in cmd], cwd=cwd)
+    except OSError as e:
+        print(f"   !! не запустилось: {e}")
+        return 127
+
+
+def deploy(a, st: dict) -> dict:
+    """Развёртывание с коррекцией недостачи: что есть — проверено, чего нет — добирается из сети.
+    Возвращает отчёт {компонент: состояние}; ничего не учит."""
+    rep = {}
+    py = sys.executable
+    # 1. модули Python
+    miss = missing_modules()
+    if miss and not a.no_net:
+        _run_quiet([py, "-m", "pip", "install", "--quiet", *miss, "bitsandbytes"])
+        miss = missing_modules()
+    rep["модули"] = "все на месте" if not miss else f"не хватает {miss}"
+    # 2. torch с CUDA при карте NVIDIA
+    prof = host_profile()
+    if prof.get("vram_MiB") and not prof.get("cuda") and not a.cpu_ok and not a.no_net:
+        _run_quiet([py, "-m", "pip", "install", "--quiet", "--force-reinstall", "--no-deps", "torch", "--index-url", "https://download.pytorch.org/whl/cu128"])
+        rep["torch"] = "переставлен на cu128 — повторить probe"
+    else:
+        rep["torch"] = f"{prof.get('torch', '?')}, CUDA {prof.get('cuda')}" if prof else "probe не делался"
+    # 3. клон источника (набор внутри)
+    root, data, builder = find_source(a.source, a.variant)
+    if root is None and not a.no_net:
+        target = HERE / SOURCE_REPO
+        if shutil.which("git") is None:
+            rep["источник"] = "git не найден — поставить git (git-scm.com) либо положить клон рядом"
+        else:
+            rc = _run_quiet(["git", "clone", "--depth", "1", SOURCE_URL, str(target)])
+            root, data, builder = find_source(str(target), a.variant) if rc == 0 else (None, None, None)
+            rep["источник"] = f"клонирован в {target}" if root else f"клонирование не удалось (код {rc}): приватный репозиторий — нужен вход git (credential manager) либо клон рукой рядом"
+    elif root is not None:
+        rep["источник"] = f"{root} ({'набор есть' if data else 'набора нет'}, {'сборщик есть' if builder else 'сборщика нет'})"
+    else:
+        rep["источник"] = "не найден, сеть выключена (--no-net)"
+    # 4. llama.cpp для gguf
+    llama = find_llama()
+    if llama is None and not a.no_net and shutil.which("git"):
+        rc = _run_quiet(["git", "clone", "--depth", "1", LLAMA_URL, str(HERE / "llama.cpp")])
+        llama = find_llama() if rc == 0 else None
+        if llama is not None:
+            _run_quiet([py, "-m", "pip", "install", "--quiet", "-r", str(llama / "requirements.txt")])
+    rep["llama.cpp"] = str(llama) if llama else "нет (шаг gguf отложится; сборка: cmake -B llama.cpp/build -S llama.cpp && cmake --build llama.cpp/build --config Release)"
+    rep["cmake"] = "есть" if shutil.which("cmake") else "нет — для llama-quantize поставить cmake (cmake.org) либо взять готовые двоичные файлы llama.cpp из Releases"
+    st["развёртывание"] = rep; save(st)
+    print("развёртывание:")
+    for k, v in rep.items():
+        print(f"   {k}: {v}")
+    return rep
 
 
 def find_llama() -> pathlib.Path | None:
@@ -297,6 +399,14 @@ def main(argv=None) -> int:
     ap.add_argument("--status", action="store_true", help="показать ход и выйти (ничего не запускать)")
     ap.add_argument("--no-probe", action="store_true", help="не мерить скорость (3 шага) перед обучением")
     ap.add_argument("--max-hours", type=float, default=0, help="если оценка времени обучения больше — не начинать (0 — без предела)")
+    ap.add_argument("--source", default=None, help="клон репозитория-источника (набор и сборщик внутри); иначе ищется рядом / AIASA_SOURCE")
+    ap.add_argument("--deploy", action="store_true", help="только развёртывание с коррекцией недостачи (модули, torch cu128, клон источника, llama.cpp)")
+    ap.add_argument("--no-net", action="store_true", help="ничего не скачивать: только проверить наличие")
+    argv = list(sys.argv[1:] if argv is None else argv)
+    for tok in list(argv):            # КЛЮЧ=ЗНАЧЕНИЕ в командной строке — переменная среды (хост 11.09 набрал AIASA_SOURCE=… аргументом)
+        if "=" in tok and not tok.startswith("-") and tok.split("=", 1)[0].isidentifier():
+            k, v = tok.split("=", 1); os.environ[k] = v; argv.remove(tok)
+            print(f"   переменная среды из аргумента: {k}={v}")
     a = ap.parse_args(argv)
     if a.out is None:
         a.out = f"runs/aiasa-{STAGE}{a.variant}"
@@ -313,6 +423,10 @@ def main(argv=None) -> int:
 def _main(a) -> int:
     st = load()
     py = sys.executable
+    if a.deploy or not st.get("развёртывание"):
+        deploy(a, st)
+        if a.deploy:
+            return 0
     data_dir = absol(a.data if a.data else (st.get("data") or f"data{'_' + a.variant if a.variant else ''}"), must_exist="train.jsonl")
     if a.variant:
         print(f"сборка {STAGE}{a.variant}: {VARIANTS[a.variant]}")
@@ -353,16 +467,21 @@ def _main(a) -> int:
                 print(f"== шаг data: набор есть — {data_dir}")
                 st["шаги"][step] = {"код": 0, "когда": time.strftime("%Y-%m-%dT%H:%M:%S"), "откуда": str(data_dir)}
             else:
-                builder = find_builder()
-                if builder is None:
-                    print(f"!! набора нет ({data_dir / 'train.jsonl'}) и сборщик источника не найден: положить клон {SOURCE_REPO} рядом "
-                          f"(или задать AIASA_SOURCE=<путь к клону>), либо указать --data <папка с train.jsonl>")
+                root, src_data, builder = find_source(a.source, a.variant)
+                if src_data is not None and (src_data / "train.jsonl").is_file():
+                    data_dir = src_data
+                    print(f"== шаг data: набор взят из клона источника — {data_dir}")
+                    st["шаги"][step] = {"код": 0, "когда": time.strftime("%Y-%m-%dT%H:%M:%S"), "откуда": str(data_dir)}
+                elif builder is None:
+                    print(f"!! набора нет ({data_dir / 'train.jsonl'}) и клон источника не найден или неполон (см. строки «источник:» выше): "
+                          f"python {HERE / 'run_local.py'} --deploy добирает клон сам; либо --source <путь к клону>; либо --data <папка с train.jsonl>")
                     st["шаги"][step] = {"код": 5, "почему": "нет набора и сборщика"}; save(st)
                     if not a.only:
                         return 5
                     continue
-                rc = run([py, "-B", builder] + (["--teacher"] if a.variant == "t" else []), st, step, cwd=builder.parent)
-                data_dir = builder.parent / ("data_t" if a.variant == "t" else "data")
+                else:
+                    rc = run([py, "-B", builder] + (["--teacher"] if a.variant == "t" else []), st, step, cwd=builder.parent)
+                    data_dir = builder.parent / ("data_t" if a.variant == "t" else "data")
             st["data"] = rel(data_dir)
             tr = data_dir / "train.jsonl"
             if tr.is_file():
