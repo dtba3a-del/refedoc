@@ -121,6 +121,23 @@ def main() -> int:
         check("9 pip-имена по платформе: nt → triton-windows, posix → triton, torch → torch; --triton --no-net в отчёте",
               names["nt"].startswith("triton-windows") and names["posix"] == "triton" and rl.pip_name("torch") == "torch"
               and r.returncode == 0 and "triton" in r.stdout)
+        # 10. упавший шаг обязан оставить ПРИЧИНУ: лог, хвост в состоянии, печать
+        # (лог хоста 11.09: от шага train осталось одно «завершился кодом 1»)
+        st = {"шаги": {}}
+        cmd = [PY, "-c", "import sys; print('СТРОКА-ПРИЧИНЫ'); sys.exit(1)"]
+        cwd0 = os.getcwd()
+        os.chdir(kit)
+        try:
+            rc = rl.run(cmd, st, "проба-падения")
+        finally:
+            os.chdir(cwd0)
+        step = st["шаги"].get("проба-падения", {})
+        log = pathlib.Path(step.get("лог", "")) if step.get("лог") else None
+        check("10 упавший шаг оставил причину: код 1, лог с выводом, хвост в состоянии",
+              rc == 1 and log is not None and log.is_file()
+              and "СТРОКА-ПРИЧИНЫ" in log.read_text(encoding="utf-8", errors="replace")
+              and any("СТРОКА-ПРИЧИНЫ" in l for l in step.get("хвост", [])))
+
     print(f"самопроверка: {len(OK)} пройдено, {len(FAIL)} провалено")
     return 1 if FAIL else 0
 

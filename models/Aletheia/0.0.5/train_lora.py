@@ -72,6 +72,8 @@ def main(argv=None) -> int:
     ap.add_argument("--accum", type=int, default=8)
     ap.add_argument("--no-merge", action="store_true")
     ap.add_argument("--max-examples", type=int, default=0)
+    ap.add_argument("--allow-bf16", action="store_true",
+                    help="учить без 4-бит квантования, даже если база не помещается в VRAM с запасом")
     a = ap.parse_args(argv)
 
     import torch
@@ -95,6 +97,12 @@ def main(argv=None) -> int:
     print(f"[{time.strftime('%H:%M:%S')}] загрузка базы {a.base} (первый раз — скачивание, минуты)", flush=True)
 
     cuda = torch.cuda.is_available()
+    free0 = total0 = None
+    if cuda:
+        try:
+            free0, total0 = torch.cuda.mem_get_info()
+        except Exception:                                   # noqa: BLE001
+            free0 = total0 = None
     tok = AutoTokenizer.from_pretrained(a.base)
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
@@ -109,7 +117,27 @@ def main(argv=None) -> int:
             kw["torch_dtype"] = torch.bfloat16; kw["device_map"] = {"": 0}
     else:
         kw["torch_dtype"] = torch.float32
+    bnb_err = None
+    if cuda and "quantization_config" not in kw:
+        bnb_err = "bitsandbytes не ввезён"
     model = AutoModelForCausalLM.from_pretrained(a.base, **kw)
+    footprint = sum(p.numel() * p.element_size() for p in model.parameters())
+    mode = ("QLoRA 4-bit nf4" if "quantization_config" in kw
+            else ("bf16 без квантования" if cuda else "CPU fp32"))
+    mib = lambda b: "?" if b is None else f"{b / 2 ** 20:.0f} МиБ"       # noqa: E731
+    print(f"[{time.strftime('%H:%M:%S')}] режим: {mode}; вес базы в памяти {mib(footprint)}; "
+          f"VRAM до загрузки: свободно {mib(free0)} из {mib(total0)}", flush=True)
+    progress(этап="база загружена", режим=mode, **{"вес базы, МиБ": round(footprint / 2 ** 20),
+                                                   "VRAM свободно до загрузки, МиБ": None if free0 is None else round(free0 / 2 ** 20)})
+    if cuda and bnb_err and not a.allow_bf16 and free0 is not None and footprint > 0.6 * free0:
+        # отказ поимённо вместо молчаливого падения по памяти на первом же шаге
+        msg = (f"ОТКАЗ: {bnb_err}, база легла в bf16 и весит {mib(footprint)} при свободных "
+               f"{mib(free0)} VRAM — на активации окна max_len={a.max_len} не остаётся. "
+               f"Пути: (1) `pip install bitsandbytes` — 4 бита вчетверо легче; "
+               f"(2) `--max-len 512` и меньшая база; (3) `--allow-bf16` — учить всё равно.")
+        print(msg, flush=True)
+        progress(этап="отказ: память", режим=mode, причина=msg)
+        return 3
     if "quantization_config" in kw:
         model = prepare_model_for_kbit_training(model)
     model = get_peft_model(model, LoraConfig(r=a.r, lora_alpha=2 * a.r, lora_dropout=0.05, task_type="CAUSAL_LM",
@@ -157,7 +185,22 @@ def main(argv=None) -> int:
                       data_collator=DataCollatorForSeq2Seq(tok, padding=True, label_pad_token_id=-100),
                       callbacks=[Progress()])
     t0 = time.perf_counter()
-    trainer.train()
+    oom = getattr(torch.cuda, "OutOfMemoryError", RuntimeError)
+    try:
+        trainer.train()
+    except oom as e:                                        # noqa: BLE001
+        free = None
+        try:
+            free = torch.cuda.mem_get_info()[0]
+        except Exception:                                   # noqa: BLE001
+            pass
+        msg = (f"ОТКАЗ: не хватило VRAM на шаге {trainer.state.global_step}. Режим {mode}, "
+               f"вес базы {mib(footprint)}, окно max_len={a.max_len}, batch={a.batch}, "
+               f"свободно сейчас {mib(free)}. Пути: `--max-len 512`; "
+               f"`pip install bitsandbytes` (4 бита); меньшая база. Исходно: {type(e).__name__}: {e}")
+        print(msg, flush=True)
+        progress(этап="отказ: память", режим=mode, причина=msg, шаг=trainer.state.global_step)
+        return 4
     dt = time.perf_counter() - t0
     steps_done = max(trainer.state.global_step, 1)
     progress(этап="сохранение адаптера", шаг=trainer.state.global_step, всего=trainer.state.max_steps,
@@ -165,7 +208,9 @@ def main(argv=None) -> int:
     model.save_pretrained(out / "adapter"); tok.save_pretrained(out / "adapter")
     import hashlib
     tr_path = pathlib.Path(a.data) / "train.jsonl"
-    report = {"база": a.base, "окон train": len(train_ds), "окон val": len(val_ds), "шагов": trainer.state.global_step,
+    report = {"база": a.base, "режим": mode, "вес базы, МиБ": round(footprint / 2 ** 20),
+              "VRAM свободно до загрузки, МиБ": None if free0 is None else round(free0 / 2 ** 20),
+              "окон train": len(train_ds), "окон val": len(val_ds), "шагов": trainer.state.global_step,
               "полных шагов при epochs": full_total, "с/шаг": round(dt / steps_done, 2),
               "время, с": round(dt, 1), "cuda": cuda, "потеря последняя": next((h["loss"] for h in reversed(trainer.state.log_history) if "loss" in h), None),
               "набор sha256": hashlib.sha256(tr_path.read_bytes()).hexdigest()[:16] if tr_path.is_file() else None,

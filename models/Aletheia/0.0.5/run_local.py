@@ -206,18 +206,56 @@ def progress_line(out_dir) -> str:
 
 
 def run(cmd: list, st: dict, step: str, cwd=None, out_dir=None) -> int:
+    """Шаг подпроцессом. Вывод ребёнка идёт и на экран, и в `logs/<шаг>.log`:
+    под `pythonw.exe` консоли нет, и упавший шаг иначе не оставляет ПРИЧИНЫ —
+    в логе хоста 11.09 от шага train осталось одно «завершился кодом 1».
+    При коде ≠ 0 последние строки печатаются и кладутся в состояние."""
     t0 = time.time()
     print(f"\n== шаг {step}: {' '.join(map(str, cmd))}")
-    proc = subprocess.Popen([str(c) for c in cmd], cwd=cwd)
-    last = t0
-    while proc.poll() is None:
-        time.sleep(5)
-        if time.time() - last >= HEARTBEAT_S:
-            last = time.time()
-            pl = progress_line(out_dir) if out_dir else ""
-            print(f"   [{time.strftime('%H:%M:%S')}] шаг {step} идёт {round((last - t0) / 60)} мин" + (f"; {pl}" if pl else ""), flush=True)
+    logs = HERE / "logs"
+    logs.mkdir(parents=True, exist_ok=True)
+    log_path = logs / f"{step}.log"
+    pos = 0
+
+    def drain(fh) -> None:
+        """Новое из лога — на экран, чтобы поведение шага осталось видимым."""
+        nonlocal pos
+        fh.flush()
+        with open(log_path, "rb") as rd:
+            rd.seek(pos)
+            chunk = rd.read()
+            pos = rd.tell()
+        if chunk:
+            sys.stdout.write(chunk.decode("utf-8", "replace"))
+            sys.stdout.flush()
+
+    with open(log_path, "wb") as lf:
+        proc = subprocess.Popen([str(c) for c in cmd], cwd=cwd, stdout=lf, stderr=subprocess.STDOUT)
+        last = t0
+        while proc.poll() is None:
+            time.sleep(5)
+            drain(lf)
+            if time.time() - last >= HEARTBEAT_S:
+                last = time.time()
+                pl = progress_line(out_dir) if out_dir else ""
+                print(f"   [{time.strftime('%H:%M:%S')}] шаг {step} идёт {round((last - t0) / 60)} мин" + (f"; {pl}" if pl else ""), flush=True)
+        drain(lf)
     rc = proc.returncode
-    st["шаги"][step] = {"код": rc, "секунд": round(time.time() - t0), "когда": time.strftime("%Y-%m-%dT%H:%M:%S")}
+    st["шаги"][step] = {"код": rc, "секунд": round(time.time() - t0), "когда": time.strftime("%Y-%m-%dT%H:%M:%S"),
+                        "лог": str(log_path)}
+    if rc != 0:
+        try:
+            lines = [l for l in log_path.read_text(encoding="utf-8", errors="replace").splitlines() if l.strip()]
+        except OSError:
+            lines = []
+        tail = lines[-20:]
+        st["шаги"][step]["хвост"] = tail
+        if tail:
+            print(f"   причина — последние {len(tail)} строк {log_path}:", flush=True)
+            for l in tail:
+                print(f"   | {l}", flush=True)
+        else:
+            print(f"   причина: лог {log_path} пуст — шаг не сказал ничего", flush=True)
     save(st)
     return rc
 
