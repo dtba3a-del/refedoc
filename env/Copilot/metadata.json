@@ -1,0 +1,14 @@
+{
+  "workspace": {
+    "created": "2026-09-13",
+    "owner": "dtba3a-del",
+    "repo": "refedoc",
+    "branch": "main"
+  },
+  "rules": {
+    "memory": "disabled",
+    "source_of_truth": "repository_only",
+    "date_format": "YYYY-MM-DD"
+  },
+  "last_update": "2026-09-13"
+}
