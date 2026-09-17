@@ -61,6 +61,16 @@ REM Перенаправляем весь вывод в лог-файл
         echo [ERROR] Оба способа не удались
         exit /b 1
       )
+      REM Срез в 50 коммитов - не бэкап: без --unshallow история обрывается
+      REM (замер 17.09: у запасной ветки этого шага не было, у ветки gh - был)
+      cd /d "%BACKUP_DIR%"
+      git fetch --unshallow
+      if !errorlevel! equ 0 (
+        echo [SUCCESS] История дотянута целиком ^(--unshallow^)
+      ) else (
+        echo [WARNING] --unshallow код: !errorlevel! - бэкап остался срезом в 50 коммитов
+      )
+      cd ..
     )
   )
   
