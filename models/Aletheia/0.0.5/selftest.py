@@ -30,6 +30,18 @@ import subprocess
 import sys
 import tempfile
 
+# Вывод не зависит от кодовой страницы консоли. Замер 17.09 [вычислено здесь]:
+# на windows-latest stdout — cp1252, и первая кириллическая строка check()
+# роняла прогон UnicodeEncodeError (позиции 28–32); ubuntu при том же коде
+# зелен. Подпроцессы комплекта и так идут с PYTHONIOENCODING=utf-8 — ловушка
+# была в самом печатающем скрипте. errors="replace": незнакомый знак не роняет
+# самопроверку, а печатается знаком замены.
+for _поток in (sys.stdout, sys.stderr):
+    try:
+        _поток.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 HERE = pathlib.Path(__file__).resolve().parent
 PY = sys.executable
 OK: list = []
