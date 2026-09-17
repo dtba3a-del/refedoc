@@ -33,8 +33,10 @@ import tempfile
 # Вывод не зависит от кодовой страницы консоли. Замер 17.09 [вычислено здесь]:
 # на windows-latest stdout — cp1252, и первая кириллическая строка check()
 # роняла прогон UnicodeEncodeError (позиции 28–32); ubuntu при том же коде
-# зелен. Подпроцессы комплекта и так идут с PYTHONIOENCODING=utf-8 — ловушка
-# была в самом печатающем скрипте. errors="replace": незнакомый знак не роняет
+# зелен. Подпроцессы самопроверки (run() ниже) идут с PYTHONIOENCODING=utf-8;
+# подпроцессы самого комплекта получают ту же кодировку в run_local.run() —
+# замер прогона 9 (17.09): без неё проверка 10 падала на Windows на первой
+# кириллической строке ребёнка. errors="replace": незнакомый знак не роняет
 # самопроверку, а печатается знаком замены.
 for _поток in (sys.stdout, sys.stderr):
     try:
@@ -63,7 +65,11 @@ def run(args, cwd, env=None) -> subprocess.CompletedProcess:
 
 def main() -> int:
     with tempfile.TemporaryDirectory() as td:
-        root = pathlib.Path(td)
+        # Путь временной папки — в развёрнутом виде: на windows-latest TEMP задан
+        # коротким именем (C:\Users\RUNNER~1\…), а комплект записывает свою папку
+        # через resolve() (C:\Users\runneradmin\…) — проверка 7 сравнивала две
+        # записи одного пути и была красной (замер прогона 9, 17.09).
+        root = pathlib.Path(td).resolve()
         kit = root / "0.0.5"
         shutil.copytree(HERE, kit, ignore=shutil.ignore_patterns("runs", "data", "data_t", "llama.cpp", "__pycache__", "*.gguf", "*.zip", "InvesePolar", "mydata", "cwddata"))
         elsewhere = root / "elsewhere"

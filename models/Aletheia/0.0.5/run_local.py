@@ -229,8 +229,19 @@ def run(cmd: list, st: dict, step: str, cwd=None, out_dir=None) -> int:
             sys.stdout.write(chunk.decode("utf-8", "replace"))
             sys.stdout.flush()
 
+    # Ребёнок печатает в ФАЙЛ, и на Windows его stdout без указания кодировки
+    # берёт кодовую страницу (cp1252 на windows-latest, cp1251 на русской
+    # машине): первая же кириллическая строка шага роняла ребёнка
+    # UnicodeEncodeError прежде всякой причины — замер CI 17.09, прогон 9,
+    # проверка 10 самопроверки (позиции 0–5, «СТРОКА-ПРИЧИНЫ»). Кодировка
+    # вывода ребёнка задаётся здесь, а не в каждом скрипте комплекта, и
+    # задаётся ПРИНУДИТЕЛЬНО: лог читается как UTF-8 (drain, хвост причины),
+    # потому унаследованная от оболочки иная PYTHONIOENCODING сделала бы лог
+    # нечитаемым (подача 17.09: родитель с cp1252 → ребёнок падал и при setdefault).
+    env = dict(os.environ)
+    env["PYTHONIOENCODING"] = "utf-8"
     with open(log_path, "wb") as lf:
-        proc = subprocess.Popen([str(c) for c in cmd], cwd=cwd, stdout=lf, stderr=subprocess.STDOUT)
+        proc = subprocess.Popen([str(c) for c in cmd], cwd=cwd, stdout=lf, stderr=subprocess.STDOUT, env=env)
         last = t0
         while proc.poll() is None:
             time.sleep(5)
