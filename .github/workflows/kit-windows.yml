@@ -2,6 +2,12 @@
 # (слово хоста 11.09: «без workflow Windows не обойтись, чтобы скрипт работал
 # ожидаемо и предсказуемо»). Самопроверка — models/Aletheia/0.0.5/selftest.py:
 # пускач гоняется из другой папки с поддельными llama.cpp, моделью и набором.
+#
+# 17.09: с 11.09 по 13.09 семь прогонов подряд падали в ту же секунду с нулём
+# джобов — файл был недействителен как YAML: имя шага bootstrap-windows несло
+# «: » без кавычек («mapping values are not allowed here», строка 25, столбец
+# 73). Ни один шаг ни разу не исполнялся; логов шагов не было — молчаливый
+# провал. Имя шага взято в кавычки; поведение шагов не менялось.
 name: kit-selftest
 on:
   push:
@@ -22,13 +28,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
-      - name: самопроверка комплекта (из другой папки, без сети)
+      - name: "самопроверка комплекта (из другой папки, без сети)"
         shell: bash
         run: |
           mkdir -p "$RUNNER_TEMP/elsewhere"
           cd "$RUNNER_TEMP/elsewhere"
           python -B "$GITHUB_WORKSPACE/models/Aletheia/0.0.5/selftest.py"
-      - name: пускач из другой папки — --status и --deploy --no-net
+      - name: "пускач из другой папки — --status и --deploy --no-net"
         shell: bash
         run: |
           cd "$RUNNER_TEMP/elsewhere"
@@ -40,7 +46,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: bootstrap.ps1 одной вставкой в папку из ALETHEIA_DIR (сеть: raw.githubusercontent.com)
+      - name: "bootstrap.ps1 одной вставкой в папку из ALETHEIA_DIR (сеть: raw.githubusercontent.com)"
         shell: pwsh
         run: |
           $env:ALETHEIA_DIR = Join-Path $env:RUNNER_TEMP "aletheia"
