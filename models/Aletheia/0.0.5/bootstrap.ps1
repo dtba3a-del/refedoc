@@ -26,13 +26,19 @@ foreach ($f in $files) {
 }
 Write-Host "комплект скачан в $dir ($($files.Count) файлов)"
 
-# Python: сначала пускач py (ставится с python.org), затем python/python3;
+# Python: сначала `python` с PATH — тот, который выбрала оболочка (venv,
+# setup-python в CI), затем пускач py (ставится с python.org), затем python3;
 # псевдоним Магазина Windows (…\WindowsApps\python.exe) открывает Магазин и
 # ничего не запускает — он отводится; каждый кандидат проверяется запуском.
+# Замер CI 17.09 (первый настоящий прогон bootstrap-windows, прогон 9): при
+# порядке «py -3 прежде python» пускач взял системный Python 3.14.7 мимо
+# подготовленного 3.12; pip поставил под 3.14 numpy сборки MINGW-W64
+# («experimental… CRASHES ARE TO BE EXPECTED»), и шаг probe упал кодом
+# 3221225477 (0xC0000005) на ввозе — host_log.json не создан.
 function Find-Python {
     # Срез $a[1..($a.Count-1)] при одном элементе даёт $a[1..0] = сам элемент — потому остаток берётся явно.
     $ErrorActionPreference = "Continue"
-    $cands = @(@("py", "-3"), @("python"), @("python3"))
+    $cands = @(@("python"), @("py", "-3"), @("python3"))
     foreach ($c in $cands) {
         $cmd = Get-Command $c[0] -ErrorAction SilentlyContinue
         if (-not $cmd) { continue }
