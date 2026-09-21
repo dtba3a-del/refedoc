@@ -89,8 +89,15 @@ python3 tools/doc_slicer.py get out/index.json --page 7             # текст
 | справочных PDF/DjVu найдено | {found} |
 | отнесено к переносу | **{taken}** (осталось здесь {mib:.1f} МиБ) |
 | остаётся на месте по правилам отбора | {skipped} |
-| **перенесено фактически** | **{moved}** |
+| **перенесено фактически, всего** | **{moved}** |
+| — из них в публичную зону `refedoc` | {moved_pub} |
+| — из них в приватную зону `prefedoc` | {moved_priv} |
 | указателей проставлено | {pointers} |
+
+**Область счёта.** «Перенесено» считается по тому, что лежит в зонах, —
+отдельно в публичной и отдельно в приватной. Вне области счёта: файлы,
+уехавшие куда-либо помимо этих двух зон, здесь не учтены, и утверждений о
+них не делается.
 
 Разбор правового статуса (черновой, `refedoc/ПРАВА-ПОФАЙЛОВО.md`):
 
@@ -137,8 +144,8 @@ def main():
 
     root = Path(a.refedoc)
     inv = json.loads((root / "inventory.json").read_text(encoding="utf-8"))
-    rules = {r["repo"]: r for r in json.loads(
-        (HERE / "refdoc_rules.json").read_text(encoding="utf-8"))["repos"]}
+    rules_all = json.loads((HERE / "refdoc_rules.json").read_text(encoding="utf-8"))
+    rules = {r["repo"]: r for r in rules_all["repos"]}
     rights_path = root / "rights.json"
     rights = json.loads(rights_path.read_text(encoding="utf-8")) if rights_path.is_file() else []
     ws = Path(a.workspace)
@@ -154,9 +161,25 @@ def main():
         # после переноса файла в переписи источника его уже нет, и счёт по ней
         # даёт ноль там, где перенос состоялся. Замер 2026-09-04: так
         # уведомление напечатало «перенесено 0» сразу после переноса 12 файлов.
-        pub_root = root / repo
-        moved = sum(1 for f in pub_root.rglob("*")
-                    if f.is_file() and f.suffix.lower() in (".pdf", ".djvu", ".djv"))
+        def count_docs(base):
+            # Ноль здесь может значить две разные вещи: зоны нет (не склонирована)
+            # и зона есть, но пуста. Первое — непроверенное, а не чистое.
+            if not base.is_dir():
+                return None
+            return sum(1 for f in base.rglob("*")
+                       if f.is_file() and f.suffix.lower() in (".pdf", ".djvu", ".djv"))
+
+        zones = rules_all.get("zones", {})
+        pub_root = Path(a.refedoc) / repo
+        priv_root = ws / zones.get("приватная", "prefedoc") / repo
+        moved_pub = count_docs(pub_root)
+        moved_priv = count_docs(priv_root)
+        if moved_pub is None:
+            print(f"[непроверено] нет публичной зоны {pub_root}")
+        if moved_priv is None:
+            print(f"[непроверено] нет приватной зоны {priv_root} — "
+                  f"счёт приватной части не делается")
+        moved = (moved_pub or 0) + (moved_priv or 0)
         pointers = sum(1 for _ in clone.rglob("*.где.md"))
         found_all = r["total"] + moved
         taken_all = len(r["taken"]) + moved
@@ -167,17 +190,22 @@ def main():
         body = TPL.format(date=date, repo=repo, raw=RAW, web=WEB,
                           found=found_all, taken=taken_all,
                           mib=sum(x["bytes"] for x in r["taken"]) / 2**20,
-                          skipped=len(r["skipped"]), moved=moved, pointers=pointers,
+                          skipped=len(r["skipped"]), moved=moved,
+                          moved_pub=("не проверено" if moved_pub is None else moved_pub),
+                          moved_priv=("не проверено" if moved_priv is None else moved_priv),
+                          pointers=pointers,
                           rights_rows=rows)
         box = clone / "inbox"
         dest = box / f"УВЕДОМЛЕНИЕ-refedoc-{date}.md"
         if a.dry_run:
-            print(f"[план] {dest}  (перенесено {moved}/{taken_all}, "
+            print(f"[план] {dest}  (перенесено {moved}/{taken_all}: "
+                  f"публично {moved_pub}, приватно {moved_priv}; "
                   f"указателей {pointers})")
             continue
         box.mkdir(parents=True, exist_ok=True)
         dest.write_text(body, encoding="utf-8")
-        print(f"записано: {dest}  (перенесено {moved}/{taken_all}, "
+        print(f"записано: {dest}  (перенесено {moved}/{taken_all}: "
+              f"публично {moved_pub}, приватно {moved_priv}; "
               f"указателей {pointers})")
 
 
